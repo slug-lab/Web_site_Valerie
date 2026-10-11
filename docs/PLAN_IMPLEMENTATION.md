@@ -21,7 +21,7 @@
 - **Astro** (sortie statique) + **Tailwind CSS 4** (`@tailwindcss/vite`, jetons dans `@theme`).
 - Polices auto-hébergées via `@fontsource` : Cormorant Garamond, Raleway.
 - **Hébergement : OVH, offre hébergement web** (Apache + PHP). Le site est généré en statique ; `public/.htaccess` gère la page 404, le cache et la compression.
-- **Formulaire : script PHP `public/api/contact.php`** exécuté par OVH, envoi par la fonction `mail()` de l'hébergement. Aucun service tiers ni clé. Validation côté navigateur et côté serveur, champ piège anti-robots, limite de 5 envois par heure et par IP, case de consentement RGPD. Fonctionne aussi sans JavaScript (redirection vers `/merci/`).
+- **Formulaire** : d'abord script PHP (`mail()` OVH), remplacé le 11/10/2026 par **Web3Forms** (décision cliente ; offre gratuite 250 envois/mois, clé publique dans `src/data/site.ts`). Validation navigateur, case piège `botcheck`, consentement RGPD, redirection vers `/merci/` sans JavaScript.
 
 ## Arborescence
 

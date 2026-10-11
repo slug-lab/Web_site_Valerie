@@ -1,8 +1,11 @@
 ---
-// Formulaire de contact — envoyé au script PHP public/api/contact.php, exécuté par l'hébergement OVH.
-// Le script envoie l'e-mail à contact@maisonclovali.fr (configuration en tête du fichier PHP).
+// Formulaire de contact — envoyé au service Web3Forms (https://web3forms.com, offre gratuite : 250 envois/mois),
+// qui transmet la demande par e-mail à l'adresse associée à la clé d'accès (site.web3formsKey).
 import Button from './Button.astro';
 import { site } from '../data/site';
+
+// Page de remerciement utilisée si JavaScript est désactivé (envoi classique du formulaire).
+const redirect = new URL('/merci/', Astro.site).href;
 
 const projectOptions = ['La location saisonnière', 'L’intendance de ma propriété', 'Les deux', 'Autre'];
 const label = 'block text-[0.95rem] text-ink';
@@ -10,12 +13,14 @@ const input =
   'mt-0.5 block h-8 w-full border border-[#9a9a9a] bg-white px-2 py-1 text-base text-ink transition-colors focus:border-olive-dark focus:outline-none focus:ring-1 focus:ring-olive-dark user-invalid:border-[#a0453a]';
 ---
 
-<form action="/api/contact.php" method="POST" class="relative mt-4" data-contact-form data-email={site.email} novalidate>
-  <!-- Champ piège anti-spam : invisible pour les visiteurs, doit rester vide -->
-  <div class="absolute -left-[9999px] h-px w-px overflow-hidden" aria-hidden="true">
-    <label for="site_web">Ne pas remplir ce champ</label>
-    <input id="site_web" name="site_web" type="text" tabindex="-1" autocomplete="off" />
-  </div>
+<form action="https://api.web3forms.com/submit" method="POST" class="relative mt-4" data-contact-form data-email={site.email} novalidate>
+  <!-- Paramètres Web3Forms -->
+  <input type="hidden" name="access_key" value={site.web3formsKey} />
+  <input type="hidden" name="subject" value="Nouvelle demande depuis le site Maison Clovali" />
+  <input type="hidden" name="from_name" value="Site Maison Clovali" />
+  <input type="hidden" name="redirect" value={redirect} />
+  <!-- Champ piège anti-spam (Web3Forms) : invisible pour les visiteurs, doit rester décoché -->
+  <input type="checkbox" name="botcheck" class="hidden" style="display: none" tabindex="-1" autocomplete="off" aria-hidden="true" />
 
   <div class="grid gap-x-[46px] gap-y-2 sm:grid-cols-2">
     <div>
@@ -100,14 +105,17 @@ const input =
     show('Envoi en cours…', true);
 
     try {
+      const data = Object.fromEntries(new FormData(form));
+      delete data.redirect; // la redirection ne sert qu'à l'envoi sans JavaScript
       const response = await fetch(form.action, {
         method: 'POST',
-        headers: { Accept: 'application/json' },
-        body: new FormData(form),
+        headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+        body: JSON.stringify(data),
       });
       const result = await response.json().catch(() => null);
       if (!response.ok || !result?.success) {
-        show(result?.message ?? fallbackError, false);
+        // Les messages d'erreur de Web3Forms sont en anglais : on affiche le message générique.
+        show(fallbackError, false);
         return;
       }
       form.reset();

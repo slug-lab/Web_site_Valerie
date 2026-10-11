@@ -9,35 +9,33 @@ npm run build        # génération du site statique dans dist/
 npm run preview      # prévisualisation du build
 ```
 
-Le site est généré en statique dans `dist/`, plus un script PHP pour le formulaire. Il est prévu pour l'**hébergement web OVH** (Apache + PHP).
+Le site est entièrement statique (`dist/`) ; le formulaire passe par le service Web3Forms (aucun script côté serveur). Hébergement prévu : **Infomaniak** (hébergement web Apache, qui lit le fichier `.htaccess`).
 
-> En local (`npm run dev` / `npm run preview`), le PHP n'est pas exécuté : le formulaire affiche un message d'erreur. C'est normal. Il fonctionne une fois en ligne chez OVH.
-
-## Mise en ligne chez OVH
+## Mise en ligne chez Infomaniak
 
 1. `npm run build`.
-2. Se connecter en FTP/SFTP à l'hébergement (identifiants : espace client OVH > Hébergements > FTP-SSH), par exemple avec FileZilla.
-3. Envoyer **tout le contenu** du dossier `dist/` dans le dossier `www/` de l'hébergement, **y compris le fichier caché `.htaccess`** (dans FileZilla : Serveur > Forcer l'affichage des fichiers cachés).
-4. Dans l'espace client OVH :
-   - vérifier que la version de PHP est **8.x** (Hébergements > Informations générales) ;
-   - activer le certificat **SSL** (Multisite), puis décommenter la redirection HTTPS dans `public/.htaccess` et renvoyer le fichier.
+2. Se connecter en FTP/SFTP à l'hébergement (identifiants dans le Manager Infomaniak, rubrique de l'hébergement web), par exemple avec FileZilla.
+3. Envoyer **tout le contenu** du dossier `dist/` dans le dossier racine du site, **y compris le fichier caché `.htaccess`** (dans FileZilla : Serveur > Forcer l'affichage des fichiers cachés).
+4. Activer le certificat **SSL** (Let's Encrypt) du domaine dans le Manager, puis décommenter la redirection HTTPS dans `public/.htaccess` et renvoyer le fichier.
 5. Envoyer un message de test depuis `/contact/` et vérifier la réception.
+
+> Les libellés exacts du Manager Infomaniak sont à vérifier lors de la première mise en ligne.
 
 À chaque modification du site : relancer `npm run build` et renvoyer le contenu de `dist/`.
 
 ## À configurer
 
-### 1. Formulaire de contact (script PHP, sans service externe)
+### 1. Formulaire de contact (Web3Forms)
 
-Le formulaire envoie les demandes au script `api/contact.php`, qui les transmet par e-mail grâce à la messagerie de l'hébergement OVH.
+Le formulaire envoie les demandes au service [Web3Forms](https://web3forms.com), qui les transmet par e-mail. Offre gratuite : **250 envois par mois**. Aucun script ne tourne sur l'hébergement.
 
-- **Configuration** : en tête de `public/api/contact.php` :
-  - `DESTINATAIRE` : adresse qui reçoit les demandes (contact@maisonclovali.fr) ;
-  - `EXPEDITEUR` : doit être **une adresse du domaine hébergé chez OVH** (contact@maisonclovali.fr). Avec une adresse Gmail ou autre, OVH bloque l'envoi ou le message arrive en spam ;
-  - `ENVOIS_MAX_PAR_HEURE` : limite anti-abus par visiteur (5 par défaut).
-- Le bouton « Répondre » de votre messagerie répond directement au visiteur (en-tête `Reply-To`).
-- Protections intégrées : vérification des champs côté serveur, champ piège anti-robots, blocage des tentatives d'injection, limite d'envois.
-- Si les messages n'arrivent pas : vérifier le dossier spam, puis l'état des envois dans l'espace client OVH (Hébergements > E-mails / Scripts e-mail). OVH peut suspendre les envois en cas de volume anormal.
+- **Clé d'accès (bloquant)** : créer la clé sur web3forms.com avec l'adresse **contact@maisonclovali.fr** (la clé est envoyée par e-mail), puis la coller dans `src/data/site.ts` (`web3formsKey`, actuellement `A_REMPLACER_PAR_LA_CLE_WEB3FORMS`) et relancer le build. Sans clé valide, l'envoi échoue et le visiteur voit un message d'erreur.
+- La clé est **publique par conception** (visible dans le code HTML) : elle permet seulement d'envoyer des messages vers l'adresse associée.
+- Les demandes arrivent à l'adresse associée à la clé ; le bouton « Répondre » répond directement au visiteur (champ `email`).
+- Protections : validation dans le navigateur, case piège anti-robots `botcheck`, filtrage anti-spam de Web3Forms. Option : activer hCaptcha (gratuit chez Web3Forms) en cas de spam.
+- Sans JavaScript, le formulaire est envoyé normalement et Web3Forms redirige vers `/merci/` (URL construite à partir du domaine de `astro.config.mjs`).
+- Si les messages n'arrivent pas : vérifier le dossier spam, puis le tableau de bord Web3Forms (quota mensuel, clé).
+- RGPD : Web3Forms est mentionné comme sous-traitant dans les mentions légales (section Données personnelles).
 
 ### 2. Domaine
 

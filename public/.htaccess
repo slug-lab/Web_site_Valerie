@@ -1,7 +1,7 @@
-# Maison Clovali — configuration Apache (hébergement web OVH)
+# Maison Clovali — configuration Apache (hébergement web Infomaniak)
 
 Options -Indexes
-DirectoryIndex index.html index.php
+DirectoryIndex index.html
 ErrorDocument 404 /404.html
 AddDefaultCharset UTF-8
 
@@ -9,7 +9,7 @@ AddDefaultCharset UTF-8
   RewriteEngine On
 
   # Redirection vers HTTPS : à activer une fois le certificat SSL actif
-  # (espace client OVH > Hébergements > Multisite > SSL), en retirant les « # ».
+  # (Manager Infomaniak > certificat SSL du domaine), en retirant les « # ».
   # RewriteCond %{HTTPS} off
   # RewriteCond %{HTTP:X-Forwarded-Proto} !https
   # RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]

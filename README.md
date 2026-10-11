@@ -7,8 +7,8 @@ Site de **Maison Clovali**, conciergerie privée à Meyrargues (Provence) : gest
 - [Astro 7](https://astro.build) : site 100 % statique
 - [Tailwind CSS 4](https://tailwindcss.com) (plugin Vite)
 - Polices auto-hébergées : Cormorant Garamond et Raleway (`@fontsource`)
-- Formulaire de contact : script PHP (`public/api/contact.php`) envoyant les messages avec `mail()`, sans service tiers
-- Hébergement cible : **OVH hébergement web** (Apache + PHP 8)
+- Formulaire de contact : service [Web3Forms](https://web3forms.com) (offre gratuite, 250 envois/mois), clé dans `src/data/site.ts`
+- Hébergement cible : **Infomaniak** (hébergement web Apache, site statique)
 
 ## Démarrage
 
@@ -21,7 +21,7 @@ npm run build      # génère le site dans dist/
 npm run preview    # prévisualise le build
 ```
 
-> En local, le PHP n'est pas exécuté : l'envoi du formulaire affiche une erreur. C'est normal, il fonctionne une fois le site en ligne chez OVH.
+> L'envoi du formulaire nécessite une clé Web3Forms valide dans `src/data/site.ts` (voir `docs/MISE_EN_PRODUCTION.md`).
 
 ## Pages
 
@@ -39,10 +39,10 @@ npm run preview    # prévisualise le build
 ## Structure
 
 ```
-public/            fichiers copiés tels quels (images, favicon, .htaccess, robots.txt, api/contact.php)
+public/            fichiers copiés tels quels (images, favicon, .htaccess, robots.txt)
 src/
   components/      composants partagés (Header, Footer, Logo, Button, PricingCard, ContactForm…)
-  data/site.ts     coordonnées et entrées du menu
+  data/site.ts     coordonnées, entrées du menu, clé Web3Forms
   layouts/         BaseLayout (balises <head>, SEO, en-tête et pied de page)
   pages/           une page par fichier
   styles/          global.css : thème Tailwind (couleurs, polices, breakpoints)
@@ -53,7 +53,7 @@ Les couleurs, les polices et les breakpoints personnalisés (`nav` = 78rem, `wid
 
 ## Mise en ligne
 
-Seul le contenu de **`dist/`** est envoyé sur l'hébergement, dans le dossier `www/` d'OVH, y compris le fichier caché `.htaccess`. Le reste du dépôt (sources, documentation) ne part jamais sur le serveur.
+Seul le contenu de **`dist/`** est envoyé à la racine du site sur l'hébergement, y compris le fichier caché `.htaccess`. Le reste du dépôt (sources, documentation) ne part jamais sur le serveur.
 
 La procédure complète et la liste des éléments à configurer avant la mise en production (domaine, HTTPS, adresse du formulaire, contenus à compléter) sont dans [`docs/MISE_EN_PRODUCTION.md`](docs/MISE_EN_PRODUCTION.md).
 

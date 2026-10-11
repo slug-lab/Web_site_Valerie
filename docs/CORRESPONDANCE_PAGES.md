@@ -34,7 +34,7 @@
 | `Button.astro` | 7 variantes de boutons relevées sur les maquettes |
 | `Testimonials.astro` | « Ils nous font confiance » (Accueil, À propos) |
 | `PricingCard.astro` | Cartes Essentiel / Confort / Intendance |
-| `ContactForm.astro` | Formulaire, envoyé au script PHP `public/api/contact.php` |
+| `ContactForm.astro` | Formulaire, envoyé au service Web3Forms (clé dans `src/data/site.ts`) |
 | `Icon.astro` | Pictogrammes SVG |
 
 ## Bilan
