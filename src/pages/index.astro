@@ -1,8 +1,9 @@
 ---
-// Maquettes : references/ACCUEIL.png (hero) + references/ACCUEIL 2.png (suite)
+// Maquettes : references/ACCUEIL_NEW.png (hero, remplace ACCUEIL.png) + references/ACCUEIL 2.png (suite)
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Button from '../components/Button.astro';
 import Divider from '../components/Divider.astro';
+import Icon from '../components/Icon.astro';
 import Testimonials from '../components/Testimonials.astro';
 import { site } from '../data/site';
 
@@ -22,7 +23,7 @@ const localBusiness = {
 <BaseLayout title="Maison Clovali">
   <script type="application/ld+json" slot="head" set:html={JSON.stringify(localBusiness)} />
   <!-- Hero -->
-  <section class="relative isolate flex min-h-[calc(100svh-80px)] items-center py-10 nav:min-h-[672px] nav:py-[50px]">
+  <section class="relative isolate flex min-h-[calc(100svh-80px)] items-center py-10 nav:min-h-[672px] nav:items-start nav:py-[50px]">
     <img
       src="/images/accueil-terrasse.webp"
       alt=""
@@ -32,20 +33,37 @@ const localBusiness = {
       fetchpriority="high"
     />
     <div class="w-full px-4 sm:px-6 lg:pl-[18.8%] lg:pr-0">
-      <div class="mx-auto flex max-w-[635px] flex-col items-center bg-white/45 px-6 py-8 text-center backdrop-blur-[1px] sm:px-12 lg:mx-0 lg:min-h-[530px] lg:px-[100px] lg:py-[14px]">
+      <div class="mx-auto flex max-w-[635px] flex-col items-center bg-white/45 px-6 py-8 text-center backdrop-blur-[1px] sm:px-10 lg:mx-0 lg:min-h-[533px] lg:px-[18px] lg:pt-[6px] lg:pb-[14px]">
         <h1 class="font-serif text-[2.6rem] leading-[1.45] font-normal uppercase tracking-[0.03em] text-olive-dark sm:text-[3.6rem]">
           Maison<br />Clovali
         </h1>
         <Divider class="mt-3 w-full max-w-[320px]" sprigClass="h-6 w-16 text-olive" lineClass="bg-olive-dark/70" />
-        <p class="mt-5 max-w-[380px] font-serif text-[1.45rem] italic leading-snug text-olive-dark sm:text-[1.65rem]">
-          Nous prenons soin de votre propriété comme si elle était la nôtre
+        <p class="mt-2 max-w-[400px] font-serif text-[1.2rem] font-bold italic leading-[1.45] text-olive-dark sm:text-[1.32rem]">
+          Conciergerie privée et intendance de résidences en Provence.
         </p>
-        <p class="mt-2 max-w-[420px] text-[0.95rem] leading-snug text-ink">
-          Conciergerie privée dédiée aux locations saisonnières haut de gamme et résidences secondaires en Provence
+        <p class="mt-1.5 max-w-[490px] text-[0.95rem] leading-snug text-ink sm:text-[1rem]">
+          Nous assurons l’intendance de votre résidence secondaire et vous accompagnons dans vos projets de location
+          saisonnière autour d’Aix-en-Provence et dans le Luberon.
         </p>
-        <div class="mt-6 flex w-full flex-col gap-6">
-          <Button href="/notre-accompagnement/" variant="outline-dark" class="bg-white/10">Découvrez notre accompagnement</Button>
-          <Button href="/contact/" variant="dark">Échanger sur votre projet</Button>
+        <ul class="mt-6 grid w-full gap-5 text-left text-[0.82rem] leading-[1.35] sm:grid-cols-2 sm:gap-6 lg:pl-[8px]">
+          <li class="flex items-start gap-3.5">
+            <Icon name="home" class="-mt-1 h-12 w-12 shrink-0 text-olive-dark" />
+            <p>
+              <strong class="block text-[0.85rem] font-semibold text-olive-dark">Résidences secondaires</strong>
+              <span class="text-ink/85">Suivi, entretien et préparation<br class="hidden lg:inline" /> de votre propriété.</span>
+            </p>
+          </li>
+          <li class="flex items-start gap-3.5">
+            <Icon name="keys" class="-mt-1 h-12 w-12 shrink-0 text-olive-dark/80" />
+            <p>
+              <strong class="block text-[0.85rem] font-semibold text-olive-dark">Locations saisonnières</strong>
+              <span class="text-ink/85">Accompagnement opérationnel et<br class="hidden lg:inline" /> coordination des prestations.</span>
+            </p>
+          </li>
+        </ul>
+        <div class="mt-6 flex w-full flex-col gap-3 lg:mt-[30px] lg:flex-row lg:gap-[9px]">
+          <Button href="/notre-accompagnement/" variant="dark" class="px-3 lg:flex-[334] lg:min-h-[51px] md:text-[0.95rem]">Découvrez notre accompagnement</Button>
+          <Button href="/contact/" variant="outline-dark" class="border-2! bg-white/10 px-3 lg:flex-[265] lg:min-h-[51px] md:text-[0.95rem]">Échanger sur votre projet</Button>
         </div>
       </div>
     </div>

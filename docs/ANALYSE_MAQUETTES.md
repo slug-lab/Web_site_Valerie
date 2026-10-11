@@ -84,6 +84,21 @@ Angles droits (pas d'arrondi), hauteur ≈ 50 px, padding horizontal généreux.
 - **Proportions** : panneau ≈ 46 % de la largeur ; texte centré dans le panneau.
 - **Indéterminé** : comportement au scroll (en-tête fixe ou non), crédit/qualité de la photo, hauteur exacte du hero sur grand écran.
 
+### 2.1 Nouvelle version `ACCUEIL_NEW.png` (MOA, 11/10/2026) — remplace `ACCUEIL.png` pour le hero
+
+Même en-tête, même photo, même position et taille de panneau (≈ 635 × 533 px, x ≈ 256 → 891, y ≈ 147 → 680), même titre et même rameau. Changements dans le panneau :
+
+| Élément | `ACCUEIL.png` | `ACCUEIL_NEW.png` |
+|---|---|---|
+| Accroche | « Nous prenons soin de votre propriété comme si elle était la nôtre » (serif italique ≈ 24 px) | « Conciergerie privée et intendance de résidences en Provence. » (serif italique **gras** ≈ 20 px, 2 lignes) |
+| Sous-titre | « Conciergerie privée dédiée aux locations saisonnières haut de gamme… » (≈ 15 px) | « Nous assurons l'intendance de votre résidence secondaire et vous accompagnons dans vos projets de location saisonnière autour d'Aix-en-Provence et dans le Luberon. » (≈ 16 px, 3 lignes, ≈ 490 px de large) |
+| Atouts | — | **Nouvelle rangée de 2 colonnes** alignées à gauche : pictogramme plein « maison » (≈ 44 px) + **Résidences secondaires** / « Suivi, entretien et préparation de votre propriété. » ; pictogramme au trait « clés + étiquette » + **Locations saisonnières** / « Accompagnement opérationnel et coordination des prestations. » (titre gras ≈ 13 px, texte ≈ 13 px) |
+| Boutons | Empilés, ≈ 413 px de large ; « Découvrez… » en contour, « Échanger… » plein foncé | **Côte à côte** sur toute la largeur du panneau (marges ≈ 18 px, écart ≈ 9 px, hauteur ≈ 51 px) ; styles **inversés** : « Découvrez notre accompagnement » plein foncé (≈ 334 px), « Échanger sur votre projet » contour 2 px (≈ 265 px) |
+
+- **Remarque** : l'accroche dit « intendance de résidences en Provence » (sans « secondaires ») ; reproduit tel quel.
+- **Non repris** : le menu de la maquette (7 entrées avec « Votre projet ») ; le site garde le menu validé depuis (avec « Notre accompagnement », sans « Votre projet »).
+- **Responsive** : atouts empilés sur mobile ; boutons empilés sous 1024 px (côte à côte au-delà).
+
 ## 3. Image `ACCUEIL 2.png` — Accueil (suite)
 
 - **Rôle** : suite de la page d'accueil (sous le hero).
@@ -195,7 +210,7 @@ Angles droits (pas d'arrondi), hauteur ≈ 50 px, padding horizontal généreux.
 | `taupe-light` | `#C9BFAF` (≈) | Nom « Valérie Deron » |
 | `brown` | `#544541` | Titres des étapes |
 | `ink` | `#3F3F3F` | Texte courant |
-| `panel-rose` | `#E4DEE2` | Panneau locations saisonnières |
+| `panel-rose` | `#E4DEE2` | Panneau locations saisonnières (supprimé le 11/10/2026 : les deux panneaux utilisent `panel-grey`, demande cliente) |
 | `panel-grey` | `#D5D6D7` | Panneau intendance |
 
 ### 10.2 Typographies (identification visuelle, à confirmer)

@@ -22,14 +22,14 @@ import Sprig from '../components/Sprig.astro';
     </header>
 
     <div class="container-site mt-6 grid gap-6 nav:mt-[10px] nav:grid-cols-[710fr_438fr] nav:gap-[84px] nav:pl-[77px] nav:pr-[57px]">
-      <section class="flex flex-col bg-panel-rose/95 px-4 pb-5 sm:px-[19px]" aria-labelledby="saisonnier-title">
+      <section class="flex flex-col bg-panel-grey/95 px-4 pb-5 sm:px-[19px]" aria-labelledby="saisonnier-title">
         <h2 id="saisonnier-title" class="py-4 text-center font-sans text-lg font-semibold uppercase tracking-[0.06em] text-olive-dark">
           Pour vos locations saisonnières
         </h2>
         <div class="grid flex-1 gap-6 md:grid-cols-2 md:gap-[29px]">
           <PricingCard
             title="Essentiel"
-            icon="house-leaf"
+            image={{ src: '/images/offre-essentiel.png', width: 62, height: 53 }}
             pitch="Vous gérez vos réservations, nous prenons en charge le reste"
             services={[
               'Ménage premium entre chaque location',
@@ -39,12 +39,12 @@ import Sprig from '../components/Sprig.astro';
             ]}
             footerColor="olive"
           >
-            <span class="text-[0.95rem] font-semibold">Commission conciergerie</span>
-            <span class="text-2xl font-semibold">18&nbsp;%</span>
+            <span class="text-[1.15rem] font-semibold leading-tight">Commission conciergerie</span>
+            <span class="text-[1.75rem] font-semibold leading-tight">18&nbsp;%</span>
           </PricingCard>
           <PricingCard
             title="Confort"
-            icon="armchair"
+            image={{ src: '/images/offre-confort.png', width: 51, height: 46 }}
             pitch="Plus de services pour vous libérer des contraintes du quotidien."
             services={[
               'Ménage premium entre chaque location',
@@ -55,19 +55,19 @@ import Sprig from '../components/Sprig.astro';
             ]}
             footerColor="olive"
           >
-            <span class="text-[0.95rem] font-semibold">Commission conciergerie</span>
-            <span class="text-2xl font-semibold">23&nbsp;%</span>
+            <span class="text-[1.15rem] font-semibold leading-tight">Commission conciergerie</span>
+            <span class="text-[1.75rem] font-semibold leading-tight">23&nbsp;%</span>
           </PricingCard>
         </div>
       </section>
 
       <section class="flex flex-col bg-panel-grey/95 px-4 pb-5 sm:px-[60px]" aria-labelledby="intendance-title">
-        <h2 id="intendance-title" class="py-4 text-center sm:-mx-[56px] tracking-[0.04em] font-sans text-lg font-semibold uppercase tracking-[0.06em] text-olive-dark">
+        <h2 id="intendance-title" class="py-4 text-center font-sans text-lg font-semibold uppercase tracking-[0.06em] text-olive-dark sm:-mx-[56px]">
           Pour l’intendance de votre propriété
         </h2>
         <PricingCard
           title="Intendance annuelle"
-          icon="house-cycle"
+          image={{ src: '/images/offre-intendance-annuelle.png', width: 59, height: 50 }}
           pitch="Une présence continue et proactive toute l’année."
           services={[
             'Visites de contrôle régulières',
@@ -81,9 +81,9 @@ import Sprig from '../components/Sprig.astro';
           compact
           class="flex-1"
         >
-          <span class="text-[0.95rem] font-semibold">À partir de 123&nbsp;€/mois</span>
+          <span class="text-[1.25rem] font-semibold leading-tight">À partir de 123&nbsp;€/mois</span>
           <!-- Mention conservée telle que sur la maquette (texte tronqué, à compléter par la cliente) -->
-          <span class="mt-1 text-[0.6rem] italic leading-tight">
+          <span class="mt-1 text-[0.72rem] italic leading-tight">
             Les tarifs indiqués sont des fourchettes indicatives. Chaque proposition est établie sur mesure après visite de votre bien. Premie
           </span>
         </PricingCard>

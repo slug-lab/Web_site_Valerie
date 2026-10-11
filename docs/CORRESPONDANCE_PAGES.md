@@ -5,7 +5,7 @@
 
 | Image | Page | Sections principales | Composants partagés | Éléments interactifs |
 |---|---|---|---|---|
-| `ACCUEIL.png` | **Accueil** (haut) — `src/pages/index.astro` | Hero photo plein écran + panneau translucide (titre, accroche, sous-titre, 2 CTA) | `Header`, `Divider` (rameau + filets), `Button` | Menu ; « Découvrez notre accompagnement » → `/notre-accompagnement` ; « Échanger sur votre projet » → `/contact` |
+| `ACCUEIL_NEW.png` (remplace `ACCUEIL.png` depuis le 11/10/2026) | **Accueil** (haut) — `src/pages/index.astro` | Hero photo plein écran + panneau translucide (titre, accroche, sous-titre, 2 CTA) | `Header`, `Divider` (rameau + filets), `Button` | Menu ; « Découvrez notre accompagnement » → `/notre-accompagnement` ; « Échanger sur votre projet » → `/contact` |
 | `ACCUEIL 2.png` | **Accueil** (suite) — même fichier `src/pages/index.astro` | « Bienvenue chez Maison CLOVALI » ; bandeau « Vous êtes propriétaire ? » (photo + texte) ; « Ils nous font confiance » | `Testimonials`, `Button` (contour clair) | « Échanger sur votre projet » → `/contact` |
 | `Page _A PROPOS.png` | **À propos** — `src/pages/a-propos.astro` | Portrait + présentation de la fondatrice ; boutons + citation ; « Ils nous font confiance » | `Header`, `Button`, `Testimonials` | « Échanger sur votre projet » → `/contact` ; « Découvrir notre territoire » → `/notre-territoire` |
 | `Page _NOS ENGAGEMENTS.png` | **Nos engagements** — `src/pages/nos-engagements.astro` | Titre + photo fondue ; 5 engagements ; encart CTA ; rangée de 4 valeurs avec pictogrammes | `Header`, `Button` | « Contactez-nous » → `/contact` |

@@ -22,4 +22,5 @@ Logo : `Logo_MC.png` (fond rendu transparent) → `logo-maison-clovali.png` (en-
 | fond-tarifs.webp | Maison_Clovali_photo_teintes.png | Fond de Formules & tarifs |
 | olivier.webp | Olivier.png | Bandeau du Blog |
 | notre-accompagnement.webp | notre_accompagnement.png | Photo de Notre accompagnement |
+| offre-essentiel.png, offre-confort.png, offre-intendance-annuelle.png | logo_offre_*.png (fond rendu transparent) | Pictogrammes des offres (Formules & tarifs) |
 | engagements-interieur.webp | Photos page Nos Services option2.png | Photo de Nos engagements |
