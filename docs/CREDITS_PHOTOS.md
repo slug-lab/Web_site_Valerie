@@ -24,4 +24,5 @@ Logo : `Logo_MC.png` (fond rendu transparent) → `logo-maison-clovali.png` (en-
 | notre-accompagnement.webp | notre_accompagnement.png | Photo de Notre accompagnement |
 | offre-essentiel.png, offre-confort.png, offre-intendance-annuelle.png | logo_offre_*.png (fond rendu transparent) | Pictogrammes des offres (Formules & tarifs) |
 | atout-residences.png, atout-locations.png | image_home_page/home.png, key.png (fond rendu transparent) | Pictogrammes des atouts du hero de l’accueil |
+| valeur-proximite.png, valeur-reactivite.png, valeur-disponibilite.png, valeur-exigence.png | image_home_page/proximite.png, reactivite.png, disponiblite.png, Exigence.png (fond rendu transparent) | Pictogrammes des valeurs (Nos engagements) |
 | engagements-interieur.webp | Photos page Nos Services option2.png | Photo de Nos engagements |

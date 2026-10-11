@@ -18,7 +18,7 @@
 | `ACCUEIL_NEW.png` | `/` (hero) | Conforme (comparaison à 1366 × 768 le 11/10/2026) : panneau, accroche, atouts, boutons côte à côte | Pictogrammes des atouts fournis par la MOA (home.png, key.png) ; menu non repris (menu validé depuis) |
 | `ACCUEIL 2.png` | `/` (suite) | Conforme | Photo temporaire ; retours à la ligne légèrement différents |
 | `Page _A PROPOS.png` | `/a-propos` | Conforme | Portrait définitif en place ; bloc boutons ≈ 30 px plus bas |
-| `Page _NOS ENGAGEMENTS.png` | `/nos-engagements` | Conforme | Photo temporaire (extérieur de mas au lieu d'un intérieur) |
+| `Page _NOS ENGAGEMENTS.png` | `/nos-engagements` | Conforme | Photo intérieure et pictogrammes des 4 valeurs fournis par la MOA (11/10/2026) |
 | `Page _NOTRE ACCOMPAGNEMENT.png` | `/notre-accompagnement` | Conforme | Photo temporaire ; description de l'étape 03 en italique comme les autres (harmonisation) |
 | `Page _FORMULES & TARIFS.png` | `/formules-et-tarifs` | Conforme | Fond photo temporaire ; la carte Intendance s'étire à la hauteur du panneau voisin |
 | `Page _NOTRE TERRITOIRE.png` | `/a-propos/#notre-territoire` | Conforme | Fusionnée sous les avis de la page À propos (11/10/2026) ; carte illustrée définitive en place |

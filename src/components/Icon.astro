@@ -5,18 +5,13 @@ export type IconName =
   | 'quote'
   | 'home'
   | 'phone'
-  | 'mail'
-  | 'proximite'
-  | 'reactivite'
-  | 'disponibilite'
-  | 'exigence';
+  | 'mail';
 
 interface Props {
   name: IconName;
   class?: string;
 }
 const { name, class: className = 'h-6 w-6' } = Astro.props;
-const stroke = { fill: 'none', stroke: 'currentColor', 'stroke-width': 1.6, 'stroke-linecap': 'round', 'stroke-linejoin': 'round' } as const;
 ---
 
 <svg class={className} viewBox="0 0 48 48" aria-hidden="true" focusable="false">
@@ -43,43 +38,6 @@ const stroke = { fill: 'none', stroke: 'currentColor', 'stroke-width': 1.6, 'str
       <g fill="currentColor">
         <path d="M4 10h40v4L24 27 4 14z" />
         <path d="M4 18l20 13 20-13v20H4z" />
-      </g>
-    )
-  }
-  {
-    name === 'proximite' && (
-      <g {...stroke}>
-        <circle cx="15" cy="19" r="5" />
-        <circle cx="33" cy="19" r="5" />
-        <path d="M5 40c0-7 4-11 10-11 3 0 5 1 7 3l4 4M43 40c0-7-4-11-10-11-3 0-5 1-7 3l-5 4c-1 1 0 3 2 3h5" />
-        <path d="M24 4v4M17 6l2 3.5M31 6l-2 3.5" />
-      </g>
-    )
-  }
-  {
-    name === 'reactivite' && (
-      <g {...stroke}>
-        <circle cx="30" cy="24" r="14" />
-        <path d="M30 15v9l6 4M2 18h12M6 24h8M2 30h12" />
-      </g>
-    )
-  }
-  {
-    name === 'disponibilite' && (
-      <g {...stroke}>
-        <path d="M30 9a16 16 0 1 0-6 30" />
-        <path d="M22 14v10l6 3M39 8l3-3M42 14h4M38 3v3" />
-        <circle cx="35" cy="28" r="4.5" />
-        <path d="M27 43c0-5 3.5-8 8-8s8 3 8 8" />
-      </g>
-    )
-  }
-  {
-    name === 'exigence' && (
-      <g {...stroke}>
-        <path d="M24 3l4 3 5-.5 2 4.5 4.5 2-.5 5 3 4-3 4 .5 5-4.5 2-2 4.5-5-.5-4 3-4-3-5 .5-2-4.5-4.5-2 .5-5-3-4 3-4-.5-5 4.5-2 2-4.5 5 .5z" />
-        <circle cx="24" cy="21" r="9" />
-        <path d="M20 21l3 3 6-6M16 35l-4 10 5-2 3 4 3-9M32 35l4 10-5-2-3 4-3-9" />
       </g>
     )
   }

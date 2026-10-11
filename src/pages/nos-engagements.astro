@@ -2,7 +2,7 @@
 // Maquette : references/Page _NOS ENGAGEMENTS.png
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Button from '../components/Button.astro';
-import Icon, { type IconName } from '../components/Icon.astro';
+import Icon from '../components/Icon.astro';
 
 const engagements = [
   { title: 'Préservation de votre bien', text: 'Nous veillons à l’entretien et à la valorisation de votre propriété.' },
@@ -12,11 +12,12 @@ const engagements = [
   { title: 'Relation de confiance', text: 'Nous cultivons une relation de confiance fondée sur la transparence, la disponibilité et la proximité.' },
 ];
 
-const values: { label: string; icon: IconName }[] = [
-  { label: 'Proximité', icon: 'proximite' },
-  { label: 'Réactivité', icon: 'reactivite' },
-  { label: 'Disponibilité', icon: 'disponibilite' },
-  { label: 'Exigence', icon: 'exigence' },
+// Pictogrammes fournis par la MOA (references/photo/image_home_page/), fond rendu transparent.
+const values = [
+  { label: 'Proximité', src: '/images/valeur-proximite.png', width: 50, height: 42 },
+  { label: 'Réactivité', src: '/images/valeur-reactivite.png', width: 65, height: 41 },
+  { label: 'Disponibilité', src: '/images/valeur-disponibilite.png', width: 53, height: 44 },
+  { label: 'Exigence', src: '/images/valeur-exigence.png', width: 44, height: 56 },
 ];
 ---
 
@@ -62,7 +63,7 @@ const values: { label: string; icon: IconName }[] = [
       {
         values.map((value) => (
           <li class="flex flex-col items-center gap-3">
-            <Icon name={value.icon} class="h-14 w-14 text-olive-dark" />
+            <span class="flex h-14 items-center"><img src={value.src} alt="" width={value.width} height={value.height} /></span>
             <span class="font-sans text-xl uppercase text-[#8c8c7a]">{value.label}</span>
           </li>
         ))
