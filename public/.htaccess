@@ -1,46 +1,114 @@
-# Maison Clovali — configuration Apache (hébergement web Infomaniak)
+# Maison Clovali — configuration Apache pour l'hébergement web Infomaniak
+# Site 100 % statique généré par Astro (dist/). Chaque bloc est protégé par <IfModule> :
+# un module absent est simplement ignoré, sans erreur 500.
 
+# ---------------------------------------------------------------------------
+# Base
+# ---------------------------------------------------------------------------
 Options -Indexes
 DirectoryIndex index.html
 ErrorDocument 404 /404.html
 AddDefaultCharset UTF-8
+AddCharset UTF-8 .html .css .js .xml .txt
 
-<IfModule mod_rewrite.c>
-  RewriteEngine On
-
-  # Redirection vers HTTPS : à activer une fois le certificat SSL actif
-  # (Manager Infomaniak > certificat SSL du domaine), en retirant les « # ».
-  # RewriteCond %{HTTPS} off
-  # RewriteCond %{HTTP:X-Forwarded-Proto} !https
-  # RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
-
-  # Redirection de maisonclovali.fr vers www.maisonclovali.fr (domaine déclaré dans astro.config.mjs).
-  # RewriteCond %{HTTP_HOST} ^maisonclovali\.fr$ [NC]
-  # RewriteRule ^ https://www.maisonclovali.fr%{REQUEST_URI} [L,R=301]
+# Types MIME des fichiers du site (au cas où le serveur ne les connaîtrait pas)
+<IfModule mod_mime.c>
+  AddType image/webp .webp
+  AddType font/woff2 .woff2
+  AddType font/woff .woff
+  AddType application/xml .xml
 </IfModule>
 
+# Interdire l'accès aux fichiers cachés (.git, .env…), sauf .well-known (validation du certificat SSL)
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+  RewriteRule "(^|/)\.(?!well-known/)" - [F]
+</IfModule>
+
+# ---------------------------------------------------------------------------
+# HTTPS et www — À ACTIVER une fois le certificat SSL (Let's Encrypt) actif sur le domaine
+# (Manager Infomaniak > domaine > Certificats SSL), en retirant les « # » des lignes RewriteCond/RewriteRule.
+# Méthode recommandée par Infomaniak (FAQ n° 1961) : on teste %{HTTPS} ET l'en-tête X-Forwarded-Proto,
+# ce qui évite la boucle de redirection derrière le proxy d'Infomaniak.
+# Domaine : doit correspondre à `site` dans astro.config.mjs.
+# ---------------------------------------------------------------------------
+<IfModule mod_rewrite.c>
+  # 1. http://… → https://www.maisonclovali.fr/… (en une seule redirection)
+  # RewriteCond %{HTTPS} !=on
+  # RewriteCond %{HTTP:X-Forwarded-Proto} !=https
+  # RewriteRule ^ https://www.maisonclovali.fr%{REQUEST_URI} [R=301,L,NE]
+
+  # 2. https://maisonclovali.fr/… → https://www.maisonclovali.fr/…
+  # RewriteCond %{HTTP_HOST} !^www\. [NC]
+  # RewriteRule ^ https://www.maisonclovali.fr%{REQUEST_URI} [R=301,L,NE]
+
+  # 3. /contact → /contact/ directement en https (la redirection automatique d'Apache
+  #    peut renvoyer vers http:// derrière un proxy)
+  # RewriteCond %{REQUEST_FILENAME} -d
+  # RewriteRule ^(.*[^/])$ https://www.maisonclovali.fr/$1/ [R=301,L]
+</IfModule>
+
+# ---------------------------------------------------------------------------
+# En-têtes de sécurité
+# ---------------------------------------------------------------------------
 <IfModule mod_headers.c>
   Header always set X-Content-Type-Options "nosniff"
   Header always set Referrer-Policy "strict-origin-when-cross-origin"
   Header always set X-Frame-Options "SAMEORIGIN"
+  Header always set Permissions-Policy "camera=(), microphone=(), geolocation=(), interest-cohort=()"
+  Header unset X-Powered-By
+
+  # HSTS : à activer seulement quand le site fonctionne en HTTPS (le navigateur refusera ensuite le http)
+  # Header always set Strict-Transport-Security "max-age=31536000; includeSubDomains"
 </IfModule>
 
+# ---------------------------------------------------------------------------
+# Compression (Brotli si disponible, sinon Gzip). Les images WebP/PNG et les polices
+# WOFF/WOFF2 sont déjà compressées : inutile de les recompresser.
+# ---------------------------------------------------------------------------
+<IfModule mod_brotli.c>
+  AddOutputFilterByType BROTLI_COMPRESS text/html text/css text/plain text/xml application/javascript text/javascript application/json application/ld+json application/xml image/svg+xml image/x-icon
+</IfModule>
 <IfModule mod_deflate.c>
-  AddOutputFilterByType DEFLATE text/html text/css text/plain text/xml application/javascript application/json application/xml image/svg+xml
+  AddOutputFilterByType DEFLATE text/html text/css text/plain text/xml application/javascript text/javascript application/json application/ld+json application/xml image/svg+xml image/x-icon
 </IfModule>
 
+# ---------------------------------------------------------------------------
+# Cache navigateur
+# ---------------------------------------------------------------------------
 <IfModule mod_expires.c>
   ExpiresActive On
   ExpiresDefault "access plus 1 hour"
+
+  # Pages : toujours revalidées, pour que les mises à jour soient visibles tout de suite
   ExpiresByType text/html "access plus 0 seconds"
-  ExpiresByType image/webp "access plus 1 month"
-  ExpiresByType image/svg+xml "access plus 1 month"
+  ExpiresByType application/xml "access plus 1 day"
+  ExpiresByType text/plain "access plus 1 day"
+
+  # CSS / JS : leur nom contient une empreinte (dossier _astro/), cache long sans risque
+  ExpiresByType text/css "access plus 1 year"
+  ExpiresByType application/javascript "access plus 1 year"
+  ExpiresByType text/javascript "access plus 1 year"
+
+  # Polices
   ExpiresByType font/woff2 "access plus 1 year"
+  ExpiresByType font/woff "access plus 1 year"
+
+  # Images (noms fixes dans images/ : cache d'un mois, à vider en renommant le fichier si besoin)
+  ExpiresByType image/webp "access plus 1 month"
+  ExpiresByType image/png "access plus 1 month"
+  ExpiresByType image/jpeg "access plus 1 month"
+  ExpiresByType image/svg+xml "access plus 1 month"
+  ExpiresByType image/x-icon "access plus 1 month"
 </IfModule>
 
-# Fichiers générés par Astro avec une empreinte dans leur nom : cache long.
 <IfModule mod_headers.c>
+  # Fichiers à empreinte générés par Astro : immuables
   <If "%{REQUEST_URI} =~ m#^/_astro/#">
     Header set Cache-Control "public, max-age=31536000, immutable"
   </If>
+  # Pages HTML : toujours revalider auprès du serveur
+  <FilesMatch "\.html$">
+    Header set Cache-Control "no-cache"
+  </FilesMatch>
 </IfModule>

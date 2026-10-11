@@ -16,7 +16,7 @@ Le site est entièrement statique (`dist/`) ; le formulaire passe par le service
 1. `npm run build`.
 2. Se connecter en FTP/SFTP à l'hébergement (identifiants dans le Manager Infomaniak, rubrique de l'hébergement web), par exemple avec FileZilla.
 3. Envoyer **tout le contenu** du dossier `dist/` dans le dossier racine du site, **y compris le fichier caché `.htaccess`** (dans FileZilla : Serveur > Forcer l'affichage des fichiers cachés).
-4. Activer le certificat **SSL** (Let's Encrypt) du domaine dans le Manager, puis décommenter la redirection HTTPS dans `public/.htaccess` et renvoyer le fichier.
+4. Activer le certificat **SSL** (Let's Encrypt) du domaine dans le Manager. Une fois `https://www.maisonclovali.fr` fonctionnel, dans `public/.htaccess` : décommenter les 3 redirections de la section « HTTPS et www » (http → https, sans www → www, ajout du / final), rebuild et renvoyer le fichier. Après quelques jours sans problème, activer aussi la ligne `Strict-Transport-Security` (HSTS).
 5. Envoyer un message de test depuis `/contact/` et vérifier la réception.
 
 > Les libellés exacts du Manager Infomaniak sont à vérifier lors de la première mise en ligne.
