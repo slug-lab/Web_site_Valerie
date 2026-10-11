@@ -60,6 +60,6 @@ Déjà fournis par la cliente (le 11/10/2026) : photo de l'accueil, portrait, ca
 
 ### 5. Vérifications finales
 
-- Valider la teinte des bandeaux sauge (contraste, cf. `docs/CONTROLE_VISUEL.md` § 5).
+- Valider la teinte des bandeaux sauge : le texte blanc sur le vert sauge `#A1A08A` (bandeaux, boutons) a un contraste d’environ 2,6:1, sous le seuil d’accessibilité WCAG AA (4,5:1). Recommandation : foncer légèrement la teinte (ex. `#8A8973`).
 - Déclarer le site dans Google Search Console et soumettre `sitemap-index.xml`.
 - Créer une fiche Google Business Profile (référencement local).
