@@ -2,23 +2,26 @@
 import Icon from './Icon.astro';
 
 // « Ils nous font confiance »
-// ⚠ AVIS D'EXEMPLE rédigés pour la mise en page : ce ne sont PAS de vrais clients.
+// `example: true` = AVIS D'EXEMPLE rédigé pour la mise en page : ce n'est PAS un vrai témoignage.
 // À remplacer par des avis réels (avec l'accord de leurs auteurs) AVANT la mise en ligne :
 // publier de faux avis est une pratique commerciale trompeuse (Code de la consommation, art. L121-4).
 interface Props {
   class?: string;
 }
 const { class: className = '' } = Astro.props;
-const reviews: { text: string; author: string }[] = [
+const reviews: { text: string; author: string; example?: boolean }[] = [
+  // Témoignage réel transmis par la cliente le 11/10/2026.
   {
-    text: 'Nous louons notre mas toute la saison sans plus nous en soucier. Ménage impeccable, accueil chaleureux des voyageurs et un compte rendu après chaque séjour.',
-    author: 'Propriétaire à Lourmarin — formule Confort',
+    text: 'J’ai travaillé avec Valérie pendant 5 ans et je peux témoigner de son sérieux, de sa fiabilité et de son sens des responsabilités. C’est une personne de confiance, je lui confierais ma maison les yeux fermés.',
+    author: 'Marie C. — Ancienne collègue de travail, cinq ans de collaboration',
   },
   {
+    example: true,
     text: 'Vivant à l’étranger, je cherchais quelqu’un de confiance pour ma maison. Les visites régulières et les photos envoyées me rassurent tout au long de l’année.',
     author: 'Propriétaire à Venelles — Intendance annuelle',
   },
   {
+    example: true,
     text: 'Réactivité remarquable : une fuite un dimanche soir, un artisan sur place le lendemain matin. Nos locataires n’ont rien remarqué.',
     author: 'Propriétaires à Pertuis — formule Essentiel',
   },
