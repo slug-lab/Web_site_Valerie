@@ -3,7 +3,6 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Button from '../components/Button.astro';
 import Divider from '../components/Divider.astro';
-import Icon from '../components/Icon.astro';
 import Testimonials from '../components/Testimonials.astro';
 import { site } from '../data/site';
 
@@ -47,16 +46,16 @@ const localBusiness = {
         </p>
         <ul class="mt-6 grid w-full gap-5 text-left text-[0.82rem] leading-[1.35] sm:grid-cols-2 sm:gap-6 lg:pl-[8px]">
           <li class="flex items-start gap-3.5">
-            <Icon name="home" class="-mt-1 h-12 w-12 shrink-0 text-olive-dark" />
+            <span class="flex h-12 w-12 shrink-0 items-start justify-center"><img src="/images/atout-residences.png" alt="" width="45" height="43" /></span>
             <p>
-              <strong class="block text-[0.85rem] font-semibold text-olive-dark">Résidences secondaires</strong>
+              <strong class="block text-[0.85rem] font-bold text-olive-dark">Résidences secondaires</strong>
               <span class="text-ink/85">Suivi, entretien et préparation<br class="hidden lg:inline" /> de votre propriété.</span>
             </p>
           </li>
           <li class="flex items-start gap-3.5">
-            <Icon name="keys" class="-mt-1 h-12 w-12 shrink-0 text-olive-dark/80" />
+            <span class="flex h-12 w-12 shrink-0 items-start justify-center"><img src="/images/atout-locations.png" alt="" width="41" height="44" /></span>
             <p>
-              <strong class="block text-[0.85rem] font-semibold text-olive-dark">Locations saisonnières</strong>
+              <strong class="block text-[0.85rem] font-bold text-olive-dark">Locations saisonnières</strong>
               <span class="text-ink/85">Accompagnement opérationnel et<br class="hidden lg:inline" /> coordination des prestations.</span>
             </p>
           </li>

@@ -95,6 +95,7 @@ Même en-tête, même photo, même position et taille de panneau (≈ 635 × 533
 | Atouts | — | **Nouvelle rangée de 2 colonnes** alignées à gauche : pictogramme plein « maison » (≈ 44 px) + **Résidences secondaires** / « Suivi, entretien et préparation de votre propriété. » ; pictogramme au trait « clés + étiquette » + **Locations saisonnières** / « Accompagnement opérationnel et coordination des prestations. » (titre gras ≈ 13 px, texte ≈ 13 px) |
 | Boutons | Empilés, ≈ 413 px de large ; « Découvrez… » en contour, « Échanger… » plein foncé | **Côte à côte** sur toute la largeur du panneau (marges ≈ 18 px, écart ≈ 9 px, hauteur ≈ 51 px) ; styles **inversés** : « Découvrez notre accompagnement » plein foncé (≈ 334 px), « Échanger sur votre projet » contour 2 px (≈ 265 px) |
 
+- **Pictogrammes des atouts** : fichiers fournis par la MOA (`references/photo/image_home_page/home.png` et `key.png`), cohérents avec la maquette (maison pleine ; clé au trait avec étiquette) → `public/images/atout-residences.png` et `atout-locations.png` (fond rendu transparent). Ils remplacent les pictogrammes SVG provisoires.
 - **Remarque** : l'accroche dit « intendance de résidences en Provence » (sans « secondaires ») ; reproduit tel quel.
 - **Non repris** : le menu de la maquette (7 entrées avec « Votre projet ») ; le site garde le menu validé depuis (avec « Notre accompagnement », sans « Votre projet »).
 - **Responsive** : atouts empilés sur mobile ; boutons empilés sous 1024 px (côte à côte au-delà).

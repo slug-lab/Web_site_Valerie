@@ -15,7 +15,7 @@
 
 | Maquette | Page | Conformité | Écarts restants |
 |---|---|---|---|
-| `ACCUEIL_NEW.png` | `/` (hero) | Conforme (comparaison à 1366 × 768 le 11/10/2026) : panneau, accroche, atouts, boutons côte à côte | Pictogramme « clés » redessiné en SVG ; menu non repris (menu validé depuis) |
+| `ACCUEIL_NEW.png` | `/` (hero) | Conforme (comparaison à 1366 × 768 le 11/10/2026) : panneau, accroche, atouts, boutons côte à côte | Pictogrammes des atouts fournis par la MOA (home.png, key.png) ; menu non repris (menu validé depuis) |
 | `ACCUEIL 2.png` | `/` (suite) | Conforme | Photo temporaire ; retours à la ligne légèrement différents |
 | `Page _A PROPOS.png` | `/a-propos` | Conforme | Portrait définitif en place ; bloc boutons ≈ 30 px plus bas |
 | `Page _NOS ENGAGEMENTS.png` | `/nos-engagements` | Conforme | Photo temporaire (extérieur de mas au lieu d'un intérieur) |
