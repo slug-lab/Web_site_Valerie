@@ -2,7 +2,7 @@ export const site = {
   name: 'Maison Clovali',
   tagline: 'Conciergerie privée',
   description:
-    'Maison Clovali, conciergerie privée à Meyrargues : gestion de locations saisonnières haut de gamme et intendance de résidences secondaires en Provence, autour d’Aix-en-Provence et du Luberon.',
+    'Maison CLOVALI : conciergerie spécialisée dans l’accompagnement des locations saisonnières et l’intendance de résidences secondaires, entre Aix-en-Provence et le Luberon.',
   phone: '07 85 74 25 96',
   phoneHref: '+33785742596',
   email: 'contact@maisonclovali.fr',
