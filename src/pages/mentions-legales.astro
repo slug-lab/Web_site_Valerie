@@ -1,0 +1,47 @@
+---
+// Page requise légalement (LCEN, RGPD). Les informations entre crochets sont à compléter avant la mise en ligne.
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Divider from '../components/Divider.astro';
+import { site } from '../data/site';
+
+const h2 = 'mt-10 font-serif text-2xl font-semibold uppercase tracking-[0.06em] text-olive-dark';
+---
+
+<BaseLayout title="Mentions légales & confidentialité" description="Mentions légales et politique de confidentialité du site Maison Clovali.">
+  <article class="container-site max-w-4xl pb-16 pt-10 leading-relaxed">
+    <h1 class="text-center font-serif text-[2.2rem] font-normal uppercase tracking-[0.06em] text-olive-dark">Mentions légales</h1>
+    <Divider class="mx-auto mt-3 max-w-md" />
+
+    <h2 class={h2}>Éditeur du site</h2>
+    <p class="mt-3">
+      {site.name} — [forme juridique, capital], [adresse du siège], {site.town}.<br />
+      SIRET : [à compléter]. Responsable de la publication : Valérie Deron.<br />
+      Téléphone : {site.phone} — E-mail : <a class="underline" href={`mailto:${site.email}`}>{site.email}</a>
+    </p>
+
+    <h2 class={h2}>Hébergement</h2>
+    <p class="mt-3">OVH SAS, 2 rue Kellermann, 59100 Roubaix, France — www.ovhcloud.com</p>
+
+    <h2 class={h2}>Propriété intellectuelle</h2>
+    <p class="mt-3">
+      L’ensemble des contenus de ce site (textes, images, logo) est la propriété de {site.name} ou de leurs auteurs
+      respectifs. Toute reproduction sans autorisation est interdite.
+    </p>
+
+    <h2 id="donnees" class={h2}>Données personnelles</h2>
+    <p class="mt-3">
+      Les informations saisies dans le formulaire de contact (nom, prénom, téléphone, e-mail, message) sont utilisées
+      uniquement pour répondre à votre demande. Elles sont transmises par e-mail depuis notre hébergeur et ne sont ni
+      enregistrées sur le site, ni vendues, ni cédées à des tiers. Elles sont conservées [durée à préciser, par exemple 3 ans après le dernier
+      contact].
+    </p>
+    <p class="mt-3">
+      Conformément au RGPD, vous disposez d’un droit d’accès, de rectification, d’effacement et d’opposition, que vous
+      pouvez exercer en écrivant à <a class="underline" href={`mailto:${site.email}`}>{site.email}</a>. Vous pouvez
+      également introduire une réclamation auprès de la CNIL.
+    </p>
+
+    <h2 class={h2}>Cookies</h2>
+    <p class="mt-3">Ce site n’utilise aucun cookie de mesure d’audience ni de publicité.</p>
+  </article>
+</BaseLayout>

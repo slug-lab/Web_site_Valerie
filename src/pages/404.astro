@@ -1,0 +1,15 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Button from '../components/Button.astro';
+import Divider from '../components/Divider.astro';
+---
+
+<BaseLayout title="Page introuvable">
+  <meta slot="head" name="robots" content="noindex" />
+  <section class="container-site py-20 text-center">
+    <h1 class="font-serif text-4xl font-bold uppercase tracking-[0.1em] text-olive-dark">Page introuvable</h1>
+    <Divider class="mx-auto mt-4 max-w-md" />
+    <p class="mx-auto mt-6 max-w-xl text-lg">La page que vous cherchez n’existe pas ou a été déplacée.</p>
+    <Button href="/" variant="sage" class="mt-10">Retour à l’accueil</Button>
+  </section>
+</BaseLayout>

@@ -1,0 +1,75 @@
+---
+import Logo from './Logo.astro';
+import { navItems } from '../data/site';
+
+const normalize = (p: string) => p.replace(/\/$/, '') || '/';
+const path = normalize(Astro.url.pathname);
+const isActive = (item: (typeof navItems)[number]) => normalize(item.href) === path;
+---
+
+<header class="relative z-30 bg-cream">
+  <div class="flex items-center justify-between gap-6 px-4 py-4 sm:px-6 nav:py-0 nav:pl-[30px] nav:pr-[34px] nav:min-h-[96px]">
+    <Logo />
+
+    <button
+      type="button"
+      class="flex h-11 w-11 items-center justify-center text-olive-dark nav:hidden"
+      aria-controls="main-nav"
+      aria-expanded="false"
+      data-nav-toggle
+    >
+      <span class="sr-only">Ouvrir le menu</span>
+      <svg class="h-7 w-7" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true">
+        <path data-icon-open d="M3 6h18M3 12h18M3 18h18"></path>
+        <path data-icon-close class="hidden" d="M5 5l14 14M19 5L5 19"></path>
+      </svg>
+    </button>
+
+    <nav
+      id="main-nav"
+      aria-label="Navigation principale"
+      class="absolute inset-x-0 top-full hidden border-t border-olive/20 bg-cream shadow-lg nav:static nav:block nav:self-start nav:border-0 nav:shadow-none nav:pt-[30px]"
+      data-nav
+    >
+      <ul class="flex flex-col px-4 py-3 sm:px-6 nav:flex-row nav:items-center nav:gap-[26px] wide:gap-[34px] 2xl:gap-[38px] nav:border-b nav:border-olive-dark/80 nav:px-[9px] nav:pb-[11px] nav:pt-0">
+        {
+          navItems.map((item) => (
+            <li>
+              <a
+                href={item.href}
+                aria-current={isActive(item) ? 'page' : undefined}
+                class:list={[
+                  'block whitespace-nowrap py-3 font-sans text-[0.95rem] font-semibold uppercase tracking-[0.01em] transition-colors hover:text-gold nav:py-0 nav:text-[0.85rem] wide:text-[0.9rem]',
+                  isActive(item) ? 'text-gold' : 'text-olive-dark',
+                ]}
+              >
+                {item.label}
+              </a>
+            </li>
+          ))
+        }
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<script>
+  const toggle = document.querySelector<HTMLButtonElement>('[data-nav-toggle]');
+  const nav = document.querySelector<HTMLElement>('[data-nav]');
+  if (toggle && nav) {
+    const setOpen = (open: boolean) => {
+      toggle.setAttribute('aria-expanded', String(open));
+      toggle.querySelector('.sr-only')!.textContent = open ? 'Fermer le menu' : 'Ouvrir le menu';
+      nav.classList.toggle('hidden', !open);
+      toggle.querySelector('[data-icon-open]')?.classList.toggle('hidden', open);
+      toggle.querySelector('[data-icon-close]')?.classList.toggle('hidden', !open);
+    };
+    toggle.addEventListener('click', () => setOpen(toggle.getAttribute('aria-expanded') !== 'true'));
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && toggle.getAttribute('aria-expanded') === 'true') {
+        setOpen(false);
+        toggle.focus();
+      }
+    });
+  }
+</script>

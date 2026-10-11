@@ -1,0 +1,93 @@
+---
+// Maquette : references/Page _FORMULES & TARIFS.png
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Button from '../components/Button.astro';
+import PricingCard from '../components/PricingCard.astro';
+import Sprig from '../components/Sprig.astro';
+---
+
+<BaseLayout
+  title="Formules & tarifs"
+  description="Formules Essentiel (18 %) et Confort (23 %) pour vos locations saisonnières, Intendance annuelle dès 123 €/mois : trouvez la formule de conciergerie Maison Clovali qui vous correspond."
+>
+  <div class="relative isolate pb-8 nav:pb-6">
+    <img src="/images/fond-tarifs.webp" alt="" class="absolute inset-0 -z-20 h-full w-full object-cover" width="1920" height="1353" />
+    <div class="absolute inset-0 -z-10 bg-cream/55" aria-hidden="true"></div>
+
+    <header class="container-site relative pt-6 text-center nav:pt-[6px]">
+      <h1 class="font-serif text-[2.2rem] font-normal uppercase leading-tight text-olive-dark nav:-ml-[92px] md:text-[2.45rem]">Formules &amp; tarifs</h1>
+      <Sprig class="mx-auto mt-1 h-6 w-14 text-olive nav:-translate-x-[46px]" />
+      <p class="mt-1 font-sans text-lg uppercase tracking-[0.12em] text-olive-dark nav:-ml-[92px] md:text-[1.35rem]">Trouvez la formule qui vous correspond</p>
+      <Button href="/contact/" variant="sage-pale" class="mt-5 nav:absolute nav:right-[57px] nav:top-[55px] nav:mt-0 nav:min-h-[47px]">Contactez-nous</Button>
+    </header>
+
+    <div class="container-site mt-6 grid gap-6 nav:mt-[10px] nav:grid-cols-[710fr_438fr] nav:gap-[84px] nav:pl-[77px] nav:pr-[57px]">
+      <section class="flex flex-col bg-panel-rose/95 px-4 pb-5 sm:px-[19px]" aria-labelledby="saisonnier-title">
+        <h2 id="saisonnier-title" class="py-4 text-center font-sans text-lg font-semibold uppercase tracking-[0.06em] text-olive-dark">
+          Pour vos locations saisonnières
+        </h2>
+        <div class="grid flex-1 gap-6 md:grid-cols-2 md:gap-[29px]">
+          <PricingCard
+            title="Essentiel"
+            icon="house-leaf"
+            pitch="Vous gérez vos réservations, nous prenons en charge le reste"
+            services={[
+              'Ménage premium entre chaque location',
+              'Check-in & check-out personnalisés',
+              'Intervention en cas d’imprévus',
+              'Services à la carte pour enrichir le séjour de vos locataires',
+            ]}
+            footerColor="olive"
+          >
+            <span class="text-[0.95rem] font-semibold">Commission conciergerie</span>
+            <span class="text-2xl font-semibold">18&nbsp;%</span>
+          </PricingCard>
+          <PricingCard
+            title="Confort"
+            icon="armchair"
+            pitch="Plus de services pour vous libérer des contraintes du quotidien."
+            services={[
+              'Ménage premium entre chaque location',
+              'Check-in & check-out personnalisés',
+              'Gestion des imprévus',
+              'Suivi et coordination des séjours',
+              'Services à la carte pour enrichir le séjour de vos locataires',
+            ]}
+            footerColor="olive"
+          >
+            <span class="text-[0.95rem] font-semibold">Commission conciergerie</span>
+            <span class="text-2xl font-semibold">23&nbsp;%</span>
+          </PricingCard>
+        </div>
+      </section>
+
+      <section class="flex flex-col bg-panel-grey/95 px-4 pb-5 sm:px-[60px]" aria-labelledby="intendance-title">
+        <h2 id="intendance-title" class="py-4 text-center sm:-mx-[56px] tracking-[0.04em] font-sans text-lg font-semibold uppercase tracking-[0.06em] text-olive-dark">
+          Pour l’intendance de votre propriété
+        </h2>
+        <PricingCard
+          title="Intendance annuelle"
+          icon="house-cycle"
+          pitch="Une présence continue et proactive toute l’année."
+          services={[
+            'Visites de contrôle régulières',
+            'Ménage & entretien courant',
+            'Préparation avant l’arrivée des locataires',
+            'Suivi des prestataires',
+            'Coordination des interventions',
+            'Services à la carte',
+          ]}
+          footerColor="gold"
+          compact
+          class="flex-1"
+        >
+          <span class="text-[0.95rem] font-semibold">À partir de 123&nbsp;€/mois</span>
+          <!-- Mention conservée telle que sur la maquette (texte tronqué, à compléter par la cliente) -->
+          <span class="mt-1 text-[0.6rem] italic leading-tight">
+            Les tarifs indiqués sont des fourchettes indicatives. Chaque proposition est établie sur mesure après visite de votre bien. Premie
+          </span>
+        </PricingCard>
+      </section>
+    </div>
+  </div>
+</BaseLayout>

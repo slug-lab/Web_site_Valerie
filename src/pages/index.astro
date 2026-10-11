@@ -1,0 +1,103 @@
+---
+// Maquettes : references/ACCUEIL.png (hero) + references/ACCUEIL 2.png (suite)
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Button from '../components/Button.astro';
+import Divider from '../components/Divider.astro';
+import Testimonials from '../components/Testimonials.astro';
+import { site } from '../data/site';
+
+const localBusiness = {
+  '@context': 'https://schema.org',
+  '@type': 'LocalBusiness',
+  name: site.name,
+  description: site.description,
+  url: Astro.site?.toString(),
+  telephone: site.phoneHref,
+  email: site.email,
+  address: { '@type': 'PostalAddress', addressLocality: site.town, postalCode: '13650', addressCountry: 'FR' },
+  areaServed: ['Meyrargues', 'Aix-en-Provence', 'Pertuis', 'Luberon'],
+};
+---
+
+<BaseLayout title="Maison Clovali">
+  <script type="application/ld+json" slot="head" set:html={JSON.stringify(localBusiness)} />
+  <!-- Hero -->
+  <section class="relative isolate flex min-h-[calc(100svh-80px)] items-center py-10 nav:min-h-[672px] nav:py-[50px]">
+    <img
+      src="/images/accueil-terrasse.webp"
+      alt=""
+      class="absolute inset-0 -z-10 h-full w-full object-cover object-[60%_50%]"
+      width="1672"
+      height="941"
+      fetchpriority="high"
+    />
+    <div class="w-full px-4 sm:px-6 lg:pl-[18.8%] lg:pr-0">
+      <div class="mx-auto flex max-w-[635px] flex-col items-center bg-white/45 px-6 py-8 text-center backdrop-blur-[1px] sm:px-12 lg:mx-0 lg:min-h-[530px] lg:px-[100px] lg:py-[14px]">
+        <h1 class="font-serif text-[2.6rem] leading-[1.45] font-normal uppercase tracking-[0.03em] text-olive-dark sm:text-[3.6rem]">
+          Maison<br />Clovali
+        </h1>
+        <Divider class="mt-3 w-full max-w-[320px]" sprigClass="h-6 w-16 text-olive" lineClass="bg-olive-dark/70" />
+        <p class="mt-5 max-w-[380px] font-serif text-[1.45rem] italic leading-snug text-olive-dark sm:text-[1.65rem]">
+          Nous prenons soin de votre propriété comme si elle était la nôtre
+        </p>
+        <p class="mt-2 max-w-[420px] text-[0.95rem] leading-snug text-ink">
+          Conciergerie privée dédiée aux locations saisonnières haut de gamme et résidences secondaires en Provence
+        </p>
+        <div class="mt-6 flex w-full flex-col gap-6">
+          <Button href="/notre-accompagnement/" variant="outline-dark" class="bg-white/10">Découvrez notre accompagnement</Button>
+          <Button href="/contact/" variant="dark">Échanger sur votre projet</Button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Bienvenue -->
+  <section class="container-site py-10 text-center md:pt-8 md:pb-10" aria-labelledby="bienvenue-title">
+    <h2 id="bienvenue-title" class="font-serif text-3xl font-semibold italic text-olive-dark md:text-[2.15rem]">
+      Bienvenue chez Maison CLOVALI
+    </h2>
+    <div class="mx-auto mt-7 max-w-[1145px] space-y-6 text-[1.05rem] leading-relaxed text-ink md:text-lg md:leading-[1.5]">
+      <p>
+        Maison CLOVALI est une conciergerie privée spécialisée dans l’accompagnement des locations saisonnières et
+        l’intendance de résidences secondaires en Provence.
+      </p>
+      <p>
+        Nous accompagnons les propriétaires qui souhaitent valoriser leur propriété tout en se libérant des contraintes du
+        quotidien. De l’accueil des voyageurs à la coordination des intervenants, en passant par le suivi de votre
+        résidence tout au long de l’année, nous veillons à chaque détail avec exigence, discrétion et bienveillance.
+        <br />
+        Parce que chaque maison a son histoire, nous privilégions une relation de confiance, un accompagnement
+        personnalisé et une qualité de service à la hauteur de vos attentes.
+      </p>
+      <p class="font-bold text-sage">
+        Maison CLOVALI, l’art de prendre soin de votre propriété comme si elle était la nôtre.
+      </p>
+    </div>
+  </section>
+
+  <!-- Vous êtes propriétaire ? -->
+  <section class="grid md:grid-cols-[446fr_920fr]" aria-labelledby="proprietaire-title">
+    <div class="relative h-60 md:h-auto md:min-h-[235px]">
+      <img
+        src="/images/proprietaire.webp"
+        alt="Mas provençal en pierre entouré de lavande"
+        class="absolute inset-0 h-full w-full object-cover"
+        width="1200"
+        height="900"
+        loading="lazy"
+      />
+    </div>
+    <div class="flex flex-col bg-sage px-6 py-6 text-white md:px-[15px] md:py-4 lg:pr-[60px]">
+      <h2 id="proprietaire-title" class="text-center font-sans text-2xl font-light uppercase md:text-[2.1rem]">
+        Vous êtes propriétaire&nbsp;?
+      </h2>
+      <p class="mt-3 text-[1.05rem] leading-relaxed md:text-[1.2rem] md:leading-[1.55]">
+        Maison Clovali vous accompagne dans le suivi et l’entretien de votre propriété en Provence, que vous l’occupiez
+        toute l’année, ponctuellement, ou que vous la mettiez en location saisonnière.
+      </p>
+      <Button href="/contact/" variant="outline-light" class="mt-4 self-center md:min-w-[368px]">Échanger sur votre projet</Button>
+    </div>
+  </section>
+
+  <Testimonials class="pt-4" />
+</BaseLayout>

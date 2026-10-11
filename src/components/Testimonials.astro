@@ -1,0 +1,32 @@
+---
+import Icon from './Icon.astro';
+
+// « Ils nous font confiance » — avis factices en attendant les avis réels (décision cliente).
+interface Props {
+  class?: string;
+}
+const { class: className = '' } = Astro.props;
+const reviews = ['Avis client 1', 'Avis client 2', 'Avis client 3'];
+---
+
+<section class:list={['pb-10', className]} aria-labelledby="avis-title">
+  <div class="flex items-center gap-5 px-4 sm:px-[17px]">
+    <span class="h-px flex-1 bg-olive-dark/70" aria-hidden="true"></span>
+    <h2 id="avis-title" class="text-center font-sans text-xl font-normal uppercase text-olive-dark sm:text-2xl">
+      Ils nous font confiance
+    </h2>
+    <span class="h-px flex-1 bg-olive-dark/70" aria-hidden="true"></span>
+  </div>
+  <ul class="container-site mt-3 grid gap-4 md:grid-cols-3 md:gap-8 lg:gap-[73px] lg:px-[42px]">
+    {
+      reviews.map((review) => (
+        <li>
+          <figure class="flex min-h-[54px] items-center gap-4 bg-[#ececec] px-5 py-3">
+            <Icon name="quote" class="h-7 w-7 shrink-0 text-olive" />
+            <blockquote class="flex-1 pr-8 text-center text-lg text-ink">{review}</blockquote>
+          </figure>
+        </li>
+      ))
+    }
+  </ul>
+</section>

@@ -1,0 +1,36 @@
+---
+import type { HTMLAttributes } from 'astro/types';
+
+type Variant = 'dark' | 'outline-dark' | 'sage' | 'sage-pale' | 'outline-light' | 'outline-grey' | 'submit';
+
+type Props = (HTMLAttributes<'a'> | HTMLAttributes<'button'>) & {
+  href?: string;
+  variant?: Variant;
+  class?: string;
+};
+
+const { href, variant = 'dark', class: className = '', ...rest } = Astro.props;
+
+const variants: Record<Variant, string> = {
+  dark: 'bg-olive-dark text-white hover:bg-ink',
+  'outline-dark': 'border-[3px] border-olive-dark text-olive-dark hover:bg-olive-dark hover:text-white',
+  sage: 'bg-sage text-white hover:bg-olive',
+  'sage-pale': 'bg-sage-pale text-white hover:bg-olive',
+  'outline-light': 'border-2 border-cream text-white hover:bg-cream hover:text-olive-dark',
+  'outline-grey': 'border-2 border-[#8c8c7a] text-[#77776a] hover:bg-[#8c8c7a] hover:text-white',
+  submit: 'w-full bg-[#aaaaaa] text-olive-dark hover:bg-olive-dark hover:text-white disabled:cursor-wait disabled:opacity-70',
+};
+const classes = ['btn', variants[variant], className];
+---
+
+{
+  href ? (
+    <a href={href} class:list={classes} {...(rest as HTMLAttributes<'a'>)}>
+      <slot />
+    </a>
+  ) : (
+    <button class:list={classes} {...(rest as HTMLAttributes<'button'>)}>
+      <slot />
+    </button>
+  )
+}

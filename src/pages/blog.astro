@@ -1,0 +1,56 @@
+---
+// Pas de maquette : page simple pour le référencement (décision cliente), dans le système de design commun.
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Button from '../components/Button.astro';
+import Divider from '../components/Divider.astro';
+
+// Ajouter ici les articles lorsqu'ils seront rédigés (titre, date, extrait, lien).
+const posts: { title: string; date: string; excerpt: string; href: string }[] = [];
+---
+
+<BaseLayout
+  title="Blog"
+  description="Le blog de Maison Clovali : conseils et actualités sur la location saisonnière, l’intendance de résidences secondaires et la vie en Provence, autour d’Aix-en-Provence et du Luberon."
+>
+  <!-- Bandeau olivier (partie gauche déjà fondue) : le texte se place sur la zone claire -->
+  <section class="relative isolate flex flex-col bg-cream lg:min-h-[340px] lg:justify-center">
+    <img src="/images/olivier.webp" alt="" class="h-40 w-full object-cover object-right mix-blend-multiply sm:h-56 lg:absolute lg:inset-0 lg:-z-20 lg:h-full" width="978" height="248" />
+    <div class="absolute inset-0 -z-10 hidden bg-linear-to-r from-cream from-35% to-transparent to-65% lg:block" aria-hidden="true"></div>
+    <div class="px-4 py-8 text-center sm:px-6 lg:w-[52%] lg:py-10 lg:pl-12">
+      <h1 class="font-serif text-[2.2rem] font-normal uppercase tracking-[0.06em] text-olive-dark md:text-[2.6rem]">Le blog</h1>
+    <Divider class="mx-auto mt-3 w-full max-w-[505px]" sprigClass="h-6 w-14 text-olive" lineClass="bg-olive-dark/60" />
+    <p class="mx-auto mt-6 max-w-3xl font-sans text-lg uppercase tracking-[0.1em] text-olive-dark md:text-xl">
+      Conseils et actualités pour les propriétaires en Provence
+    </p>
+    <p class="mx-auto mt-6 max-w-3xl text-[1.05rem] leading-relaxed">
+      Location saisonnière, entretien de votre résidence secondaire, accueil des voyageurs, vie locale entre Aix-en-Provence
+      et le Luberon : retrouvez ici les conseils de Maison Clovali pour profiter sereinement de votre propriété.
+    </p>
+    </div>
+  </section>
+
+  <section class="container-site pb-16 pt-6 text-center">
+
+    {
+      posts.length > 0 ? (
+        <ul class="mt-4 grid gap-8 text-left md:grid-cols-3">
+          {posts.map((post) => (
+            <li>
+              <article class="h-full bg-cream-card p-6">
+                <time class="text-sm text-sage" datetime={post.date}>{new Date(post.date).toLocaleDateString('fr-FR', { dateStyle: 'long' })}</time>
+                <h2 class="mt-2 font-serif text-2xl font-semibold text-olive-dark"><a href={post.href} class="hover:text-gold">{post.title}</a></h2>
+                <p class="mt-3">{post.excerpt}</p>
+              </article>
+            </li>
+          ))}
+        </ul>
+      ) : (
+        <div class="mx-auto mt-4 max-w-xl bg-sand px-8 py-10">
+          <p class="font-serif text-2xl italic text-olive-dark">Nos premiers articles arrivent bientôt.</p>
+          <p class="mt-3">En attendant, nous répondons volontiers à vos questions.</p>
+          <Button href="/contact/" variant="sage" class="mt-6">Contactez-nous</Button>
+        </div>
+      )
+    }
+  </section>
+</BaseLayout>

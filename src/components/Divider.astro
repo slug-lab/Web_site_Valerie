@@ -1,0 +1,23 @@
+---
+import Sprig from './Sprig.astro';
+
+// Rameau seul, ou centré entre deux filets horizontaux.
+interface Props {
+  lines?: boolean;
+  class?: string;
+  sprigClass?: string;
+  lineClass?: string;
+}
+const {
+  lines = true,
+  class: className = '',
+  sprigClass = 'h-5 w-12 text-olive',
+  lineClass = 'bg-olive/60',
+} = Astro.props;
+---
+
+<div class:list={['flex items-center justify-center gap-5', className]} aria-hidden="true">
+  {lines && <span class:list={['h-px flex-1', lineClass]}></span>}
+  <Sprig class={sprigClass} />
+  {lines && <span class:list={['h-px flex-1', lineClass]}></span>}
+</div>

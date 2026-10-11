@@ -1,0 +1,21 @@
+---
+import { site } from '../data/site';
+
+// Logo définitif (references/photo/Logo_MC.png) : monogramme + « Maison Clovali — Conciergerie privée ».
+// Le texte est inclus dans l'image : ne pas le répéter en HTML.
+interface Props {
+  class?: string;
+  inverted?: boolean;
+}
+const { class: className = '', inverted = false } = Astro.props;
+---
+
+<a href="/" class:list={['block shrink-0', className]} aria-label={`${site.name} — accueil`}>
+  <img
+    src={inverted ? '/images/logo-maison-clovali-clair.png' : '/images/logo-maison-clovali.png'}
+    alt={`${site.name} — ${site.tagline}`}
+    class="h-12 w-auto sm:h-[60px]"
+    width="289"
+    height="60"
+  />
+</a>

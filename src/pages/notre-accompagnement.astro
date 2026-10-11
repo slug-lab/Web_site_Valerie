@@ -1,0 +1,68 @@
+---
+// Maquette : references/Page _NOTRE ACCOMPAGNEMENT.png
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Button from '../components/Button.astro';
+import Sprig from '../components/Sprig.astro';
+
+// Textes repris tels quels de la maquette (validés par la cliente).
+const steps = [
+  { title: 'Premier échange', text: 'Nous échangeons sur vos besoins et vos attentes.' },
+  { title: 'Visite de votre propriété', text: 'et définition des prestations souhaitées.' },
+  { title: 'Proposition sur mesure', text: 'Nous vous proposons un accompagnement adapté à vos besoins et à votre budget.' },
+  { title: 'Démarrage de la collaboration', text: 'Signature du contrat et définition des modalités d’intervention.' },
+  { title: 'Une sérénité au quotidien', text: 'Nous assurons le suivi de votre propriété et coordonnons les interventions dans la plus grande transparence.' },
+];
+---
+
+<BaseLayout
+  title="Notre accompagnement"
+  description="Premier échange, visite, proposition sur mesure, démarrage puis suivi : découvrez les étapes de l’accompagnement Maison Clovali pour votre propriété en Provence."
+>
+  <section class="container-site grid gap-8 pt-6 md:grid-cols-[1fr_368px] md:gap-[42px] nav:pt-[25px] lg:pl-[44px] lg:pr-[14px]">
+    <div class="md:pt-[34px]">
+      <h1 class="font-serif text-[1.75rem] font-normal uppercase leading-tight text-olive-dark md:text-[1.95rem]">
+        Comment se déroule notre accompagnement&nbsp;?
+      </h1>
+      <div class="mt-4 flex justify-center md:mt-[16px]">
+        <Sprig class="h-6 w-12 -rotate-12 text-[#b6a592]" />
+      </div>
+      <p class="mt-2 text-left text-[1.05rem] italic md:text-justify leading-[1.55] text-ink/90">
+        Parce que chaque propriété est unique, nous privilégions un accompagnement personnalisé à chaque étape. De notre
+        première rencontre au suivi de votre propriété, nous construisons une relation fondée sur l’écoute, la
+        transparence et la confiance. Découvrez les étapes de notre collaboration, puis choisissez l’accompagnement le plus
+        adapté à vos besoins.
+      </p>
+    </div>
+    <img
+      src="/images/notre-accompagnement.webp"
+      alt="Clés et carnet Maison Clovali sur une terrasse en pierre, piscine et collines provençales en arrière-plan"
+      class="aspect-[368/245] w-full object-cover"
+      width="1536"
+      height="1024"
+    />
+  </section>
+
+  <section class="container-site mt-6 lg:px-[57px]" aria-labelledby="etapes-title">
+    <h2 id="etapes-title" class="sr-only">Les étapes de notre collaboration</h2>
+    <ol class="grid bg-sage-light px-4 py-2 sm:grid-cols-2 md:min-h-[288px] md:py-[14px] lg:grid-cols-5 lg:px-0">
+      {
+        steps.map((step, i) => (
+          <li class="flex flex-col items-center border-b border-[#b6a592]/70 px-3 py-6 text-center last:border-b-0 lg:border-b-0 lg:border-r lg:py-0 lg:last:border-r-0">
+            <span class="font-sans text-[1.75rem] font-light leading-none text-olive" style="font-variant-numeric: lining-nums">
+              {String(i + 1).padStart(2, '0')}
+            </span>
+            <h3 class="mt-4 flex min-h-[3.4rem] items-start font-sans text-lg font-semibold uppercase leading-snug tracking-[0.08em] text-brown">
+              {step.title}
+            </h3>
+            <Sprig class="mt-6 h-4 w-8 text-olive-dark lg:mt-[30px]" />
+            <p class="mt-3 max-w-[220px] text-[0.95rem] italic leading-snug text-ink/80">{step.text}</p>
+          </li>
+        ))
+      }
+    </ol>
+  </section>
+
+  <div class="flex justify-center px-4 pb-14 pt-6">
+    <Button href="/formules-et-tarifs/" variant="sage" class="md:min-w-[342px]">Découvrir nos formules</Button>
+  </div>
+</BaseLayout>

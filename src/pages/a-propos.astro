@@ -1,0 +1,135 @@
+---
+// Maquette : references/Page _A PROPOS.png
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Button from '../components/Button.astro';
+import Icon from '../components/Icon.astro';
+import Testimonials from '../components/Testimonials.astro';
+import Divider from '../components/Divider.astro';
+
+const communes = [
+  'Meyrargues',
+  'Venelles',
+  'Aix-en-Provence',
+  'Puyricard',
+  'Le Puy-Sainte-Réparade',
+  'Pertuis',
+  'Lourmarin',
+  'Peyrolles-en-Provence',
+  'Jouques',
+  'Éguilles',
+];
+---
+
+<BaseLayout
+  title="À propos"
+  description="Valérie Deron, fondatrice de Maison Clovali, conciergerie privée implantée à Meyrargues. Notre territoire : Aix-en-Provence, Pertuis, Venelles, Lourmarin, Éguilles et les communes du Luberon."
+>
+  <section class="container-site grid gap-8 pt-6 md:grid-cols-[343fr_903fr] md:gap-[57px] lg:pl-[45px] lg:pr-[76px] nav:pt-[10px]">
+    <img
+      src="/images/portrait-valerie.webp"
+      alt="Portrait de Valérie Deron, fondatrice de Maison Clovali"
+      class="mx-auto aspect-[343/451] w-full max-w-[343px] rounded-[14px] object-cover object-[50%_30%] md:mx-0"
+      width="900"
+      height="900"
+    />
+
+    <div class="md:pt-2">
+      <h1 class="font-serif text-[2.4rem] font-normal italic leading-tight text-taupe-light md:text-[2.5rem]">Valérie Deron</h1>
+      <p class="mt-2 font-sans text-lg uppercase text-ink md:text-xl">Fondatrice de Maison Clovali</p>
+      <div class="mt-8 space-y-0 text-left text-[0.95rem] md:text-justify italic leading-[2] text-ink/90 md:mt-[34px]">
+        <p>
+          Implantée à Meyrargues depuis de nombreuses années, j’ai créé Maison Clovali avec une conviction simple : les
+          propriétaires méritent un interlocuteur local, disponible, fiable et attentif à leur propriété.
+        </p>
+        <p>
+          Mon parcours dans la relation client m’a appris l’écoute, la réactivité et l’exigence. Ce sont ces valeurs qui
+          guident aujourd’hui chacune de nos interventions.
+        </p>
+        <p>
+          Avec les partenaires de confiance qui m’accompagnent, nous veillons à chaque détail pour assurer le suivi et
+          l’entretien de votre propriété.
+        </p>
+        <p>
+          Lorsque votre maison est proposée à la location saisonnière, nous intervenons également dans sa préparation,
+          l’accueil des voyageurs et la coordination des interventions nécessaires.
+        </p>
+        <p>Lors de vos périodes d’absence, nous veillons à ce que votre résidence reste suivie et entretenue.</p>
+        <p>Notre priorité est simple : vous permettre de profiter pleinement de votre propriété, en toute sérénité.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="container-site mt-8 flex flex-col gap-8 pb-10 nav:mt-[34px] nav:flex-row nav:items-start nav:justify-between nav:pb-[46px] nav:pl-[82px] nav:pr-[44px]">
+    <div class="flex flex-col gap-4 sm:flex-row sm:gap-12 nav:pt-[16px]">
+      <Button href="/contact/" variant="sage" class="px-3 text-[1rem] whitespace-nowrap md:text-[1rem]">Échanger sur votre projet</Button>
+      <Button href="#notre-territoire" variant="outline-grey" class="px-3 text-[1rem] whitespace-nowrap md:text-[1rem]">
+        <Icon name="pin" class="h-10 w-8 shrink-0" />
+        Découvrir notre territoire
+      </Button>
+    </div>
+    <blockquote class="max-w-[590px] self-end text-right font-serif text-[1.35rem] italic leading-[1.5] tracking-[0.1em] text-ink">
+      <p>“La confiance se construit dans le temps, par la présence, l’écoute et le soin apporté à chaque détail”</p>
+    </blockquote>
+  </section>
+
+  <Testimonials />
+
+  <!-- Notre territoire (ancienne page /notre-territoire/, fusionnée ici) -->
+  <section id="notre-territoire" class="scroll-mt-4" aria-labelledby="territoire-title">
+    <section class="relative grid border-y border-dotted border-olive-dark md:min-h-[240px] md:grid-cols-[51fr_49fr]">
+      <div class="order-2 px-4 py-8 text-center md:order-1 md:pt-[28px] md:pb-[24px]">
+        <h2 id="territoire-title" class="font-serif text-[2.1rem] font-bold uppercase tracking-[0.12em] text-olive-dark md:text-[2.2rem]">Notre territoire</h2>
+        <Divider class="mx-auto mt-4 w-full max-w-[505px]" sprigClass="h-7 w-16 text-olive" lineClass="bg-olive-dark/70" />
+        <p class="mx-auto mt-7 max-w-[440px] font-sans text-xl uppercase leading-[1.45] tracking-[0.1em] text-olive-dark md:text-[1.4rem]">
+          Une conciergerie locale, au cœur de la Provence
+        </p>
+      </div>
+      <div class="relative order-1 h-56 md:order-2 md:h-auto">
+        <img src="/images/territoire-bandeau.webp" alt="Village perché de Gordes dans le Luberon" class="h-full w-full object-cover object-right md:absolute md:inset-0 md:[mask-image:linear-gradient(to_right,transparent,black_18%)]" width="782" height="240" />
+      </div>
+    </section>
+
+    <div class="container-site grid gap-10 py-8 nav:grid-cols-[322px_455px_1fr] nav:gap-x-[10px] nav:px-[18px] nav:pt-[24px]">
+      <section class="flex flex-col" aria-labelledby="secteur-title">
+        <h3 id="secteur-title" class="text-center font-serif text-[1.15rem] font-semibold uppercase leading-snug tracking-[0.08em] text-olive-dark">
+          Un secteur d’intervention au plus près de chez vous
+        </h3>
+        <Divider class="mx-auto mt-4 w-full max-w-[265px]" sprigClass="h-5 w-11 text-olive" lineClass="bg-olive-dark/70" />
+        <p class="mt-8 font-serif text-[1.1rem] font-bold leading-[1.75] text-olive-dark nav:pl-[12px]">
+          Nous intervenons à Meyrargues et dans les communes avoisinantes, autour d’Aix-en-Provence et du Luberon.
+        </p>
+        <p class="mt-8 font-serif text-[1.05rem] leading-relaxed text-ink nav:mt-auto nav:pb-4 nav:pl-[12px]">
+          Vous ne trouvez pas votre commune&nbsp;?<br />
+          <a href="/contact/" class="underline-offset-4 hover:underline">Contactez-nous</a>, nous étudierons votre demande.
+        </p>
+      </section>
+
+      <div class="mx-auto w-full max-w-[460px] nav:pt-[26px]">
+        <img
+          src="/images/carte-territoire.webp"
+          alt="Carte illustrée du secteur d’intervention, d’Aix-en-Provence à Pertuis et au Luberon : Meyrargues, Venelles, Le Puy-Sainte-Réparade, Peyrolles-en-Provence, Jouques, Éguilles, Lourmarin…"
+          class="h-auto w-full"
+          width="1100"
+          height="820"
+          loading="lazy"
+        />
+      </div>
+
+      <aside class="flex flex-col self-start nav:mt-[1px]" aria-labelledby="communes-title">
+        <div class="bg-sand px-6 pt-4 pb-5 sm:pl-[34px] sm:pr-[28px]">
+          <h3 id="communes-title" class="mx-auto max-w-[360px] text-center font-sans text-xl font-semibold uppercase leading-snug text-olive-dark">
+            Quelques communes de notre secteur
+          </h3>
+          <Divider class="mx-auto mt-4 w-full max-w-[362px]" sprigClass="h-5 w-11 text-olive" lineClass="bg-olive-dark/70" />
+          <ul class="mt-6 grid list-disc gap-x-10 gap-y-0 pl-5 text-[1.05rem] leading-6 text-ink sm:grid-flow-col sm:grid-cols-[auto_auto] sm:grid-rows-[repeat(5,auto)] sm:justify-between">
+            {communes.map((commune) => <li>{commune}</li>)}
+          </ul>
+        </div>
+        <div class="flex flex-col items-center gap-4 bg-sage px-6 py-6 text-center text-white">
+          <p class="text-lg font-semibold uppercase">Un projet dans notre région&nbsp;?</p>
+          <Button href="/contact/" variant="outline-light" class="md:min-w-[215px]">Contactez-nous</Button>
+        </div>
+      </aside>
+    </div>
+  </section>
+</BaseLayout>

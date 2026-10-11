@@ -1,0 +1,15 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Button from '../components/Button.astro';
+import Divider from '../components/Divider.astro';
+---
+
+<BaseLayout title="Message envoyé" description="Votre message a bien été envoyé à Maison Clovali.">
+  <meta slot="head" name="robots" content="noindex" />
+  <section class="container-site py-20 text-center">
+    <h1 class="font-serif text-4xl font-bold uppercase tracking-[0.1em] text-olive-dark">Merci&nbsp;!</h1>
+    <Divider class="mx-auto mt-4 max-w-md" />
+    <p class="mx-auto mt-6 max-w-xl text-lg">Votre message a bien été envoyé. Nous revenons vers vous dans les meilleurs délais.</p>
+    <Button href="/" variant="sage" class="mt-10">Retour à l’accueil</Button>
+  </section>
+</BaseLayout>

@@ -1,0 +1,72 @@
+---
+// Maquette : references/Page _NOS ENGAGEMENTS.png
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Button from '../components/Button.astro';
+import Icon, { type IconName } from '../components/Icon.astro';
+
+const engagements = [
+  { title: 'Préservation de votre bien', text: 'Nous veillons à l’entretien et à la valorisation de votre propriété.' },
+  { title: 'Excellence de service', text: 'Nous sélectionnons des partenaires fiables et leur partageons nos exigences de qualité.' },
+  { title: 'Respect & discrétion', text: 'Nous agissons avec discrétion et respect envers votre propriété et les voyageurs.' },
+  { title: 'Transparence & communication', text: 'Nous vous transmettons des comptes rendus réguliers sur le suivi de votre propriété.' },
+  { title: 'Relation de confiance', text: 'Nous cultivons une relation de confiance fondée sur la transparence, la disponibilité et la proximité.' },
+];
+
+const values: { label: string; icon: IconName }[] = [
+  { label: 'Proximité', icon: 'proximite' },
+  { label: 'Réactivité', icon: 'reactivite' },
+  { label: 'Disponibilité', icon: 'disponibilite' },
+  { label: 'Exigence', icon: 'exigence' },
+];
+---
+
+<BaseLayout
+  title="Nos engagements"
+  description="Préservation de votre bien, excellence de service, discrétion, transparence et relation de confiance : les engagements de Maison Clovali, conciergerie privée en Provence."
+>
+  <div class="relative">
+    <!-- Photo fondue en haut à droite -->
+    <div class="relative h-56 sm:h-72 md:absolute md:right-0 md:top-0 md:h-[295px] md:w-[43%]" aria-hidden="true">
+      <img src="/images/engagements-interieur.webp" alt="" class="h-full w-full object-cover object-right [mask-image:linear-gradient(to_top,transparent,black_35%)] md:[mask-image:linear-gradient(to_right,transparent,black_30%)]" width="1600" height="800" />
+    </div>
+
+    <div class="container-site relative grid gap-10 pb-6 md:grid-cols-[1fr_auto] md:pb-[22px] lg:pl-[29px] lg:pr-[102px]">
+      <div>
+        <h1 class="pt-4 font-serif text-[2rem] font-normal uppercase leading-tight text-olive-dark md:pt-[28px] md:text-[2.2rem]">
+          Nos engagements pour votre sérénité
+        </h1>
+        <ul class="mt-8 space-y-6 md:mt-[46px] md:space-y-[27px] lg:pl-[76px]">
+          {
+            engagements.map((item) => (
+              <li class="grid grid-cols-[32px_1fr] gap-x-0">
+                <Icon name="check" class="h-6 w-6 text-olive" />
+                <div>
+                  <h2 class="font-sans text-lg font-semibold uppercase text-olive-dark md:text-[1.15rem]">{item.title}</h2>
+                  <p class="mt-1 max-w-[680px] text-[1.05rem] italic leading-snug text-ink/90">{item.text}</p>
+                </div>
+              </li>
+            ))
+          }
+        </ul>
+      </div>
+
+      <aside class="self-start bg-sage px-6 py-10 text-center text-white md:mt-[325px] md:w-[347px] md:py-[38px]" aria-label="Contact">
+        <p class="text-xl font-semibold leading-snug">Vous souhaitez parler de votre projet&nbsp;?</p>
+        <Button href="/contact/" variant="outline-light" class="mt-8 md:min-w-[263px]">Contactez-nous</Button>
+      </aside>
+    </div>
+  </div>
+
+  <section class="container-site pb-12 lg:px-[93px]" aria-label="Nos valeurs">
+    <ul class="grid grid-cols-2 gap-y-8 border-t-2 border-olive-dark/80 pt-6 md:grid-cols-4">
+      {
+        values.map((value) => (
+          <li class="flex flex-col items-center gap-3">
+            <Icon name={value.icon} class="h-14 w-14 text-olive-dark" />
+            <span class="font-sans text-xl uppercase text-[#8c8c7a]">{value.label}</span>
+          </li>
+        ))
+      }
+    </ul>
+  </section>
+</BaseLayout>
