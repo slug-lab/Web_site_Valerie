@@ -6,7 +6,6 @@ export type IconName =
   | 'home'
   | 'phone'
   | 'mail'
-  | 'pin'
   | 'proximite'
   | 'reactivite'
   | 'disponibilite'
@@ -44,14 +43,6 @@ const stroke = { fill: 'none', stroke: 'currentColor', 'stroke-width': 1.6, 'str
       <g fill="currentColor">
         <path d="M4 10h40v4L24 27 4 14z" />
         <path d="M4 18l20 13 20-13v20H4z" />
-      </g>
-    )
-  }
-  {
-    name === 'pin' && (
-      <g fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
-        <path d="M24 44S10 28.5 10 19a14 14 0 0 1 28 0c0 9.5-14 25-14 25z" />
-        <circle cx="24" cy="19" r="5.5" />
       </g>
     )
   }

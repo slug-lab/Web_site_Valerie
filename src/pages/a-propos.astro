@@ -2,7 +2,6 @@
 // Maquette : references/Page _A PROPOS.png
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Button from '../components/Button.astro';
-import Icon from '../components/Icon.astro';
 import Testimonials from '../components/Testimonials.astro';
 import Divider from '../components/Divider.astro';
 
@@ -62,17 +61,11 @@ const communes = [
   <section class="container-site mt-8 flex flex-col gap-8 pb-10 nav:mt-[34px] nav:flex-row nav:items-start nav:justify-between nav:pb-[46px] nav:pl-[82px] nav:pr-[44px]">
     <div class="flex flex-col gap-4 sm:flex-row sm:gap-12 nav:pt-[16px]">
       <Button href="/contact/" variant="sage" class="px-3 text-[1rem] whitespace-nowrap md:text-[1rem]">Échanger sur votre projet</Button>
-      <Button href="#notre-territoire" variant="outline-grey" class="px-3 text-[1rem] whitespace-nowrap md:text-[1rem]">
-        <Icon name="pin" class="h-10 w-8 shrink-0" />
-        Découvrir notre territoire
-      </Button>
     </div>
     <blockquote class="max-w-[590px] self-end text-right font-serif text-[1.35rem] italic leading-[1.5] tracking-[0.1em] text-ink">
       <p>“La confiance se construit dans le temps, par la présence, l’écoute et le soin apporté à chaque détail”</p>
     </blockquote>
   </section>
-
-  <Testimonials />
 
   <!-- Notre territoire (ancienne page /notre-territoire/, fusionnée ici) -->
   <section id="notre-territoire" class="scroll-mt-4" aria-labelledby="territoire-title">
@@ -132,4 +125,6 @@ const communes = [
       </aside>
     </div>
   </section>
+
+  <Testimonials class="pt-6" />
 </BaseLayout>

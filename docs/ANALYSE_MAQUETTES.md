@@ -117,7 +117,7 @@ Même en-tête, même photo, même position et taille de panneau (≈ 635 × 533
      - Droite (x 444 → 1290) : « Valérie Deron » serif italique ≈ 38 px, couleur beige-taupe clair `#C9BFAF` env. ; « FONDATRICE DE MAISON CLOVALI » sans-serif capitales ≈ 20 px ; 7 paragraphes courts en sans-serif italique ≈ 15 px, justifiés, interligne très aéré (≈ 2).
   2. **Rangée boutons + citation** :
      - **« Échanger sur votre projet »** (plein sauge) → *Contact* ;
-     - **« Découvrir notre territoire »** (contour gris + pictogramme localisation) → *Notre territoire* ;
+     - **« Découvrir notre territoire »** (contour gris + pictogramme localisation) → *Notre territoire* ; **supprimé le 11/10/2026** (la section territoire est intégrée à la page) ;
      - Citation alignée à droite en serif italique espacé ≈ 22 px : « la confiance se construit dans le temps, par la présence, l'écoute et le soin apporté à chaque détail ».
   3. **« Ils nous font confiance »** + 3 avis (partagé).
 - **Remarque texte** : la citation contient des accents manquants (« l'ecoute », « a chaque ») et commence par une minuscule → à corriger (validation cliente).

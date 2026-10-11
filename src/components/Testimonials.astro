@@ -1,12 +1,28 @@
 ---
 import Icon from './Icon.astro';
 
-// « Ils nous font confiance » — avis factices en attendant les avis réels (décision cliente).
+// « Ils nous font confiance »
+// ⚠ AVIS D'EXEMPLE rédigés pour la mise en page : ce ne sont PAS de vrais clients.
+// À remplacer par des avis réels (avec l'accord de leurs auteurs) AVANT la mise en ligne :
+// publier de faux avis est une pratique commerciale trompeuse (Code de la consommation, art. L121-4).
 interface Props {
   class?: string;
 }
 const { class: className = '' } = Astro.props;
-const reviews = ['Avis client 1', 'Avis client 2', 'Avis client 3'];
+const reviews: { text: string; author: string }[] = [
+  {
+    text: 'Nous louons notre mas toute la saison sans plus nous en soucier. Ménage impeccable, accueil chaleureux des voyageurs et un compte rendu après chaque séjour.',
+    author: 'Propriétaire à Lourmarin — formule Confort',
+  },
+  {
+    text: 'Vivant à l’étranger, je cherchais quelqu’un de confiance pour ma maison. Les visites régulières et les photos envoyées me rassurent tout au long de l’année.',
+    author: 'Propriétaire à Venelles — Intendance annuelle',
+  },
+  {
+    text: 'Réactivité remarquable : une fuite un dimanche soir, un artisan sur place le lendemain matin. Nos locataires n’ont rien remarqué.',
+    author: 'Propriétaires à Pertuis — formule Essentiel',
+  },
+];
 ---
 
 <section class:list={['pb-10', className]} aria-labelledby="avis-title">
@@ -20,10 +36,15 @@ const reviews = ['Avis client 1', 'Avis client 2', 'Avis client 3'];
   <ul class="container-site mt-3 grid gap-4 md:grid-cols-3 md:gap-8 lg:gap-[73px] lg:px-[42px]">
     {
       reviews.map((review) => (
-        <li>
-          <figure class="flex min-h-[54px] items-center gap-4 bg-[#ececec] px-5 py-3">
+        <li class="h-full">
+          <figure class="flex h-full gap-4 bg-[#ececec] px-5 py-4">
             <Icon name="quote" class="h-7 w-7 shrink-0 text-olive" />
-            <blockquote class="flex-1 pr-8 text-center text-lg text-ink">{review}</blockquote>
+            <div class="flex flex-1 flex-col">
+              <blockquote class="font-serif text-[1.1rem] italic leading-snug text-ink">
+                <p>{review.text}</p>
+              </blockquote>
+              <figcaption class="mt-auto pt-3 text-sm text-olive-dark/80">{review.author}</figcaption>
+            </div>
           </figure>
         </li>
       ))
