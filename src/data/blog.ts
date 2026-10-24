@@ -123,7 +123,7 @@ export const posts: BlogPost[] = [
           'Un entretien régulier permet de préserver votre maison et de repérer rapidement les interventions nécessaires. Même lorsqu’elle est inoccupée, votre propriété nécessite une surveillance adaptée pour anticiper les problèmes et limiter les dégradations.',
         ],
       },
-      // La maquette répète cette section en n° 6 avec un texte identique : doublon non repris (à confirmer MOA).
+      // La maquette répète cette section en n° 6 avec un texte identique : doublon non repris (validé MOA le 24/10).
       {
         title: 'Bénéficier d’un service adapté à sa situation',
         paragraphs: [
