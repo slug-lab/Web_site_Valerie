@@ -1,0 +1,19 @@
+---
+// Encart « Vous souhaitez louer votre propriété… » des maquettes blog (liste et articles).
+import Button from './Button.astro';
+import Sprig from './Sprig.astro';
+
+interface Props {
+  class?: string;
+}
+const { class: className = '' } = Astro.props;
+---
+
+<aside class:list={['flex flex-col items-center gap-5 bg-[#e0d9cf] px-6 py-5 text-center sm:flex-row sm:gap-6 sm:py-4 sm:pl-5 sm:pr-7 sm:text-left', className]} aria-label="Contact">
+  <Sprig vertical class="hidden h-[62px] w-[48px] shrink-0 opacity-80 sm:block" />
+  <p class="flex-1 font-serif text-[0.95rem] leading-[1.45] sm:text-[0.82rem] text-[#6f685c] sm:pl-5">
+    <strong class="font-semibold">Vous souhaitez louer votre propriété en Provence<br class="hidden sm:inline" /> ou être accompagné dans sa gestion&nbsp;?</strong><br />
+    Contactez Maison Clovali pour échanger sur votre projet.
+  </p>
+  <Button href="/contact/" variant="sage" class="min-h-[46px] shrink-0 px-2 text-[0.95rem] md:text-[0.95rem]">Contactez-nous</Button>
+</aside>

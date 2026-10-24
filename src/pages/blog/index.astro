@@ -1,0 +1,57 @@
+---
+// Maquette : references/update_du_24_10/Page _LE BLOG.png
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Button from '../../components/Button.astro';
+import Divider from '../../components/Divider.astro';
+import BlogCta from '../../components/BlogCta.astro';
+import { posts } from '../../data/blog';
+---
+
+<BaseLayout
+  title="Blog"
+  description="Le blog de Maison Clovali : conseils et actualités autour de votre propriété — location saisonnière, intendance de résidences secondaires et conciergerie privée en Provence."
+>
+  <!-- Bandeau olivier (partie gauche déjà fondue) : le texte se place sur la zone claire -->
+  <section class="relative isolate flex flex-col border-b border-dotted border-olive-dark bg-cream lg:min-h-[248px] lg:justify-center">
+    <img src="/images/olivier.webp" alt="" class="h-40 w-full object-cover object-right mix-blend-multiply sm:h-56 lg:absolute lg:inset-y-0 lg:right-0 lg:-z-20 lg:h-full lg:w-[52%]" width="978" height="248" />
+    <div class="absolute inset-0 -z-10 hidden bg-linear-to-r from-cream from-48% to-transparent to-62% lg:block" aria-hidden="true"></div>
+    <div class="px-4 py-8 text-center sm:px-6 lg:w-[50%] lg:py-4 lg:pl-[45px] lg:pr-0">
+      <h1 class="font-serif text-[2.2rem] font-bold uppercase tracking-[0.12em] text-olive-dark md:text-[2.4rem]">Le blog</h1>
+      <Divider class="mx-auto mt-2 w-full max-w-[505px]" sprigClass="h-10 w-12" lineClass="bg-olive-dark/60" />
+      <p class="mx-auto mt-4 max-w-[490px] font-sans text-lg uppercase leading-[1.45] tracking-[0.1em] text-olive-dark md:text-[1.4rem]">
+        Conseils &amp; actualités autour de votre propriété
+      </p>
+    </div>
+  </section>
+
+  <section class="container-site grid gap-10 pb-12 pt-10 nav:grid-cols-[630px_1fr] nav:gap-x-[52px] nav:pl-[45px] nav:pr-[34px] nav:pt-[50px]" aria-label="Articles">
+    <div>
+      <ul class="space-y-10 nav:space-y-[45px]">
+        {
+          posts.map((post) => (
+            <li>
+              <article class="grid gap-4 sm:grid-cols-[243px_1fr] sm:gap-[14px]">
+                <a href={`/blog/${post.slug}/`} tabindex="-1" aria-hidden="true">
+                  <img src={post.image.src} alt="" class="aspect-[243/116] w-full object-cover" width={post.image.width} height={post.image.height} loading="lazy" />
+                </a>
+                <div>
+                  <h2 class="font-sans text-base font-semibold leading-tight text-olive-dark">
+                    <a href={`/blog/${post.slug}/`} class="hover:text-gold">{post.cardTitle}</a>
+                  </h2>
+                  <p class="mt-2 font-serif text-[0.9rem] leading-[1.75] text-ink">{post.excerpt}</p>
+                  <a href={`/blog/${post.slug}/`} class="mt-0.5 inline-block font-sans text-[0.85rem] font-bold uppercase text-olive-dark hover:text-gold">
+                    Lire l’article<span class="sr-only"> : {post.title}</span>
+                  </a>
+                </div>
+              </article>
+            </li>
+          ))
+        }
+      </ul>
+      <Button href="/" variant="outline-grey" class="mt-6 min-h-10 border px-2.5 py-2 text-[0.95rem] md:text-[0.95rem] nav:mt-[25px]">Revenir à la page d’accueil</Button>
+    </div>
+
+    <!-- Encart aligné sur le second article, comme sur la maquette -->
+    <BlogCta class="self-start nav:mt-[188px]" />
+  </section>
+</BaseLayout>

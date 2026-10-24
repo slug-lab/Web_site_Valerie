@@ -21,7 +21,7 @@ const { title, image, pitch, services, footerColor, compact = false, class: clas
       <img src={image.src} alt="" width={image.width} height={image.height} />
     </div>
     <h3 class="mt-1 text-center font-serif text-[1.65rem] font-semibold text-olive-dark">{title}</h3>
-    <Divider class="mx-auto mt-2 w-full max-w-[258px]" sprigClass="h-4 w-9 text-[#b6a592]" lineClass="bg-[#c9b9a6]" />
+    <Divider class="mx-auto mt-2 w-full max-w-[258px]" sprigClass="h-8 w-10" lineClass="bg-[#c9b9a6]" />
     <p class="mt-3 text-balance text-center font-serif text-[1.15rem] font-semibold italic leading-tight text-olive-dark">{pitch}</p>
     <ul class:list={['mt-3 text-[0.85rem]', compact ? 'space-y-[13px]' : 'space-y-[17px]', 'leading-snug text-ink/90']}>
       {services.map((service) => <li>{service}</li>)}

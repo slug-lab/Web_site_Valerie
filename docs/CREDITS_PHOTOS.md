@@ -26,3 +26,5 @@ Logo : `Logo_MC.png` (fond rendu transparent) → `logo-maison-clovali.png` (en-
 | atout-residences.png, atout-locations.png | image_home_page/home.png, key.png (fond rendu transparent) | Pictogrammes des atouts du hero de l’accueil |
 | valeur-proximite.png, valeur-reactivite.png, valeur-disponibilite.png, valeur-exigence.png | image_home_page/proximite.png, reactivite.png, disponiblite.png, Exigence.png (fond rendu transparent) | Pictogrammes des valeurs (Nos engagements) |
 | engagements-interieur.webp | Photos page Nos Services option2.png | Photo de Nos engagements |
+| feuille-olive.webp, feuille-olive-verticale.webp | update_du_24_10/Feuille_vert olive_1.png (recadré ; pivoté pour la version horizontale) | Picto feuille de tout le site (24/10/2026) |
+| blog-location-saisonniere.webp, blog-conciergerie.webp | Recadrées dans les maquettes update_du_24_10/Page _ARTICLE BLOG-2.png et Page_ARTICLE BLOG_1.png | Photos des articles du blog — **provisoires, basse résolution : originaux à fournir** |

@@ -16,8 +16,9 @@ import Sprig from '../components/Sprig.astro';
 
     <header class="container-site relative pt-6 text-center nav:pt-[6px]">
       <h1 class="font-serif text-[2.2rem] font-normal uppercase leading-tight text-olive-dark nav:-ml-[92px] md:text-[2.45rem]">Formules &amp; tarifs</h1>
-      <Sprig class="mx-auto mt-1 h-6 w-14 text-olive nav:-translate-x-[46px]" />
-      <p class="mt-1 font-sans text-lg uppercase tracking-[0.12em] text-olive-dark nav:-ml-[92px] md:text-[1.35rem]">Trouvez la formule qui vous correspond</p>
+      <Sprig class="mx-auto mt-1 h-10 w-12 nav:-translate-x-[46px]" />
+      <!-- Consigne MOA du 24/10 : phrase rendue plus lisible (graisse, taille), fond transparent -->
+      <p class="nav:-ml-[92px]"><span class="mt-1 inline-block px-4 py-1 font-sans text-lg font-semibold uppercase tracking-[0.12em] text-olive-dark md:text-[1.45rem]">Trouvez la formule qui vous correspond</span></p>
       <Button href="/contact/" variant="sage-pale" class="mt-5 nav:absolute nav:right-[57px] nav:top-[55px] nav:mt-0 nav:min-h-[47px]">Contactez-nous</Button>
     </header>
 
@@ -82,9 +83,8 @@ import Sprig from '../components/Sprig.astro';
           class="flex-1"
         >
           <span class="text-[1.25rem] font-semibold leading-tight">À partir de 123&nbsp;€/mois</span>
-          <!-- Mention conservée telle que sur la maquette (texte tronqué, à compléter par la cliente) -->
           <span class="mt-1 text-[0.72rem] italic leading-tight">
-            Les tarifs indiqués sont des fourchettes indicatives. Chaque proposition est établie sur mesure après visite de votre bien. Premie
+            Les tarifs indiqués sont des fourchettes indicatives. Chaque proposition est établie sur mesure après visite de votre bien.
           </span>
         </PricingCard>
       </section>

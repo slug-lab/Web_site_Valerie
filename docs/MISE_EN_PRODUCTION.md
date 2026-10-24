@@ -53,9 +53,9 @@ Déjà fournis par la cliente (le 11/10/2026) : photo de l'accueil, portrait, ca
 ### 4. Contenus à compléter
 
 - **Avis clients (bloquant)** : `src/components/Testimonials.astro` contient 1 témoignage réel (Marie C., transmis le 11/10/2026) et 2 **avis d’exemple rédigés pour la mise en page** (marqués `example: true`, pas de vrais clients). Les remplacer par des avis réels, avec l’accord écrit de leurs auteurs, ou retirer la section **avant la mise en ligne** : publier de faux avis est une pratique commerciale trompeuse (Code de la consommation, art. L121-4).
-- **Mention tarifaire** de la formule Intendance : texte tronqué (« … Premie ») dans `src/pages/formules-et-tarifs.astro`.
 - **Mentions légales** : forme juridique, adresse, SIRET, durée de conservation des données (`src/pages/mentions-legales.astro`, champs entre crochets).
-- **Blog** : ajouter les articles dans `src/pages/blog.astro` (tableau `posts`), ou demander la mise en place d'articles en Markdown.
+- **Blog** : 2 articles en ligne (24/10/2026). Pour en ajouter un, compléter `src/data/blog.ts` (la page `/blog/<slug>/` est générée automatiquement).
+- **Photos des articles** : `blog-location-saisonniere.webp` et `blog-conciergerie.webp` sont extraites des maquettes (≈ 330 × 150 px, floues sur écran haute densité) : fournir les photos originales.
 - **Code postal** utilisé dans les données structurées (13650, Meyrargues) : à vérifier dans `src/pages/index.astro`.
 
 ### 5. Vérifications finales

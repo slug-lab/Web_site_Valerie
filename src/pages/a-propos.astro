@@ -42,7 +42,7 @@ const communes = [
         </p>
         <p>
           Mon parcours dans la relation client m’a appris l’écoute, la réactivité et l’exigence. Ce sont ces valeurs qui
-          guident aujourd’hui chacune de nos interventions.
+          guident aujourd’hui chacune de mes interventions.
         </p>
         <p>
           Avec les partenaires de confiance qui m’accompagnent, nous veillons à chaque détail pour assurer le suivi et
@@ -58,46 +58,50 @@ const communes = [
     </div>
   </section>
 
-  <section class="container-site mt-8 flex flex-col gap-8 pb-10 nav:mt-[34px] nav:flex-row nav:items-start nav:justify-between nav:pb-[46px] nav:pl-[82px] nav:pr-[44px]">
-    <div class="flex flex-col gap-4 sm:flex-row sm:gap-12 nav:pt-[16px]">
+  <!-- Même grille que le portrait : le bouton est centré sous la photo (consigne MOA du 24/10) -->
+  <section class="container-site mt-8 grid gap-8 pb-10 md:grid-cols-[343fr_903fr] md:gap-[57px] lg:pl-[45px] lg:pr-[76px] nav:mt-[34px] nav:pb-[46px]">
+    <div class="flex w-full justify-center md:max-w-[343px] nav:pt-[16px]">
       <Button href="/contact/" variant="sage" class="px-3 text-[1rem] whitespace-nowrap md:text-[1rem]">Échanger sur votre projet</Button>
     </div>
-    <blockquote class="max-w-[590px] self-end text-right font-serif text-[1.35rem] italic leading-[1.5] tracking-[0.1em] text-ink">
+    <blockquote class="max-w-[590px] justify-self-end text-right font-serif text-[1.35rem] italic leading-[1.5] tracking-[0.1em] text-ink">
       <p>“La confiance se construit dans le temps, par la présence, l’écoute et le soin apporté à chaque détail”</p>
     </blockquote>
   </section>
 
   <!-- Notre territoire (ancienne page /notre-territoire/, fusionnée ici) -->
   <section id="notre-territoire" class="scroll-mt-4" aria-labelledby="territoire-title">
-    <section class="relative grid border-y border-dotted border-olive-dark md:min-h-[240px] md:grid-cols-[51fr_49fr]">
+    <!-- Consignes MOA du 24/10 (references/update_du_24_10, cible « Page _NOTRE TERRITOIRE (2).png ») :
+         séparateur placé sous le sous-titre, ligne pointillée basse supprimée, bloc communes calé à droite,
+         carte agrandie, simple filet sous « Un secteur d'intervention », écart réduit avant « Vous ne trouvez pas… » -->
+    <section class="relative grid border-t border-dotted border-olive-dark md:min-h-[240px] md:grid-cols-[51fr_49fr]">
       <div class="order-2 px-4 py-8 text-center md:order-1 md:pt-[28px] md:pb-[24px]">
         <h2 id="territoire-title" class="font-serif text-[2.1rem] font-bold uppercase tracking-[0.12em] text-olive-dark md:text-[2.2rem]">Notre territoire</h2>
-        <Divider class="mx-auto mt-4 w-full max-w-[505px]" sprigClass="h-7 w-16 text-olive" lineClass="bg-olive-dark/70" />
-        <p class="mx-auto mt-7 max-w-[440px] font-sans text-xl uppercase leading-[1.45] tracking-[0.1em] text-olive-dark md:text-[1.4rem]">
+        <p class="mx-auto mt-5 max-w-[440px] font-sans text-xl uppercase leading-[1.45] tracking-[0.1em] text-olive-dark md:text-[1.4rem]">
           Une conciergerie locale, au cœur de la Provence
         </p>
+        <Divider class="mx-auto mt-6 w-full max-w-[505px]" sprigClass="h-11 w-14" lineClass="bg-olive-dark/70" />
       </div>
       <div class="relative order-1 h-56 md:order-2 md:h-auto">
         <img src="/images/territoire-bandeau.webp" alt="Village perché de Gordes dans le Luberon" class="h-full w-full object-cover object-right md:absolute md:inset-0 md:[mask-image:linear-gradient(to_right,transparent,black_18%)]" width="782" height="240" />
       </div>
     </section>
 
-    <div class="container-site grid gap-10 py-8 nav:grid-cols-[322px_455px_1fr] nav:gap-x-[10px] nav:px-[18px] nav:pt-[24px]">
+    <div class="mx-auto grid w-full max-w-[1920px] gap-10 px-4 py-8 sm:px-6 lg:px-10 nav:grid-cols-[330px_minmax(0,1fr)_minmax(460px,533px)] nav:gap-x-[10px] nav:px-[18px] nav:pt-[24px]">
       <section class="flex flex-col" aria-labelledby="secteur-title">
         <h3 id="secteur-title" class="text-center font-serif text-[1.15rem] font-semibold uppercase leading-snug tracking-[0.08em] text-olive-dark">
           Un secteur d’intervention au plus près de chez vous
         </h3>
-        <Divider class="mx-auto mt-4 w-full max-w-[265px]" sprigClass="h-5 w-11 text-olive" lineClass="bg-olive-dark/70" />
-        <p class="mt-8 font-serif text-[1.1rem] font-bold leading-[1.75] text-olive-dark nav:pl-[12px]">
-          Nous intervenons à Meyrargues et dans les communes avoisinantes, autour d’Aix-en-Provence et du Luberon.
+        <span class="mx-auto mt-6 block h-px w-[102px] bg-olive-dark/70" aria-hidden="true"></span>
+        <p class="mx-auto mt-7 max-w-[310px] text-center font-serif text-[1.1rem] font-bold leading-[1.75] text-olive-dark">
+          Nous intervenons à Meyrargues et dans les communes avoisinantes, autour d’Aix&#8209;en&#8209;Provence et du Luberon.
         </p>
-        <p class="mt-8 font-serif text-[1.05rem] leading-relaxed text-ink nav:mt-auto nav:pb-4 nav:pl-[12px]">
+        <p class="mt-6 text-center font-serif text-[1.05rem] leading-relaxed text-ink">
           Vous ne trouvez pas votre commune&nbsp;?<br />
           <a href="/contact/" class="underline-offset-4 hover:underline">Contactez-nous</a>, nous étudierons votre demande.
         </p>
       </section>
 
-      <div class="mx-auto w-full max-w-[460px] nav:pt-[26px]">
+      <div class="mx-auto w-full max-w-[600px] nav:pt-[26px]">
         <img
           src="/images/carte-territoire.webp"
           alt="Carte illustrée du secteur d’intervention, d’Aix-en-Provence à Pertuis et au Luberon : Meyrargues, Venelles, Le Puy-Sainte-Réparade, Peyrolles-en-Provence, Jouques, Éguilles, Lourmarin…"
@@ -113,7 +117,7 @@ const communes = [
           <h3 id="communes-title" class="mx-auto max-w-[360px] text-center font-sans text-xl font-semibold uppercase leading-snug text-olive-dark">
             Quelques communes de notre secteur
           </h3>
-          <Divider class="mx-auto mt-4 w-full max-w-[362px]" sprigClass="h-5 w-11 text-olive" lineClass="bg-olive-dark/70" />
+          <Divider class="mx-auto mt-4 w-full max-w-[362px]" sprigClass="h-9 w-11" lineClass="bg-olive-dark/70" />
           <ul class="mt-6 grid list-disc gap-x-10 gap-y-0 pl-5 text-[1.05rem] leading-6 text-ink sm:grid-flow-col sm:grid-cols-[auto_auto] sm:grid-rows-[repeat(5,auto)] sm:justify-between">
             {communes.map((commune) => <li>{commune}</li>)}
           </ul>

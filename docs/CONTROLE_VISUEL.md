@@ -32,6 +32,13 @@
 4. **Pages ajoutées** : Blog (décision cliente), Mentions légales & confidentialité, page « Merci » (confirmation sans JavaScript), page 404.
 5. **Contraste** : le texte blanc sur le vert sauge `#A1A08A` (bandeaux, boutons) est conservé pour respecter la maquette, mais son contraste (≈ 2,6:1) est inférieur au seuil d'accessibilité WCAG AA. Recommandation : foncer légèrement la teinte (ex. `#8A8973`) si la cliente l'accepte.
 6. **Responsive** (maquettes desktop uniquement) : menu burger sous 1248 px ; colonnes empilées sur mobile ; frise des étapes en 2 colonnes (tablette) puis verticale ; formulaire sur une colonne ; photos fondues remplacées par des bandeaux en haut de page sur mobile.
+7. **Maquettes du 24/10/2026** (blog, articles, territoire) : elles montrent l'ancien menu (« Votre projet », sans « Notre accompagnement ») ; le menu actuel à 7 entrées est conservé. Sur le territoire, « Justifier tous les paragraphes » a été lu d'après l'image APRÈS, où les textes sont **centrés** (à confirmer).
+8. **Article « Faire appel à une conciergerie »** : la maquette répète la section « Bénéficier d'un service adapté à sa situation » (n° 5 et 6, texte identique) ; le doublon n'est pas repris (5 sections, à confirmer). Corrections typographiques : « voyageurs: » → « voyageurs : », « nécessaires, Même » → « nécessaires. Même », espace double supprimée.
+9. **Encart contact du blog** : texte légèrement plus foncé que sur la maquette (gris très clair sur beige, illisible) pour un contraste suffisant.
+
+## Contrôle du 24/10/2026
+
+Captures 1366 × 768 superposées aux maquettes `update_du_24_10/` (`screenshots/cmp-blog.png`, `cmp-article1.png`, `cmp-article2.png`) et contrôle à 390 px : structure, ordre des sections, proportions et typographie conformes ; écarts restants ci-dessus. À propos / territoire conforme à `Page _NOTRE TERRITOIRE (2).png`.
 
 ## Captures
 

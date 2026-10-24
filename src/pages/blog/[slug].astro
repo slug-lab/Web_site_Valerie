@@ -1,0 +1,67 @@
+---
+// Maquettes : references/update_du_24_10/Page _ARTICLE BLOG-2.png (5 conseils) et Page_ARTICLE BLOG_1.png (conciergerie)
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import BlogCta from '../../components/BlogCta.astro';
+import Sprig from '../../components/Sprig.astro';
+import { posts, type BlogPost } from '../../data/blog';
+
+export function getStaticPaths() {
+  return posts.map((post) => ({ params: { slug: post.slug }, props: { post } }));
+}
+
+const { post } = Astro.props as { post: BlogPost };
+// Deux colonnes comme sur la maquette, l'encart contact sous la colonne de droite.
+const split = post.leftColumn;
+const columns = [post.sections.slice(0, split), post.sections.slice(split)];
+---
+
+<BaseLayout title={post.title} description={post.description} image={post.image.src}>
+  <article>
+    <header class="grid gap-6 border-b border-dotted border-olive-dark px-4 pb-6 pt-4 sm:px-6 lg:grid-cols-[1fr_336px] lg:gap-10 lg:pl-[25px] lg:pr-[32px] lg:pb-[20px] nav:pt-[6px]">
+      <div>
+        <h1 class="font-sans text-[1.75rem] font-bold leading-[1.35] tracking-[0.04em] text-olive-dark md:text-[2.1rem]">{post.title}</h1>
+        <div class="flex max-w-[505px] items-center gap-5" aria-hidden="true">
+          <span class="h-px flex-1 bg-olive/70"></span>
+          <Sprig class="h-11 w-16" />
+          <span class="h-px flex-1 bg-olive/70"></span>
+        </div>
+        <p class="mt-1 max-w-[900px] font-serif text-[1.1rem] font-bold leading-[1.6] tracking-[0.1em] text-olive-dark">{post.standfirst}</p>
+      </div>
+      <img src={post.image.src} alt={post.image.alt} class="order-first aspect-[336/153] w-full max-w-[336px] object-cover lg:order-none lg:mt-[4px]" width={post.image.width} height={post.image.height} />
+    </header>
+
+    <div class="container-site pb-12 pt-5 lg:pl-[38px] lg:pr-[34px]">
+      <p class="font-serif text-[1.08rem] font-semibold leading-[1.75] text-olive-dark">{post.intro}</p>
+
+      <div class="mt-7 grid gap-8 lg:grid-cols-2 lg:gap-x-[86px]">
+        {
+          columns.map((sections, col) => (
+            <div class="flex flex-col gap-6">
+              <ol class="flex flex-col gap-5" start={col === 0 ? 1 : split + 1}>
+                {sections.map((section, i) => (
+                  <li class="grid grid-cols-[34px_1fr] gap-x-[10px]">
+                    <span class="flex h-[34px] w-[34px] items-center justify-center rounded-full border border-olive-dark font-sans text-[0.8rem] font-semibold text-olive-dark" aria-hidden="true">
+                      {(col === 0 ? 1 : split + 1) + i}
+                    </span>
+                    <div>
+                      <h2 class="pt-1 font-sans text-[1.15rem] font-semibold leading-snug text-olive-dark">{section.title}</h2>
+                      <div class="mt-1 text-[0.9rem] leading-[1.45] text-ink/90 sm:text-justify sm:text-[0.8rem] sm:leading-[1.36]">
+                        {section.paragraphs.map((paragraph) => <p>{paragraph}</p>)}
+                        {section.tip && (
+                          <p>
+                            <strong class="font-bold text-ink">Notre conseil :</strong> {section.tip}
+                          </p>
+                        )}
+                      </div>
+                    </div>
+                  </li>
+                ))}
+              </ol>
+              {col === 1 && <BlogCta class="mt-auto lg:-ml-[10px]" />}
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </article>
+</BaseLayout>
