@@ -1,0 +1,14 @@
+---
+// Ornement beige « filet + deux pastilles » (charte § 5 et § 9 ; fichier fourni « Icone ornement.png »),
+// redessiné en SVG pour rester net à toutes les tailles.
+interface Props {
+  class?: string;
+}
+const { class: className = 'h-3 w-[200px]' } = Astro.props;
+---
+
+<svg class={className} viewBox="0 0 200 12" fill="none" aria-hidden="true" focusable="false">
+  <path d="M0 6h86M114 6h86" stroke="var(--color-gold)" stroke-width="2" stroke-linecap="round" />
+  <circle cx="94" cy="6" r="5" fill="var(--color-gold)" />
+  <circle cx="106" cy="6" r="5" fill="var(--color-gold)" />
+</svg>

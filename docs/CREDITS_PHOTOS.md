@@ -1,30 +1,40 @@
-# Photos temporaires — à remplacer par les visuels définitifs
+# Visuels du site
 
-Source : Wikimedia Commons. Ces photos ne sont utilisées que pendant le développement.
+Tous les visuels sont désormais fournis par la cliente. Il ne reste aucune photo Wikimedia Commons depuis la refonte du 22/11/2026.
 
-| Fichier | Original | Auteur | Licence |
-|---|---|---|---|
-| hero-accueil.webp | File:Panorama autour de Gordes.jpg | Mathieu BROSSAIS | CC BY 4.0 |
-| proprietaire.webp | File:Mas 07.jpg | Arnaud 25 | CC BY-SA 4.0 |
+Logo : `Logo_MC.png` (fond rendu transparent) → `logo-maison-clovali.png` (en-tête), `logo-maison-clovali-clair.png` (variante crème/or pour le pied de page), `favicon.png` et `apple-touch-icon.png` (monogramme). Le fichier « Logo MC SVG.png » du 22/11 n'est pas utilisé : malgré son nom, c'est un PNG de 101 × 65 px, plus petit que le logo actuel.
 
-`hero-accueil.webp` n'est plus utilisée que comme fond de la page Contact et comme image de partage (Open Graph).
-
-Logo : `Logo_MC.png` (fond rendu transparent) → `logo-maison-clovali.png` (en-tête), `logo-maison-clovali-clair.png` (variante crème/or pour le pied de page), `favicon.png` et `apple-touch-icon.png` (monogramme).
-
-## Visuels fournis par la cliente (`references/photo/`, convertis en WebP)
+## Livraison du 22/11/2026 (`references/update_du_22_11/PHOTOS ET ICONES POUR JEROME/`, convertis en WebP)
 
 | Fichier du site | Original | Usage |
 |---|---|---|
-| accueil-terrasse.webp | Photo acceuil.png | Fond du hero de l'accueil |
-| portrait-valerie.webp | Ma photo.png | Portrait de la page À propos |
-| carte-territoire.webp | Carte page Encrage local.png | Carte illustrée de Notre territoire |
-| territoire-bandeau.webp | SITE_INTERNET_MC.png | Bandeau de Notre territoire |
-| fond-tarifs.webp | Maison_Clovali_photo_teintes.png | Fond de Formules & tarifs |
-| olivier.webp | Olivier.png | Bandeau du Blog |
-| notre-accompagnement.webp | notre_accompagnement.png | Photo de Notre accompagnement |
-| offre-essentiel.png, offre-confort.png, offre-intendance-annuelle.png | logo_offre_*.png (fond rendu transparent) | Pictogrammes des offres (Formules & tarifs) |
-| atout-residences.png, atout-locations.png | image_home_page/home.png, key.png (fond rendu transparent) | Pictogrammes des atouts du hero de l’accueil |
-| valeur-proximite.png, valeur-reactivite.png, valeur-disponibilite.png, valeur-exigence.png | image_home_page/proximite.png, reactivite.png, disponiblite.png, Exigence.png (fond rendu transparent) | Pictogrammes des valeurs (Nos engagements) |
-| engagements-interieur.webp | Photos page Nos Services option2.png | Photo de Nos engagements |
-| feuille-olive.webp, feuille-olive-verticale.webp | update_du_24_10/Feuille_vert olive_1.png (recadré ; pivoté pour la version horizontale) | Picto feuille de tout le site (24/10/2026) |
-| blog-location-saisonniere.webp, blog-conciergerie.webp | Recadrées dans les maquettes update_du_24_10/Page _ARTICLE BLOG-2.png et Page_ARTICLE BLOG_1.png | Photos des articles du blog — **provisoires, basse résolution : originaux à fournir** |
+| accueil-mas.webp | 01_Page d'accueil/Photo page d'accueil.png (766 × 691) | Photo du hero de l'accueil + image de partage (Open Graph) |
+| proprietaire.webp | 01_Page d'accueil/Photo page d'accueil (1).png (446 × 234) | Bandeau « Vous êtes propriétaire ? » |
+| portrait-valerie.webp | 02_Page A propos/Photo page A propos.png | Portrait de la page À propos |
+| branche-olivier.webp | 03_…/Image branche d'olivier.png | Ornement de la section Nos engagements |
+| prestation-*.webp (4) | 04_Page Prestations & Tarifs/Photo *.png | Cartes des prestations |
+| contact-porte.webp | 06_Page Contact/Photo page Contact.png (312 × 661) | Photo latérale de la page Contact |
+| blog-location-saisonniere.webp | 07_Page Blog/Photo serviette.png | Article « 5 conseils… » |
+| blog-obligations.webp | 07_Page Blog/Photo admin.png | Article « Obligations… » |
+| atout-residences.png, atout-locations.png | 01_…/Icone maison.png, Icone clé.png (fond rendu transparent) | Atouts du hero de l'accueil |
+| valeur-*.png (4) | 03_…/Icone Proximité/Réactivité/Disponibilité/Exigence.png (fond rendu transparent) | Valeurs (Notre accompagnement › engagements) |
+| icone-feuille-contour.png | 03_…/IconeFeuille (1).png | Bloc de contact récurrent |
+| icone-liste.png | 09_…/Logo Liste.png (fond rendu transparent) | Encadré « L'essentiel à retenir » |
+
+Pictogrammes redessinés plutôt que repris :
+- l'ornement beige « Icone ornement.png » (186 × 27 px) est redessiné en SVG (`Ornament.astro`) ;
+- les pictos blancs de la page Contact sont tracés en SVG (`Icon.astro`) ;
+- le rameau blanc est le picto feuille passé en blanc par filtre CSS (le fichier « Icone feuille blanche.png » est blanc sur fond blanc, donc inutilisable).
+
+## Visuels antérieurs toujours utilisés
+
+| Fichier du site | Original | Usage |
+|---|---|---|
+| carte-territoire.webp | Carte page Encrage local.png (1100 × 820) | Carte de Notre territoire. Même dessin que « Dessin carte.png » du 22/11, en meilleure résolution. |
+| territoire-bandeau.webp | SITE_INTERNET_MC.png | Bandeau de Notre territoire (identique à la photo du 22/11) |
+| fond-tarifs.webp | Maison_Clovali_photo_teintes.png | Fond de Prestations & tarifs (non fourni le 22/11) |
+| olivier.webp | Olivier.png | Bandeau du Blog (identique à la photo du 22/11) |
+| notre-accompagnement.webp | notre_accompagnement.png (1536 × 1024) | Photo de Notre accompagnement. Même image que celle du 22/11, qui ne fait que 369 × 246 px. |
+| engagements-interieur.webp | Photos page Nos Services option2.png, **retournée horizontalement** le 22/11 pour correspondre au cadrage de la maquette p. 5 | Photo de Nos engagements |
+| feuille-olive.webp, feuille-olive-verticale.webp | update_du_24_10/Feuille_vert olive_1.png. La version horizontale a été recolorée en vert foncé #545C4D le 22/11, comme sur les maquettes. | Rameau des séparateurs |
+| blog-conciergerie.webp | Recadrée dans la maquette du 24/10 (320 × 153 px) | Article « Faire appel à une conciergerie… ». **Original HD à fournir.** |

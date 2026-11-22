@@ -12,12 +12,13 @@ export const site = {
   web3formsKey: 'A_REMPLACER_PAR_LA_CLE_WEB3FORMS',
 };
 
+// Menu de la référence du 22/11/2026 (6 entrées). « Formules » devient « Prestations » : la cliente ne propose
+// plus de formules mais des prestations à la carte (retour du 22/11). Notre territoire : lien depuis À propos et le pied de page.
 export const navItems = [
   { label: 'Accueil', href: '/' },
   { label: 'À propos', href: '/a-propos/' },
   { label: 'Notre accompagnement', href: '/notre-accompagnement/' },
-  { label: 'Nos engagements', href: '/nos-engagements/' },
-  { label: 'Formules & tarifs', href: '/formules-et-tarifs/' },
+  { label: 'Prestations & tarifs', href: '/prestations-et-tarifs/' },
   { label: 'Blog', href: '/blog/' },
   { label: 'Contact', href: '/contact/' },
 ];

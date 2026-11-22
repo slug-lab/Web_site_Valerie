@@ -49,6 +49,14 @@ AddCharset UTF-8 .html .css .js .xml .txt
 </IfModule>
 
 # ---------------------------------------------------------------------------
+# Anciennes adresses (refonte du 22/11/2026)
+# ---------------------------------------------------------------------------
+<IfModule mod_rewrite.c>
+  RewriteRule ^formules-et-tarifs/?$ /prestations-et-tarifs/ [R=301,L]
+  RewriteRule ^nos-engagements/?$ /notre-accompagnement/#engagements [R=301,L,NE]
+</IfModule>
+
+# ---------------------------------------------------------------------------
 # En-têtes de sécurité
 # ---------------------------------------------------------------------------
 <IfModule mod_headers.c>

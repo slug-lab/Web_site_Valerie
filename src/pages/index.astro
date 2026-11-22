@@ -1,5 +1,5 @@
 ---
-// Maquettes : references/ACCUEIL_NEW.png (hero, remplace ACCUEIL.png) + references/ACCUEIL 2.png (suite)
+// Référence : references/update_du_22_11/SITE INTERNET Maison Clovali.pdf, p. 1 (hero) et p. 2 (suite)
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Button from '../components/Button.astro';
 import Divider from '../components/Divider.astro';
@@ -17,104 +17,119 @@ const localBusiness = {
   address: { '@type': 'PostalAddress', addressLocality: site.town, postalCode: '13650', addressCountry: 'FR' },
   areaServed: ['Meyrargues', 'Aix-en-Provence', 'Pertuis', 'Luberon'],
 };
+
+// Bord gauche de la photo : arc d'ellipse, plus un voile clair légèrement décalé (p. 1 du PDF).
+const photoClip = 'ellipse(95% 160% at 95% 100%)';
+const veilClip = 'ellipse(100% 160% at 97% 100%)';
 ---
 
 <BaseLayout title="Maison Clovali">
   <script type="application/ld+json" slot="head" set:html={JSON.stringify(localBusiness)} />
-  <!-- Hero -->
-  <section class="relative isolate flex min-h-[calc(100svh-80px)] items-center py-10 nav:min-h-[672px] nav:items-start nav:py-[50px]">
-    <img
-      src="/images/accueil-terrasse.webp"
-      alt=""
-      class="absolute inset-0 -z-10 h-full w-full object-cover object-[60%_50%]"
-      width="1672"
-      height="941"
-      fetchpriority="high"
-    />
-    <div class="w-full px-4 sm:px-6 lg:pl-[18.8%] lg:pr-0">
-      <div class="mx-auto flex max-w-[635px] flex-col items-center bg-white/45 px-6 py-8 text-center backdrop-blur-[1px] sm:px-10 lg:mx-0 lg:min-h-[533px] lg:px-[18px] lg:pt-[6px] lg:pb-[14px]">
-        <h1 class="font-serif text-[2.6rem] leading-[1.45] font-normal uppercase tracking-[0.03em] text-olive-dark sm:text-[3.6rem]">
-          Maison<br />Clovali
-        </h1>
-        <Divider class="mt-3 w-full max-w-[320px]" sprigClass="h-10 w-12" lineClass="bg-olive-dark/70" />
-        <p class="mt-2 max-w-[400px] font-serif text-[1.2rem] font-bold italic leading-[1.45] text-olive-dark sm:text-[1.32rem]">
-          Conciergerie privée et intendance de résidences en Provence.
-        </p>
-        <p class="mt-1.5 max-w-[490px] text-[0.95rem] leading-snug text-ink sm:text-[1rem]">
-          Nous assurons l’intendance de votre résidence secondaire et vous accompagnons dans vos projets de location
-          saisonnière autour d’Aix-en-Provence et dans le Luberon.
-        </p>
-        <ul class="mt-6 grid w-full gap-5 text-left text-[0.82rem] leading-[1.35] sm:grid-cols-2 sm:gap-6 lg:pl-[8px]">
-          <li class="flex items-start gap-3.5">
-            <span class="flex h-12 w-12 shrink-0 items-start justify-center"><img src="/images/atout-residences.png" alt="" width="45" height="43" /></span>
-            <p>
-              <strong class="block text-[0.85rem] font-bold text-olive-dark">Résidences secondaires</strong>
-              <span class="text-ink/85">Suivi, entretien et préparation<br class="hidden lg:inline" /> de votre propriété.</span>
-            </p>
-          </li>
-          <li class="flex items-start gap-3.5">
-            <span class="flex h-12 w-12 shrink-0 items-start justify-center"><img src="/images/atout-locations.png" alt="" width="41" height="44" /></span>
-            <p>
-              <strong class="block text-[0.85rem] font-bold text-olive-dark">Locations saisonnières</strong>
-              <span class="text-ink/85">Accompagnement opérationnel et<br class="hidden lg:inline" /> coordination des prestations.</span>
-            </p>
-          </li>
-        </ul>
-        <div class="mt-6 flex w-full flex-col gap-3 lg:mt-[30px] lg:flex-row lg:gap-[9px]">
-          <Button href="/notre-accompagnement/" variant="dark" class="px-3 lg:flex-[334] lg:min-h-[51px] md:text-[0.95rem]">Découvrez notre accompagnement</Button>
-          <Button href="/contact/" variant="outline-dark" class="border-2! bg-white/10 px-3 lg:flex-[265] lg:min-h-[51px] md:text-[0.95rem]">Échanger sur votre projet</Button>
-        </div>
+
+  <!-- Hero : colonne texte sur fond ivoire, photo à droite détourée par une courbe -->
+  <section class="relative grid nav:min-h-[686px] nav:grid-cols-[49fr_51fr]">
+    <div class="relative z-10 flex flex-col items-center px-4 pb-10 pt-8 text-center sm:px-6 nav:pb-4 nav:pl-[30px] nav:pr-0 nav:pt-[34px]">
+      <h1 class="font-serif text-[3rem] font-normal uppercase leading-[1.45] text-olive-dark sm:text-[3.6rem] nav:text-[3.65rem] nav:leading-[1.38]">
+        Maison<br />Clovali
+      </h1>
+      <Divider class="-mt-1 w-full max-w-[316px]" sprigClass="h-10 w-16" lineClass="h-px bg-olive-dark" />
+      <p class="mt-1 max-w-[380px] font-serif text-[1.5rem] italic leading-[1.25] text-olive-dark sm:text-[1.65rem]">
+        L’art de veiller sur votre maison, en toute sérénité.
+      </p>
+      <p class="mt-4 max-w-[420px] text-[1rem] leading-[1.4] text-olive-dark sm:text-[1.05rem]">
+        Conciergerie privée dédiée aux locations saisonnières &amp; à l’intendance de résidences secondaires.
+      </p>
+      <span class="mt-5 block h-px w-[106px] bg-olive-dark/80" aria-hidden="true"></span>
+
+      <ul class="mt-5 grid w-full max-w-[600px] gap-5 text-left text-[0.85rem] leading-[1.4] text-olive-dark sm:grid-cols-2 sm:gap-8 nav:max-w-none nav:pl-[10px]">
+        <li class="flex items-start gap-3">
+          <img src="/images/atout-residences.png" alt="" class="mt-1 h-[43px] w-[46px] shrink-0" width="46" height="43" />
+          <p>
+            <strong class="block font-semibold">Résidences secondaires</strong>
+            Suivi, entretien et préparation<br class="hidden sm:inline" /> de votre propriété.
+          </p>
+        </li>
+        <li class="flex items-start gap-3">
+          <img src="/images/atout-locations.png" alt="" class="h-[52px] w-[56px] shrink-0" width="83" height="77" />
+          <p>
+            <strong class="block font-semibold">Locations saisonnières</strong>
+            Accompagnement opérationnel et<br class="hidden sm:inline" /> coordination des prestations.
+          </p>
+        </li>
+      </ul>
+
+      <div class="mt-8 flex w-full max-w-[290px] flex-col gap-4 nav:mt-[38px] nav:-translate-x-[12px]">
+        <Button href="/notre-accompagnement/" class="min-h-[62px] px-4 text-[1.05rem] md:text-[1.1rem]">Découvrez notre accompagnement</Button>
+        <Button href="/contact/" variant="secondary" class="min-h-[62px] px-2 text-[1.05rem] md:text-[1.1rem]">Échanger sur votre projet</Button>
       </div>
+    </div>
+
+    <div class="relative h-72 sm:h-96 nav:h-auto">
+      <img
+        src="/images/accueil-mas.webp"
+        alt=""
+        aria-hidden="true"
+        class="absolute inset-0 hidden h-full w-full object-cover opacity-35 nav:block"
+        style={`clip-path: ${veilClip}`}
+        width="766"
+        height="691"
+      />
+      <img
+        src="/images/accueil-mas.webp"
+        alt="Mas provençal en pierre aux volets bleus, piscine et jardin arboré"
+        class="absolute inset-0 h-full w-full object-cover object-[60%_50%] nav:[clip-path:var(--clip)]"
+        style={`--clip: ${photoClip}`}
+        width="766"
+        height="691"
+        fetchpriority="high"
+      />
     </div>
   </section>
 
-  <!-- Bienvenue -->
-  <section class="container-site py-10 text-center md:pt-8 md:pb-10" aria-labelledby="bienvenue-title">
-    <h2 id="bienvenue-title" class="font-serif text-3xl font-semibold italic text-olive-dark md:text-[2.15rem]">
+  <!-- Bienvenue (p. 2) -->
+  <section class="container-site py-12 text-center nav:pb-[54px] nav:pt-[58px]" aria-labelledby="bienvenue-title">
+    <h2 id="bienvenue-title" class="font-serif text-[2rem] font-normal italic text-olive-dark md:text-[2.15rem]">
       Bienvenue chez Maison CLOVALI
     </h2>
-    <div class="mx-auto mt-7 max-w-[1145px] space-y-6 text-[1.05rem] leading-relaxed text-ink md:text-lg md:leading-[1.5]">
+    <div class="mx-auto mt-8 max-w-[1150px] space-y-6 text-[1.02rem] leading-[1.5] text-olive-dark md:text-[1.17rem]">
       <p>
         Maison CLOVALI est une conciergerie privée spécialisée dans l’accompagnement des locations saisonnières et
-        l’intendance de résidences secondaires en Provence.
+        l’intendance de résidences secondaires entre Aix-en-Provence et le sud Luberon.
       </p>
       <p>
         Nous accompagnons les propriétaires qui souhaitent valoriser leur propriété tout en se libérant des contraintes du
         quotidien. De l’accueil des voyageurs à la coordination des intervenants, en passant par le suivi de votre
-        résidence tout au long de l’année, nous veillons à chaque détail avec exigence, discrétion et transparence.
+        résidence tout au long de l’année, nous veillons à chaque détail avec exigence, discrétion et bienveillance.
         <br />
         Parce que chaque maison a son histoire, nous privilégions une relation de confiance, un accompagnement
         personnalisé et une qualité de service à la hauteur de vos attentes.
-      </p>
-      <p class="font-bold text-sage">
-        Maison CLOVALI, l’art de prendre soin de votre propriété comme si elle était la nôtre.
       </p>
     </div>
   </section>
 
   <!-- Vous êtes propriétaire ? -->
-  <section class="grid md:grid-cols-[446fr_920fr]" aria-labelledby="proprietaire-title">
-    <div class="relative h-60 md:h-auto md:min-h-[235px]">
+  <section class="grid md:grid-cols-[522fr_1078fr]" aria-labelledby="proprietaire-title">
+    <div class="relative h-56 md:h-auto md:min-h-[235px]">
       <img
         src="/images/proprietaire.webp"
-        alt="Mas provençal en pierre entouré de lavande"
+        alt="Terrasse ombragée d’un mas provençal fleuri, au bord de la piscine"
         class="absolute inset-0 h-full w-full object-cover"
-        width="1200"
-        height="900"
+        width="446"
+        height="234"
         loading="lazy"
       />
     </div>
-    <div class="flex flex-col bg-sage px-6 py-6 text-white md:px-[15px] md:py-4 lg:pr-[60px]">
-      <h2 id="proprietaire-title" class="text-center font-sans text-2xl font-light uppercase md:text-[2.1rem]">
+    <div class="flex flex-col items-center bg-sage px-6 py-6 text-center text-white md:px-10 md:py-[18px]">
+      <h2 id="proprietaire-title" class="font-sans text-[1.7rem] font-normal uppercase leading-tight md:text-[2.15rem]">
         Vous êtes propriétaire&nbsp;?
       </h2>
-      <p class="mt-3 text-[1.05rem] leading-relaxed md:text-[1.2rem] md:leading-[1.55]">
-        Maison Clovali vous accompagne dans le suivi et l’entretien de votre propriété en Provence, que vous l’occupiez
-        toute l’année, ponctuellement, ou que vous la mettiez en location saisonnière.
+      <p class="mt-4 max-w-[820px] text-[1.05rem] leading-[1.5] md:text-[1.2rem]">
+        Maison Clovali vous accompagne dans le suivi et l’entretien de votre propriété, que vous l’occupiez toute
+        l’année, ponctuellement, ou que vous la mettiez en location saisonnière.
       </p>
-      <Button href="/contact/" variant="outline-light" class="mt-4 self-center md:min-w-[368px]">Échanger sur votre projet</Button>
+      <Button href="/contact/" variant="light" class="mt-5 min-h-[52px] px-3 py-2 text-[1.05rem] md:text-[1.1rem]">Échanger sur votre projet</Button>
     </div>
   </section>
 
-  <Testimonials class="pt-4" />
+  <Testimonials class="pt-2" />
 </BaseLayout>

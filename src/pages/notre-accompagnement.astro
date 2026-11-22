@@ -1,32 +1,48 @@
 ---
-// Maquette : references/Page _NOTRE ACCOMPAGNEMENT.png
+// Référence : references/update_du_22_11/SITE INTERNET Maison Clovali.pdf, p. 4 (étapes) et p. 5 (engagements, suite de la page)
+// L'ancienne page /nos-engagements/ est intégrée ici (#engagements) : elle ne figure plus dans le menu.
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Button from '../components/Button.astro';
-import Sprig from '../components/Sprig.astro';
+import ContactStrip from '../components/ContactStrip.astro';
+import Divider from '../components/Divider.astro';
 
-// Textes repris tels quels de la maquette (validés par la cliente).
+// Textes repris tels quels du PDF.
 const steps = [
   { title: 'Premier échange', text: 'Nous échangeons sur vos besoins et vos attentes.' },
-  { title: 'Visite de votre propriété', text: 'et définition des prestations souhaitées.' },
+  { title: 'Visite de votre propriété', text: 'Découverte des lieux et définition des prestations souhaitées.' },
   { title: 'Proposition sur mesure', text: 'Nous vous proposons un accompagnement adapté à vos besoins et à votre budget.' },
   { title: 'Démarrage de la collaboration', text: 'Signature du contrat et définition des modalités d’intervention.' },
-  { title: 'Une sérénité au quotidien', text: 'Nous assurons le suivi de votre propriété et coordonnons les interventions dans la plus grande transparence.' },
+  { title: 'Une sérénité au quotidien', text: 'Nous assurons le suivi de votre propriété et coordonnons les interventions en toute transparence.' },
+];
+
+const engagements = [
+  { title: 'Préservation de votre bien', text: 'Nous veillons à l’entretien et à la valorisation de votre propriété.' },
+  { title: 'Excellence de service', text: 'Nous sélectionnons des partenaires fiables et leur transmettons nos exigences en matière de qualité.' },
+  { title: 'Respect & discrétion', text: 'Nous agissons avec discrétion et respect envers votre propriété et les voyageurs.' },
+  { title: 'Transparence & communication', text: 'Nous vous transmettons des comptes rendus réguliers sur le suivi de votre propriété.' },
+  { title: 'Relation de confiance', text: 'Nous cultivons une relation de confiance fondée sur la transparence, la disponibilité et la proximité.' },
+];
+
+// Pictogrammes fournis le 22/11 (dossier 03_Page Notre accompagnement), fond blanc rendu transparent.
+const values = [
+  { label: 'Proximité', src: '/images/valeur-proximite.png', width: 74, height: 50 },
+  { label: 'Réactivité', src: '/images/valeur-reactivite.png', width: 73, height: 49 },
+  { label: 'Disponibilité', src: '/images/valeur-disponibilite.png', width: 70, height: 47 },
+  { label: 'Exigence', src: '/images/valeur-exigence.png', width: 72, height: 48 },
 ];
 ---
 
 <BaseLayout
   title="Notre accompagnement"
-  description="Premier échange, visite, proposition sur mesure, démarrage puis suivi : découvrez les étapes de l’accompagnement Maison Clovali pour votre propriété en Provence."
+  description="Premier échange, visite, proposition sur mesure, démarrage puis suivi : les étapes de l’accompagnement Maison Clovali, et nos engagements pour la sérénité des propriétaires."
 >
-  <section class="container-site grid gap-8 pt-6 md:grid-cols-[1fr_368px] md:gap-[42px] nav:pt-[25px] lg:pl-[44px] lg:pr-[14px]">
-    <div class="md:pt-[34px]">
-      <h1 class="font-serif text-[1.75rem] font-normal uppercase leading-tight text-olive-dark md:text-[1.95rem]">
+  <section class="container-site grid gap-8 pt-6 nav:grid-cols-[1fr_368px] nav:gap-[36px] nav:pt-[4px] lg:pl-[44px] lg:pr-[14px]">
+    <div class="nav:pt-[26px]">
+      <h1 class="font-serif text-[1.45rem] font-normal uppercase leading-tight text-olive-dark sm:text-[1.8rem] md:text-[2.1rem]">
         Comment se déroule notre accompagnement&nbsp;?
       </h1>
-      <div class="mt-4 flex justify-center md:mt-[16px]">
-        <Sprig class="h-10 w-12" />
-      </div>
-      <p class="mt-2 text-left text-[1.05rem] italic md:text-justify leading-[1.55] text-ink/90">
+      <Divider class="mt-1 w-full max-w-[590px] nav:ml-[120px]" sprigClass="h-9 w-14" />
+      <p class="mt-1 text-[1.05rem] leading-[1.45] text-olive-dark md:text-[1.15rem]">
         Parce que chaque propriété est unique, nous privilégions un accompagnement personnalisé à chaque étape. De notre
         première rencontre au suivi de votre propriété, nous construisons une relation fondée sur l’écoute, la
         transparence et la confiance. Découvrez les étapes de notre collaboration, puis choisissez l’accompagnement le plus
@@ -36,33 +52,91 @@ const steps = [
     <img
       src="/images/notre-accompagnement.webp"
       alt="Clés et carnet Maison Clovali sur une terrasse en pierre, piscine et collines provençales en arrière-plan"
-      class="aspect-[368/245] w-full object-cover"
+      class="aspect-[368/248] w-full object-cover"
       width="1536"
       height="1024"
     />
   </section>
 
-  <section class="container-site mt-6 lg:px-[57px]" aria-labelledby="etapes-title">
+  <section class="container-site mt-12 nav:mt-[34px] lg:px-[24px]" aria-labelledby="etapes-title">
     <h2 id="etapes-title" class="sr-only">Les étapes de notre collaboration</h2>
-    <ol class="grid bg-sage-light px-4 py-2 sm:grid-cols-2 md:min-h-[288px] md:py-[14px] lg:grid-cols-5 lg:px-0">
+    <ol class="grid gap-x-5 gap-y-12 sm:grid-cols-2 lg:grid-cols-5">
       {
         steps.map((step, i) => (
-          <li class="flex flex-col items-center border-b border-[#b6a592]/70 px-3 py-6 text-center last:border-b-0 lg:border-b-0 lg:border-r lg:py-0 lg:last:border-r-0">
-            <span class="font-sans text-[1.75rem] font-light leading-none text-olive" style="font-variant-numeric: lining-nums">
+          <li class="relative flex flex-col items-center rounded-[18px] bg-ivory px-4 pb-8 pt-12 text-center shadow-[0_6px_24px_rgba(84,92,77,0.12)] lg:min-h-[288px]">
+            <span class="badge-number absolute -top-[32px] h-[53px] w-[53px] text-[1.45rem]" aria-hidden="true">
               {String(i + 1).padStart(2, '0')}
             </span>
-            <h3 class="mt-4 flex min-h-[3.4rem] items-start font-sans text-lg font-semibold uppercase leading-snug tracking-[0.08em] text-brown">
-              {step.title}
+            <h3 class="flex min-h-[3.2rem] items-start justify-center font-sans text-[1.12rem] font-medium uppercase leading-[1.4] tracking-[0.1em] text-olive-dark">
+              <span class="sr-only">Étape {i + 1} : </span>{step.title}
             </h3>
-            <Sprig class="mt-4 h-8 w-10 brightness-[0.6] lg:mt-[24px]" />
-            <p class="mt-3 max-w-[220px] text-[0.95rem] italic leading-snug text-ink/80">{step.text}</p>
+            <p class="mt-6 max-w-[215px] text-[1rem] leading-[1.45] text-olive-dark">{step.text}</p>
           </li>
         ))
       }
     </ol>
   </section>
 
-  <div class="flex justify-center px-4 pb-14 pt-6">
-    <Button href="/formules-et-tarifs/" variant="sage" class="md:min-w-[342px]">Découvrir nos formules</Button>
+  <div class="flex justify-center px-4 pt-6 nav:pt-[22px]">
+    <Button href="/prestations-et-tarifs/" class="min-h-[62px] px-4 text-[1.05rem] md:text-[1.15rem]">Découvrir nos prestations ➔</Button>
   </div>
+
+  <!-- Nos engagements (p. 5) -->
+  <section id="engagements" class="relative mt-16 scroll-mt-4 nav:mt-[60px]" aria-labelledby="engagements-title">
+    <img
+      src="/images/branche-olivier.webp"
+      alt=""
+      aria-hidden="true"
+      class="pointer-events-none absolute -top-[52px] right-0 hidden w-[200px] mix-blend-multiply md:block"
+      width="153"
+      height="161"
+      loading="lazy"
+    />
+    <div class="container-site text-center">
+      <h2 id="engagements-title" class="font-serif text-[1.8rem] font-normal uppercase leading-tight text-olive-dark md:text-[2.1rem]">
+        Nos engagements pour votre sérénité
+      </h2>
+      <Divider class="mx-auto mt-2 w-full max-w-[620px]" sprigClass="h-9 w-14" />
+    </div>
+
+    <div class="mt-5 grid gap-8 md:grid-cols-[590fr_776fr] md:gap-x-[30px]">
+      <div class="flex flex-col">
+        <div class="relative h-64 sm:h-80 md:h-[444px]">
+          <img
+            src="/images/engagements-interieur.webp"
+            alt="Salon lumineux d’une maison provençale, canapés clairs et olivier en pot"
+            class="h-full w-full object-cover object-[0%_50%] md:[mask-image:linear-gradient(to_right,black_75%,transparent)]"
+            width="1600"
+            height="800"
+            loading="lazy"
+          />
+        </div>
+        <ContactStrip text="Vous souhaitez parler de votre projet ?" class="mx-4 mt-6 sm:mx-6 md:ml-[20px] md:mr-0" />
+      </div>
+
+      <ul class="px-4 sm:px-6 md:px-0 md:pr-[70px] md:pt-[26px]">
+        {
+          engagements.map((item) => (
+            <li class="border-b border-gold/80 py-4 first:pt-0 last:border-b-0 md:max-w-[640px]">
+              <h3 class="font-sans text-[1.1rem] font-semibold uppercase text-olive-dark md:text-[1.12rem]">{item.title}</h3>
+              <p class="mt-1 text-[1rem] leading-[1.45] text-olive-dark">{item.text}</p>
+            </li>
+          ))
+        }
+      </ul>
+    </div>
+  </section>
+
+  <section class="mx-4 mt-8 pb-10 sm:mx-6 nav:mx-[20px] nav:mt-[28px] nav:pb-[16px]" aria-label="Nos valeurs">
+    <ul class="grid grid-cols-2 gap-y-8 border-t-[3px] border-olive-dark pt-3 md:grid-cols-4">
+      {
+        values.map((value) => (
+          <li class="flex flex-col items-center gap-2">
+            <img src={value.src} alt="" class="h-[46px] w-auto" width={value.width} height={value.height} loading="lazy" />
+            <span class="font-sans text-[1.2rem] uppercase text-olive-dark">{value.label}</span>
+          </li>
+        ))
+      }
+    </ul>
+  </section>
 </BaseLayout>

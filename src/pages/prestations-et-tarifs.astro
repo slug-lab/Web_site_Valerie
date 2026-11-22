@@ -1,0 +1,86 @@
+---
+// Référence : references/update_du_22_11/SITE INTERNET Maison Clovali.pdf, p. 6
+// Prestations à la carte (retour cliente du 22/11 : plus de formules). Ancienne URL /formules-et-tarifs/ redirigée (.htaccess).
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Button from '../components/Button.astro';
+import Divider from '../components/Divider.astro';
+import Ornament from '../components/Ornament.astro';
+
+// Textes et prix repris tels quels du PDF.
+const services = [
+  {
+    title: 'Préparation de la maison',
+    image: { src: '/images/prestation-preparation.webp', alt: 'Chambre lumineuse rangée et prête à accueillir des voyageurs', width: 579, height: 376 },
+    text: 'Avant la mise en location, nous vous aidons à ranger, organiser et sécuriser vos affaires personnelles pour un séjour serein et une maison prête à accueillir vos voyageurs.',
+    price: 'À partir de 150 €',
+  },
+  {
+    title: 'Gestion des séjours saisonniers',
+    image: { src: '/images/prestation-sejours.webp', alt: 'Valises posées dans un salon clair à l’arrivée des voyageurs', width: 563, height: 376 },
+    text: 'Un accompagnement à la carte, avec une tarification claire à la prestation :',
+    list: ['Accueil et départ des voyageurs', 'Ménage et gestion du linge', 'Assistance pendant le séjour'],
+    price: 'À partir de 90 € / séjour',
+  },
+  {
+    title: 'Remise en état après la location',
+    image: { src: '/images/prestation-remise-en-etat.webp', alt: 'Serviettes propres pliées et rameau d’olivier sur une table de chevet', width: 809, height: 457 },
+    text: 'Nous remettons votre maison en ordre et replaçons vos affaires personnelles, pour une reprise de votre lieu de vie en toute tranquillité.',
+    price: 'À partir de 120 €',
+  },
+  {
+    title: 'Intendance annuelle',
+    image: { src: '/images/prestation-intendance.webp', alt: 'Bureau avec dossiers, calculatrice et maquette de maison face à la mer', width: 1018, height: 454 },
+    text: 'Un suivi régulier de votre maison tout au long de l’année : visites de contrôle, coordination des prestataires, petits travaux, entretien des extérieurs, surveillance en votre absence.',
+    price: 'À partir de 120 € / mois',
+  },
+];
+---
+
+<BaseLayout
+  title="Prestations & tarifs"
+  description="Préparation de la maison, gestion des séjours saisonniers, remise en état après location, intendance annuelle : les prestations à la carte de Maison Clovali et leurs tarifs de départ."
+>
+  <div class="relative isolate pb-10 nav:pb-[64px]">
+    <img src="/images/fond-tarifs.webp" alt="" class="absolute inset-0 -z-20 h-full w-full object-cover" width="1920" height="1353" />
+    <div class="absolute inset-0 -z-10 bg-cream/45" aria-hidden="true"></div>
+
+    <header class="container-site relative pt-6 text-center nav:pt-[22px]">
+      <h1 class="font-serif text-[2.2rem] font-normal uppercase leading-tight text-olive-dark md:text-[2.55rem] nav:-ml-[110px]">Prestations &amp; tarifs</h1>
+      <Divider class="mx-auto -mt-1 w-full max-w-[620px] nav:-translate-x-[55px]" sprigClass="h-9 w-14" />
+      <p class="mt-1 font-sans text-[1.1rem] uppercase tracking-[0.12em] text-olive-dark md:text-[1.35rem] nav:-ml-[110px]">
+        Des prestations adaptées à votre maison
+      </p>
+      <Button href="/contact/" class="mt-5 min-h-[50px] px-8 text-[1.05rem] md:text-[1.15rem] nav:absolute nav:right-[68px] nav:top-[33px] nav:mt-0">Contactez-nous</Button>
+    </header>
+
+    <ul class="container-site mt-6 grid gap-5 sm:grid-cols-2 nav:mt-[16px] nav:grid-cols-4 nav:gap-[12px] nav:px-[28px]">
+      {
+        services.map((service) => (
+          <li class="flex flex-col items-center rounded-[20px] bg-ivory px-2 pb-2 pt-4 text-center">
+            <img
+              src={service.image.src}
+              alt={service.image.alt}
+              class="aspect-[267/180] w-[72%] rounded-[14px] border border-olive-dark/30 object-cover"
+              width={service.image.width}
+              height={service.image.height}
+              loading="lazy"
+            />
+            <h2 class="mt-4 rounded-[6px] bg-sage px-3 py-1.5 font-serif text-[1.3rem] font-normal leading-tight tracking-[0.04em] text-white">
+              {service.title}
+            </h2>
+            <Ornament class="mt-4 h-3 w-[170px]" />
+            <div class="mt-3 flex-1 px-4 text-[1.02rem] leading-[1.2] text-olive-dark">
+              <p class:list={[service.list && 'text-left']}>{service.text}</p>
+              {service.list && (
+                <ul class="mt-1 list-disc pl-5 text-left marker:text-olive-dark">
+                  {service.list.map((item) => <li>{item}</li>)}
+                </ul>
+              )}
+            </div>
+            <p class="mt-4 w-full rounded-[10px] bg-gold px-3 py-2.5 font-sans text-[1.25rem] text-white">{service.price}</p>
+          </li>
+        ))
+      }
+    </ul>
+  </div>
+</BaseLayout>

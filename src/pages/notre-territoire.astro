@@ -1,0 +1,94 @@
+---
+// Référence : references/update_du_22_11/SITE INTERNET Maison Clovali.pdf, p. 7
+// Page hors menu : liens depuis À propos et le pied de page (demande du 22/11).
+import BaseLayout from '../layouts/BaseLayout.astro';
+import ContactStrip from '../components/ContactStrip.astro';
+import Divider from '../components/Divider.astro';
+import Ornament from '../components/Ornament.astro';
+import Sprig from '../components/Sprig.astro';
+
+const communes = [
+  'Meyrargues',
+  'Venelles',
+  'Aix-en-Provence',
+  'Puyricard',
+  'Le Puy-Sainte-Réparade',
+  'Pertuis',
+  'Lourmarin',
+  'Peyrolles-en-Provence',
+  'Jouques',
+  'Éguilles',
+];
+---
+
+<BaseLayout
+  title="Notre territoire"
+  description="Maison Clovali, conciergerie locale entre Aix-en-Provence et le sud Luberon : Meyrargues, Venelles, Puyricard, Le Puy-Sainte-Réparade, Pertuis, Lourmarin, Peyrolles-en-Provence, Jouques, Éguilles."
+>
+  <section class="grid nav:min-h-[240px] nav:grid-cols-[51fr_49fr]" aria-labelledby="territoire-title">
+    <div class="px-4 py-8 text-center sm:px-6 nav:pb-0 nav:pl-[76px] nav:pr-[28px] nav:pt-[24px]">
+      <h1 id="territoire-title" class="font-serif text-[2.1rem] font-normal uppercase tracking-[0.12em] text-olive-dark md:text-[2.35rem]">
+        Notre territoire
+      </h1>
+      <p class="mx-auto mt-3 max-w-[470px] font-sans text-[1.15rem] uppercase leading-[1.35] tracking-[0.1em] text-olive-dark md:text-[1.4rem]">
+        Une conciergerie locale, entre Aix-en-Provence et le sud Luberon
+      </p>
+      <Divider class="mx-auto mt-2 w-full max-w-[590px]" sprigClass="h-9 w-14" />
+    </div>
+    <div class="relative h-52 sm:h-64 nav:mt-[14px] nav:h-[240px]">
+      <img
+        src="/images/territoire-bandeau.webp"
+        alt="Village perché du Luberon, maisons de pierre et cyprès"
+        class="h-full w-full object-cover object-right nav:[mask-image:linear-gradient(to_right,transparent,black_14%)]"
+        width="782"
+        height="240"
+      />
+    </div>
+  </section>
+
+  <div class="mx-auto grid w-full max-w-[1366px] gap-10 px-4 pb-10 pt-8 sm:px-6 nav:grid-cols-[minmax(0,1fr)_495px] nav:gap-x-[20px] nav:px-[23px] nav:pb-[30px] nav:pt-[20px]">
+    <div class="grid gap-8 md:grid-cols-[minmax(0,410px)_minmax(0,1fr)] md:gap-0">
+      <section class="relative z-10 flex flex-col" aria-labelledby="secteur-title">
+        <h2 id="secteur-title" class="max-w-[350px] font-sans text-[1.15rem] font-medium uppercase leading-snug tracking-[0.1em] text-olive-dark md:text-[1.2rem]">
+          Un secteur d’intervention au plus près de chez vous
+        </h2>
+        <Ornament class="mt-5 h-3 w-[170px]" />
+        <p class="mt-6 max-w-[320px] text-[1.05rem] leading-[1.75] text-olive-dark md:text-[1.15rem]">
+          Nous intervenons à Meyrargues et dans les communes avoisinantes, autour d’Aix&#8209;en&#8209;Provence et du Luberon.
+        </p>
+        <p class="mt-6 text-[1.05rem] leading-[1.4] text-olive-dark md:mt-auto md:whitespace-nowrap md:pb-[10px] md:text-[1.1rem]">
+          Vous ne trouvez pas votre commune&nbsp;?<br />
+          <a href="/contact/" class="underline-offset-4 hover:underline">Contactez-nous</a>, nous étudierons votre demande.
+        </p>
+      </section>
+
+      <div class="mx-auto w-full max-w-[470px] md:-ml-[60px] md:w-[calc(100%+60px)] md:max-w-[480px] md:pt-[2px]">
+        <img
+          src="/images/carte-territoire.webp"
+          alt="Carte illustrée du secteur d’intervention, d’Aix-en-Provence à Pertuis et au Luberon : Meyrargues, Venelles, Le Puy-Sainte-Réparade, Peyrolles-en-Provence, Jouques, Éguilles, Lourmarin…"
+          class="h-auto w-full drop-shadow-[4px_6px_6px_rgba(84,92,77,0.35)]"
+          width="1100"
+          height="820"
+          loading="lazy"
+        />
+      </div>
+    </div>
+
+    <div class="flex flex-col gap-8 nav:pt-[8px]">
+      <aside class="rounded-[14px] bg-sage px-6 pb-4 pt-4 text-ivory sm:px-[30px]" aria-labelledby="communes-title">
+        <h2 id="communes-title" class="mx-auto max-w-[400px] text-center font-sans text-[1.2rem] font-semibold uppercase leading-snug md:text-[1.25rem]">
+          Quelques communes de notre secteur
+        </h2>
+        <div class="mx-auto mt-3 flex max-w-[365px] items-center gap-4" aria-hidden="true">
+          <span class="h-px flex-1 bg-ivory"></span>
+          <Sprig class="h-8 w-12 brightness-0 invert" />
+          <span class="h-px flex-1 bg-ivory"></span>
+        </div>
+        <ul class="mt-2 grid gap-x-6 text-[1.1rem] leading-[1.5] sm:grid-flow-col sm:grid-cols-[auto_auto] sm:grid-rows-[repeat(5,auto)] sm:justify-between md:text-[1.12rem]">
+          {communes.map((commune) => <li>{commune}</li>)}
+        </ul>
+      </aside>
+      <ContactStrip class="nav:-ml-[93px] nav:mt-auto" />
+    </div>
+  </div>
+</BaseLayout>

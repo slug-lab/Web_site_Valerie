@@ -2,6 +2,32 @@
 
 > Section 17.8 du `CLAUDE.md`. Contrôle effectué le 10/10/2026 sur le build de production (`astro build` + `astro preview`).
 
+## Contrôle du 22/11/2026 (référence `references/update_du_22_11/`, PDF de 17 pages)
+
+**Méthode**
+- Captures Chromium headless à **1366 px** de large, sur le build de production (`astro build` + `astro preview`).
+- Chaque page du PDF (rendue en 1366 × 768) est comparée à la portion correspondante de la capture, dans un montage maquette en haut et rendu en bas. Script : `screenshots/u22/cmp.py`.
+- Deux passes de corrections : hauteur du hero de l'accueil, en-tête ramené à 82 px, couleur du rameau, espacements des titres et séparateurs, largeur de la carte et de la liste des communes, cartes des prestations, bloc de contact, grille du blog.
+- **Débordement horizontal** : test automatisé (iframes de largeur fixe, comparaison de `scrollWidth`) à **320, 375, 768, 1024, 1280 et 1920 px** sur les 13 pages. Deux débordements ont été corrigés : le titre de Notre accompagnement à 320 px et les cartes du blog à 768 px. Il n'en reste **aucun**.
+- **Liens** : tous les `href` et `src` internes du build pointent vers un fichier existant.
+
+| PDF | Page | Conformité | Écarts restants |
+|---|---|---|---|
+| p. 1 | `/` (hero) | Conforme : colonne ivoire, photo à bord courbe et voile clair, atouts, 2 boutons empilés | Courbe obtenue par `clip-path: ellipse()`, très proche de la maquette ; le petit trait isolé au bord de la photo, probable artefact de la maquette, n'est pas repris. Sur mobile : texte puis photo, comme le demande la charte. |
+| p. 2 | `/` (suite) | Conforme | Retours à la ligne légèrement différents ; 3 avis (1 réel + 2 de test) au lieu des placeholders « Avis client 1/2/3 ». |
+| p. 3 | `/a-propos/` | Conforme | Lien « Découvrir notre territoire → » ajouté sous le texte (demande du 22/11), ce qui descend le bouton d'environ 30 px. |
+| p. 4 | `/notre-accompagnement/` | Conforme | — |
+| p. 5 | `/notre-accompagnement/#engagements` | Conforme | Branche d'olivier : orientation du fichier fourni, différente de la maquette ; photo retournée (voir `CREDITS_PHOTOS.md`). |
+| p. 6 | `/prestations-et-tarifs/` | Conforme | Libellé de menu « Prestations & tarifs » (choix de la cliente) au lieu de « Formules & tarifs ». |
+| p. 7 | `/notre-territoire/` | Conforme | Carte un peu plus petite que sur la maquette, pour garder l'encadré des communes lisible. |
+| p. 8 | `/contact/` | Conforme | Case de consentement RGPD ajoutée (absente de la maquette). |
+| p. 9 | `/blog/` | Conforme | — |
+| p. 10–17 | 3 articles | Conformes : pastilles, sous-titres, puces, points de vigilance, encadré « L'essentiel à retenir », bloc de contact | Le pied de page du site s'ajoute en bas de chaque page (absent des maquettes). |
+
+---
+
+## Historique : contrôle du 10/10/2026
+
 ## Méthode
 
 - Captures en Chromium headless à **1366 × 768** (dimensions des maquettes), puis montage maquette (haut) / rendu (bas) pour chaque page.

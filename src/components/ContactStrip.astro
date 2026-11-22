@@ -1,0 +1,24 @@
+---
+// Bloc de contact récurrent de la référence du 22/11/2026 (charte § 9) : surface ivoire, picto feuille à gauche,
+// texte, bouton vert « Contactez-nous ». Pages Notre accompagnement (variante « Vous souhaitez parler de votre projet ? »),
+// Notre territoire, Blog et articles.
+import Button from './Button.astro';
+
+interface Props {
+  text?: string;
+  class?: string;
+}
+const { text = 'Confiez-nous le suivi de votre maison', class: className = '' } = Astro.props;
+---
+
+<aside
+  class:list={[
+    'flex flex-col items-center gap-4 rounded-2xl border border-olive-dark/10 bg-ivory px-5 py-4 text-center shadow-[0_4px_18px_rgba(84,92,77,0.12)] sm:flex-row sm:gap-4 sm:py-3 sm:pl-4 sm:pr-4 sm:text-right',
+    className,
+  ]}
+  aria-label="Contact"
+>
+  <img src="/images/icone-feuille-contour.png" alt="" class="hidden h-[50px] w-[46px] shrink-0 sm:block" width="46" height="50" />
+  <p class="flex-1 text-[1.15rem] leading-[1.15] text-olive-dark sm:pl-2 md:text-[1.2rem]">{text}</p>
+  <Button href="/contact/" class="min-h-[44px] shrink-0 rounded-[8px] px-5 py-2 text-[1.05rem] md:text-[1.1rem]">Contactez-nous</Button>
+</aside>

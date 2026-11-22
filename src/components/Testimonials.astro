@@ -23,30 +23,30 @@ const reviews: { text: string; author: string; example?: boolean }[] = [
   {
     example: true,
     text: 'Réactivité remarquable : une fuite un dimanche soir, un artisan sur place le lendemain matin. Nos locataires n’ont rien remarqué.',
-    author: 'Propriétaires à Pertuis — formule Essentiel',
+    author: 'Propriétaires à Pertuis — Gestion des séjours saisonniers',
   },
 ];
 ---
 
 <section class:list={['pb-10', className]} aria-labelledby="avis-title">
   <div class="flex items-center gap-5 px-4 sm:px-[17px]">
-    <span class="h-px flex-1 bg-olive-dark/70" aria-hidden="true"></span>
-    <h2 id="avis-title" class="text-center font-sans text-xl font-normal uppercase text-olive-dark sm:text-2xl">
+    <span class="h-px flex-1 bg-olive-dark/80" aria-hidden="true"></span>
+    <h2 id="avis-title" class="text-center font-sans text-xl font-normal uppercase text-olive-dark sm:text-[1.6rem]">
       Ils nous font confiance
     </h2>
-    <span class="h-px flex-1 bg-olive-dark/70" aria-hidden="true"></span>
+    <span class="h-px flex-1 bg-olive-dark/80" aria-hidden="true"></span>
   </div>
   <ul class="container-site mt-3 grid gap-4 md:grid-cols-3 md:gap-8 lg:gap-[73px] lg:px-[42px]">
     {
       reviews.map((review) => (
         <li class="h-full">
-          <figure class="flex h-full gap-4 bg-[#ececec] px-5 py-4">
-            <Icon name="quote" class="h-7 w-7 shrink-0 text-olive" />
+          <figure class="flex h-full gap-4 bg-grey-card px-5 py-4">
+            <Icon name="quote" class="h-8 w-8 shrink-0 text-[#86866d]" />
             <div class="flex flex-1 flex-col">
-              <blockquote class="font-serif text-[1.1rem] italic leading-snug text-ink">
+              <blockquote class="text-[0.98rem] leading-snug text-[#3f3f3f]">
                 <p>{review.text}</p>
               </blockquote>
-              <figcaption class="mt-auto pt-3 text-sm text-olive-dark/80">{review.author}</figcaption>
+              <figcaption class="mt-auto pt-3 text-sm text-olive-dark">{review.author}</figcaption>
             </div>
           </figure>
         </li>

@@ -1,5 +1,107 @@
 # Analyse des maquettes — Maison Clovali
 
+> **Mise à jour majeure du 22/11/2026** : la nouvelle référence est `references/update_du_22_11/` (PDF de 17 pages + charte graphique). Elle **remplace** les maquettes antérieures. L'analyse de la nouvelle référence se trouve dans la section **« Référence du 22/11/2026 »** ci-dessous. Les sections 0 à 11 sont conservées pour l'historique.
+
+---
+
+## Référence du 22/11/2026 (`references/update_du_22_11/`)
+
+### R.0 Fichiers fournis
+
+| Fichier | Contenu |
+|---|---|
+| `SITE INTERNET Maison Clovali.pdf` | 17 pages au format 16:9 (1024,5 × 576 pt), desktop uniquement. Le texte est sélectionnable, ce qui permet de reprendre les contenus mot pour mot. |
+| `Charte_graphique_Maison_Clovali_specification_Claude.docx` | Charte graphique avec palette HEX **validée**, typographies, règles de mise en page, spécification page par page, composants récurrents et points de vigilance éditoriaux. |
+| `PHOTOS ET ICONES POUR JEROME/01…09_*` | Photos, pictos et logo, classés par page. Les fichiers en doublon d'un dossier à l'autre sont identiques. |
+
+### R.1 Constats préalables
+
+1. **17 pages de PDF, mais 12 pages web distinctes.** Les pages du PDF sans en-tête (p. 2, 5, 11, 13, 16, 17) sont la suite de la page précédente. La p. 15 a un en-tête, mais elle continue manifestement l'article de la p. 14 (le numéro 02 fait suite au 01).
+2. **Le menu passe à 6 entrées** : Accueil · À propos · Notre accompagnement · Formules & tarifs · Blog · Contact. **« Nos engagements » disparaît du menu.** La p. 5 (engagements), qui n'a pas d'en-tête, suit la p. 4 : elle devient la **seconde moitié de la page Notre accompagnement**.
+3. **« Notre territoire » redevient une page à part entière** (p. 7, avec en-tête ; la charte en fait la « Page 7 »). Elle avait été fusionnée dans À propos le 11/10 à la demande de la cliente. Elle ne figure **pas dans le menu**, et **aucun bouton des maquettes n'y mène**. → Question.
+4. **La palette change** : les HEX sont désormais fournis et validés (voir R.3). Ils remplacent les valeurs échantillonnées en octobre.
+5. **Formules & tarifs est entièrement refaite** : 4 prestations à prix de départ remplacent les formules Essentiel / Confort / Intendance annuelle. Le titre de page est « Prestations & tarifs », alors que le menu affiche « Formules & tarifs ».
+6. **Le blog passe à 3 articles.** Un nouvel article « Location saisonnière : les obligations essentielles des propriétaires » est ajouté (p. 14 à 17, contenu juridique et fiscal). La mise en page des articles change : une seule colonne et des pastilles numérotées beiges, au lieu de deux colonnes.
+7. **Un nouveau bloc de contact récurrent** « Confiez-nous le suivi de votre maison » apparaît (picto feuille + bouton « Contactez-nous »). Il remplace l'encart actuel du blog (`BlogCta`) sur Blog, Articles et Territoire. La p. 5 en présente une variante : « Vous souhaitez parler de votre projet ? ».
+8. **Avis clients** : les maquettes affichent « Avis client 1/2/3 ». La charte précise que ce sont des **placeholders à ne pas publier**.
+9. **Aucun pied de page n'est visible**, comme dans les maquettes précédentes. On conserve le footer actuel, nécessaire pour les mentions légales.
+10. **Contradictions entre le PDF et les corrections validées le 24/10** :
+    - Accueil : le PDF écrit « exigence, discrétion et **bienveillance** », alors que le 24/10 la cliente avait demandé « transparence ».
+    - Engagements : le PDF écrit « leur **transmettons** nos exigences en matière de qualité », alors que le 24/10 la cliente avait demandé « qui partagent ».
+    → Question. Le PDF étant la référence la plus récente, il fait foi par défaut.
+
+### R.2 Analyse page par page
+
+| PDF | Page web | En-tête | Sections, dans l'ordre | Remarques / écarts avec le site actuel |
+|---|---|---|---|---|
+| p. 1 | **Accueil** (haut) | oui | Hero en 2 colonnes. À gauche, sur fond ivoire : « MAISON CLOVALI » (Cormorant, très grand), séparateur rameau, signature en italique, phrase de positionnement, filet court, 2 atouts avec pictos (maison / clé), 2 boutons empilés (plein vert puis contour). À droite : photo de mas avec piscine, détourée par une **courbe oblique** sur son bord gauche. | Refonte complète du hero : actuellement photo plein écran + panneau translucide. Accroche : « résidences **secondaires** », ce qui règle le point ouvert. Photo fournie : 766 × 691 px. |
+| p. 2 | **Accueil** (suite) | non | « Bienvenue chez Maison CLOVALI » (Cormorant italique, centré) + 3 paragraphes centrés ; bandeau photo (≈ 1/3) + bloc sauge #9FA798 « VOUS ÊTES PROPRIÉTAIRE ? » avec bouton clair ; « ILS NOUS FONT CONFIANCE » entre deux filets ; 3 cartes d'avis grises avec guillemets beiges. | Structure proche de l'existant. Nouvelle photo du bandeau (fichier « Photo page d'accueil (1) », 446 × 234 px). |
+| p. 3 | **À propos** | oui | Portrait aux angles arrondis avec ombre (≈ 1/4 de la largeur) ; à droite : « Valérie Deron » (Cormorant italique, beige), « Dirigeante » (Raleway italique), filet + rameau, 5 paragraphes ; bouton plein sous le portrait ; citation en Cormorant italique espacé, alignée à droite ; avis. | **Section Territoire retirée** de cette page. Nouveau portrait fourni (1081 × 1455 px). Texte à reprendre du PDF. |
+| p. 4 | **Notre accompagnement** (haut) | oui | Titre en Cormorant capitales, aligné à gauche ; filet + rameau ; intro à gauche ; photo en haut à droite (terrasse, clés, carnet) ; 5 cartes ivoire #FFFDF5 avec ombre douce, pastilles beiges 01 à 05 à cheval sur le bord haut, titres en capitales espacées, texte centré ; bouton « DÉCOUVRIR NOS PRESTATIONS → ». | Les cartes passent du fond sauge à l'ivoire avec pastilles. Photo 369 × 246 px, **trop petite** pour son emplacement (≈ 430 px de large). |
+| p. 5 | **Notre accompagnement** (suite) = *Nos engagements* | non | Titre centré « NOS ENGAGEMENTS POUR VOTRE SÉRÉNITÉ » + rameau ; branche d'olivier décorative en haut à droite ; photo d'intérieur à gauche (≈ 43 %), fondue sur son bord droit ; 5 engagements séparés par des filets beiges ; encart « Vous souhaitez parler de votre projet ? » + « CONTACTEZ-NOUS » sous la photo ; filet vert pleine largeur ; 4 valeurs avec pictos fournis (Proximité, Réactivité, Disponibilité, Exigence). | Fusion de l'actuelle page `/nos-engagements/`. La photo d'intérieur fournie est « Photo page Notre accompagnement (1) » (317 × 558 px, portrait), alors que le cadrage de la maquette est paysage. → À vérifier. |
+| p. 6 | **Formules & tarifs** (titre « Prestations & tarifs ») | oui | Fond : photo de village voilée ; titre centré + rameau ; « CONTACTEZ-NOUS » en haut à droite ; sous-titre en capitales espacées ; **4 cartes** ivoire : photo arrondie, titre Cormorant sur pastille sauge, ornement beige (fourni), description centrée (la 2ᵉ a une liste à puces), prix dans un bandeau beige #C0A380. | 4 prestations : Préparation de la maison (150 €), Gestion des séjours saisonniers (90 € / séjour), Remise en état après la location (120 €), Intendance annuelle (120 € / mois). Les anciennes formules et `PricingCard` sont à remplacer. Le fond village n'est pas fourni séparément ; on réutiliserait `fond-tarifs.webp`. |
+| p. 7 | **Notre territoire** | oui | Titre Cormorant espacé + sous-titre en capitales sur 3 lignes + rameau, à gauche ; photo de village (Gordes ?) fondue à droite ; colonne gauche « UN SECTEUR D'INTERVENTION… » + ornement beige + texte + « Vous ne trouvez pas votre commune ? » ; **carte illustrée** au centre (fournie, 480 × 374 px, plus petite que l'actuelle en 1100 × 820) ; encadré sauge avec les 10 communes sur 2 colonnes ; bloc de contact récurrent. | Redevient une page séparée. Liste identique à celle validée (Puyricard inclus). |
+| p. 8 | **Contact** | oui | Photo de porte provençale en colonne gauche (≈ 23 %, pleine hauteur) ; titre « PARLONS DE VOTRE PROJET » + rameau ; sous-titre en capitales ; panneau sauge (coordonnées : picto maison, téléphone, email, en blanc) ; carte formulaire ivoire « ÉCRIVEZ-NOUS » : Nom/Prénom, Téléphone/Email, radio « Votre projet concerne » (4 choix), message, bouton ENVOYER pleine largeur, mention des champs obligatoires. | Les champs correspondent au formulaire actuel. **La case de consentement RGPD actuelle n'apparaît pas** dans la maquette. → Question. Nouvelle photo fournie (312 × 661 px). |
+| p. 9 | **Blog** | oui | Titre « LE BLOG » + sous-titre + rameau à gauche ; photo d'olives fondue à droite ; grille 2 colonnes de cartes horizontales (vignette à gauche, titre, résumé, « LIRE L'ARTICLE » en beige) : 2 articles sur la 1ʳᵉ rangée, le 3ᵉ à gauche sur la 2ᵉ ; bouton « REVENIR À LA PAGE D'ACCUEIL → » ; bloc de contact récurrent à droite. | Ajout du 3ᵉ article. Disposition des cartes modifiée. |
+| p. 10–11 | **Article 1** « 5 conseils pour réussir sa location saisonnière » | oui | Titre en Raleway espacé ; filet + rameau ; chapô en capitales espacées ; photo à droite ; filet pleine largeur ; introduction ; conseils 01 à 05 avec pastilles beiges (« **Notre conseil :** » en gras dans le 01) ; bloc de contact. | Passage à une seule colonne. Photo « serviette » fournie en 1852 × 849 px (HD, ce qui règle le point en attente). |
+| p. 12–13 | **Article 2** « Faire appel à une conciergerie… » | oui | Même gabarit ; avantages 01 à 05 ; bloc de contact. | Photo : terrasse avec clés, la même que Notre accompagnement (369 × 246 px, **basse résolution**). |
+| p. 14–17 | **Article 3** « Location saisonnière : les obligations essentielles des propriétaires » | oui | Même gabarit ; points 01 à 08 avec sous-titres en gras (« La résidence principale : »), « Point de vigilance : », listes à puces ; encadré « L'essentiel à retenir / Location saisonnière » (picto liste fourni, filets beiges, fond #FFFDF5) ; bloc de contact. | **Nouvel article.** Contenu juridique et fiscal **non certifié** par la charte : à reprendre tel quel, sans réécriture. Photo « Intendance annuelle » (1018 × 454 px). |
+
+### R.3 Système de design (charte, valeurs validées)
+
+| Rôle | HEX | Remplace (actuel) |
+|---|---|---|
+| Vert sauge décoratif (grands aplats, bloc propriétaire, panneau contact, encadré communes) | `#9FA798` | `--color-sage #a1a08a` |
+| Vert foncé texte (titres, textes importants, pictos) | `#545C4D` | `--color-olive-dark #5a5a47` / `--color-ink` |
+| Vert des encadrés (boutons, accents) | `#6E7965` | `--color-olive #7a7a60` |
+| Ivoire principal (fond) | `#F6F3EE` | inchangé |
+| Ivoire complémentaire (cartes, blocs contact, encadré de conclusion) | `#FFFDF5` | nouveau |
+| Beige / taupe doré (filets, pastilles, ornements, « Lire l'article ») | `#C0A380` | `--color-gold #a48c64` |
+
+- **Typographies** : Cormorant Garamond (titres éditoriaux, italique pour les citations) et Raleway (400 / 500 / 600, gras rare). Pas de changement de famille.
+- **Boutons** : principal plein `#6E7965` avec texte clair ; secondaire à fond clair avec contour et texte vert foncé ; angles arrondis (≈ 8 px).
+- **Pastilles numérotées** : cercle `#C0A380`, chiffre clair centré, diamètre constant.
+- **Cartes** : fond `#FFFDF5`, rayon ≈ 16 px, ombre très douce.
+- **Paragraphes longs** alignés à gauche, jamais justifiés.
+- **Contrastes à surveiller** :
+  - texte blanc sur `#9FA798` ≈ 2,5:1, en dessous de la norme AA de 4,5:1 (titres et paragraphes du bloc propriétaire, panneau contact, communes) ;
+  - texte blanc sur `#C0A380` ≈ 2,4:1 (prix, pastilles).
+  Ces couleurs étant validées par la cliente, la limite sera documentée (comme la note actuelle de `MISE_EN_PRODUCTION.md`). Une piste : mettre ces textes en semi-gras et en grande taille.
+
+### R.4 Actifs fournis : qualité et manques
+
+| Actif | Taille | Avis |
+|---|---|---|
+| Logo « Logo MC SVG.png » | 101 × 65 px | **Malgré son nom, c'est un PNG minuscule.** Il sera flou dans l'en-tête sur écran Retina. Le vrai fichier SVG est souhaité. |
+| Photo accueil (hero) | 766 × 691 px | Correcte en résolution standard, un peu juste sur Retina. L'original HD est souhaité. |
+| Photo Notre accompagnement / article 2 | 369 × 246 px | **Trop petite**. L'original est nécessaire. |
+| Photo intérieur (engagements) | 317 × 558 px | Petite et au format portrait, alors que la maquette est en paysage. → À confirmer. |
+| Photo contact | 312 × 661 px | Juste correcte. |
+| Photo territoire | 782 × 240 px | Correcte en résolution standard. |
+| Carte du territoire | 480 × 374 px | Plus petite que l'actuelle (1100 × 820). On garderait l'actuelle si c'est le même dessin. |
+| Portrait, photos des prestations, photos du blog | ≥ 1000 px | OK. |
+| Pictos (feuille, clé, maison, valeurs, contact, liste) | 28 à 83 px | Petits PNG. Ils peuvent être redessinés en SVG au trait, fidèles à l'original, comme l'autorise la charte (« pictogrammes fins »). → À valider. |
+| Fond de la page Prestations (village voilé) | — | **Non fourni.** On réutiliserait `fond-tarifs.webp`. |
+
+### R.4 bis Décisions du 22/11/2026 (retours de la cliente)
+
+1. **Notre territoire** : page séparée `/notre-territoire/`, avec un lien depuis À propos (« Découvrir notre territoire → ») et depuis le pied de page.
+2. **Avis** : on garde l'avis réel de Marie C. et les 2 avis de test, pour visualiser la section. De vrais avis seront fournis plus tard.
+3. **Textes** : le PDF fait foi (« bienveillance », « leur transmettons nos exigences »). La cliente propose désormais des **prestations à la carte**, plus de formules : l'entrée de menu devient « Prestations & tarifs » (adresse `/prestations-et-tarifs/`), alors que la maquette affiche encore « Formules & tarifs ».
+4. Points sans réponse, traités selon la proposition par défaut :
+   - case de consentement RGPD conservée sous le message ;
+   - contraste reproduit tel quel et documenté ;
+   - fond de la page Prestations repris du site actuel ;
+   - photo des engagements : version HD existante, retournée pour correspondre au cadrage de la maquette.
+
+### R.5 Informations impossibles à déterminer
+
+- Comment on accède à la page **Notre territoire** (hors menu, aucun bouton ne mène à elle).
+- Le **texte des avis** : placeholders uniquement.
+- Le comportement mobile : la charte donne des principes, sans maquette mobile.
+- Le pied de page : absent des maquettes.
+- La destination des boutons : déduite. « Échanger sur votre projet » et « Contactez-nous » → `/contact/` ; « Découvrez notre accompagnement » → `/notre-accompagnement/` ; « Découvrir nos prestations » → `/formules-et-tarifs/` ; « Revenir à la page d'accueil » → `/`.
+
 > Document produit en application de la section 17.3 du `CLAUDE.md`.
 > Source : répertoire `references/` (8 fichiers PNG, tous en **1366 × 768 px**, version desktop uniquement).
 > Les couleurs indiquées ont été relevées par échantillonnage de pixels ; les polices sont identifiées visuellement (à confirmer).

@@ -9,7 +9,7 @@ interface Props {
   description?: string;
   image?: string;
 }
-const { title, description = site.description, image = '/images/hero-accueil.webp' } = Astro.props;
+const { title, description = site.description, image = '/images/accueil-mas.webp' } = Astro.props;
 const fullTitle = title === site.name ? `${site.name} — Conciergerie privée en Provence` : `${title} | ${site.name}`;
 const canonical = new URL(Astro.url.pathname, Astro.site);
 const ogImage = new URL(image, Astro.site);

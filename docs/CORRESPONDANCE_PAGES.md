@@ -1,5 +1,30 @@
 # Correspondance maquettes ↔ pages
 
+## Référence du 22/11/2026 (`references/update_du_22_11/SITE INTERNET Maison Clovali.pdf`) — implémentée le 22/11/2026
+
+> Cette référence remplace celles listées plus bas, conservées pour l'historique. Détail : `docs/ANALYSE_MAQUETTES.md` § « Référence du 22/11/2026 ».
+
+| Image (page du PDF) | Page | Sections principales | Composants partagés | Éléments interactifs |
+|---|---|---|---|---|
+| p. 1 + p. 2 | **Accueil** : `src/pages/index.astro` | Hero en 2 colonnes (marque + atouts + boutons / photo à bord courbe) ; Bienvenue ; bandeau « Vous êtes propriétaire ? » ; avis | `Header`, `Divider`, `Button`, `Testimonials` | « Découvrez notre accompagnement » → `/notre-accompagnement/` ; « Échanger sur votre projet » (×2) → `/contact/` |
+| p. 3 | **À propos** : `src/pages/a-propos.astro` | Portrait + présentation ; bouton ; citation ; avis (section Territoire **retirée**) | `Header`, `Divider`, `Button`, `Testimonials` | « Échanger sur votre projet » → `/contact/` ; « Découvrir notre territoire » → `/notre-territoire/` (lien ajouté à la demande du 22/11) |
+| p. 4 + p. 5 | **Notre accompagnement** : `src/pages/notre-accompagnement.astro` (absorbe Nos engagements) | Intro + photo ; 5 étapes à pastilles ; bouton ; Engagements (photo + 5 engagements + encart contact) ; 4 valeurs | `Header`, `Divider`, `Button`, pastille `.badge-number`, `ContactStrip` | « Découvrir nos prestations » → `/prestations-et-tarifs/` ; « Contactez-nous » → `/contact/` |
+| p. 6 | **Prestations & tarifs** : `src/pages/prestations-et-tarifs.astro` (menu renommé : la cliente propose des prestations à la carte, plus de formules) | Titre + bouton ; 4 cartes prestations | `Header`, `Divider`, `Button`, `Ornament` (`PricingCard` supprimé) | « Contactez-nous » → `/contact/` |
+| p. 7 | **Notre territoire** : `src/pages/notre-territoire.astro` (recréée ; hors menu, liens depuis À propos et le pied de page) | Titre + photo ; secteur ; carte ; communes ; bloc contact | `Header`, `Divider`, `Ornament`, `ContactStrip` | « Contactez-nous » → `/contact/` |
+| p. 8 | **Contact** : `src/pages/contact.astro` | Photo latérale ; titre ; panneau coordonnées ; formulaire | `Header`, `Divider`, `ContactForm` | Formulaire Web3Forms ; `tel:` ; `mailto:` |
+| p. 9 | **Blog** : `src/pages/blog/index.astro` | Titre + photo ; grille de 3 cartes ; retour à l'accueil ; bloc contact | `Header`, `Divider`, `Button`, `ContactStrip` | « Lire l'article » ×3 ; « Revenir à la page d'accueil » → `/` |
+| p. 10 + p. 11 | **Article** `/blog/reussir-sa-location-saisonniere/` | En-tête d'article ; intro ; 5 conseils ; bloc contact | `src/pages/blog/[slug].astro` (gabarit commun), `.badge-number`, `ContactStrip` | « Contactez-nous » |
+| p. 12 + p. 13 | **Article** `/blog/avantages-conciergerie-proprietaires/` | Idem ; 5 avantages | idem | idem |
+| p. 14 à p. 17 | **Article** `/blog/obligations-location-saisonniere/` (**nouveau**) | Idem ; 8 obligations (sous-titres, vigilance, puces) ; encadré « L'essentiel à retenir » | idem + encadré `takeaway` (`src/data/blog.ts`) | idem |
+
+Pages sans maquette conservées : Mentions légales, Merci, 404. Redirections 301 (`public/.htaccess`) : `/nos-engagements/` → `/notre-accompagnement/#engagements`, `/formules-et-tarifs/` → `/prestations-et-tarifs/`.
+
+Composants partagés (22/11/2026) : `Header` (6 entrées, `src/data/site.ts`), `Footer` (lien Notre territoire), `Button` (`primary`, `secondary`, `light`, `submit`), `Divider` / `Sprig` (rameau vert foncé entre deux filets), `Ornament` (filet beige à deux pastilles), `ContactStrip` (bloc « Confiez-nous le suivi de votre maison »), `Testimonials`, `ContactForm`, `Icon`. `BlogCta` et `PricingCard` ont été supprimés.
+
+---
+
+## Historique (références d'octobre 2026)
+
 > Document produit en application de la section 17.5 du `CLAUDE.md`. Détail de l'analyse : `docs/ANALYSE_MAQUETTES.md`.
 > Implémentation : Astro, routage par fichiers dans `src/pages/`. Contrôle visuel : `docs/CONTROLE_VISUEL.md`.
 

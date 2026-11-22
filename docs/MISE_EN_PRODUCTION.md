@@ -43,23 +43,23 @@ Remplacer `https://www.maisonclovali.fr` s'il diffère, dans `astro.config.mjs` 
 
 ### 3. Visuels à fournir (remplacer dans `public/images/`, mêmes noms de fichiers)
 
-| Fichier / emplacement | Usage | Format conseillé |
+| Fichier / emplacement | Usage | Pourquoi |
 |---|---|---|
-| `hero-accueil.webp` | Fond de la page Contact + image de partage | 1920 × 1080, WebP |
-| `proprietaire.webp` | Bandeau « Vous êtes propriétaire ? » | 1200 × 900 |
-| Logo haute résolution (SVG idéalement) | Remplacer `public/images/logo-maison-clovali.png` et sa variante `-clair` (le fichier actuel ne fait que 289 × 60 px) | SVG ou PNG ≥ 600 px de large |
-Déjà fournis par la cliente (le 11/10/2026) : photo de l'accueil, portrait, carte, bandeau du territoire, fond des tarifs, bandeau du blog, photo des engagements (voir `docs/CREDITS_PHOTOS.md`). Restent temporaires (Wikimedia Commons) : `hero-accueil.webp`, `proprietaire.webp` : **à remplacer avant la mise en ligne**.
+| Logo en **SVG** (ou PNG ≥ 600 px de large) | En-tête et pied de page (`logo-maison-clovali.png` et sa variante `-clair`) | Le fichier actuel ne fait que 289 × 60 px. Le « Logo MC SVG.png » du 22/11 est un PNG de 101 × 65 px. |
+| `blog-conciergerie.webp` | Article « Faire appel à une conciergerie… » | Recadrage de maquette de 320 × 153 px, flou sur écran haute densité |
+| `accueil-mas.webp` (766 × 691), `proprietaire.webp` (446 × 234), `contact-porte.webp` (312 × 661) | Accueil, Contact | Utilisables, mais un peu justes sur écran haute densité : originaux HD souhaités |
+| Pictogrammes en SVG (facultatif) | Atouts, valeurs, feuille | Fournis en PNG de 46 à 83 px |
 
 ### 4. Contenus à compléter
 
-- **Avis clients (bloquant)** : `src/components/Testimonials.astro` contient 1 témoignage réel (Marie C., transmis le 11/10/2026) et 2 **avis d’exemple rédigés pour la mise en page** (marqués `example: true`, pas de vrais clients). Les remplacer par des avis réels, avec l’accord écrit de leurs auteurs, ou retirer la section **avant la mise en ligne** : publier de faux avis est une pratique commerciale trompeuse (Code de la consommation, art. L121-4).
+- **Avis clients (bloquant)** : `src/components/Testimonials.astro` contient 1 témoignage réel (Marie C., transmis le 11/10/2026) et 2 **avis de test rédigés pour la mise en page** (marqués `example: true`, ce ne sont pas de vrais clients). Ils sont conservés à la demande de la cliente (22/11/2026) pour visualiser la section. Ils doivent être remplacés par des avis réels, avec l'accord écrit de leurs auteurs, ou retirés **avant la mise en ligne** : publier de faux avis est une pratique commerciale trompeuse (Code de la consommation, art. L121-4).
 - **Mentions légales** : forme juridique, adresse, SIRET, durée de conservation des données (`src/pages/mentions-legales.astro`, champs entre crochets).
-- **Blog** : 2 articles en ligne (24/10/2026). Pour en ajouter un, compléter `src/data/blog.ts` (la page `/blog/<slug>/` est générée automatiquement).
-- **Photos des articles** : `blog-location-saisonniere.webp` et `blog-conciergerie.webp` sont extraites des maquettes (≈ 330 × 150 px, floues sur écran haute densité) : fournir les photos originales.
+- **Blog** : 3 articles en ligne. L'article « Location saisonnière : les obligations essentielles des propriétaires » (22/11/2026) contient des affirmations juridiques et fiscales datées (loi Le Meur, déclaration obligatoire depuis le 20 mai 2026, revenus 2026…). Elles sont reprises telles quelles du PDF de la cliente, qui doit les **faire vérifier et les tenir à jour** (la charte précise qu'elles ne sont pas certifiées). Pour ajouter un article, compléter `src/data/blog.ts` : la page `/blog/<slug>/` est générée automatiquement.
 - **Code postal** utilisé dans les données structurées (13650, Meyrargues) : à vérifier dans `src/pages/index.astro`.
 
 ### 5. Vérifications finales
 
-- Valider la teinte des bandeaux sauge : le texte blanc sur le vert sauge `#A1A08A` (bandeaux, boutons) a un contraste d’environ 2,6:1, sous le seuil d’accessibilité WCAG AA (4,5:1). Recommandation : foncer légèrement la teinte (ex. `#8A8973`).
+- **Contraste** : la palette validée par la charte du 22/11 donne un texte blanc peu contrasté sur le vert sauge `#9FA798` (≈ 2,5:1 : bloc « Vous êtes propriétaire ? », panneau Contact, encadré des communes, titres des prestations) et sur le beige `#C0A380` (≈ 2,4:1 : prix, pastilles numérotées). Le seuil WCAG AA est de 4,5:1 (3:1 pour les grands textes). Reproduit à l'identique de la maquette ; si la cliente le souhaite, foncer légèrement ces deux teintes pour les textes.
+- **Redirections** : `.htaccess` redirige les anciennes adresses `/formules-et-tarifs/` → `/prestations-et-tarifs/` et `/nos-engagements/` → `/notre-accompagnement/#engagements` (301).
 - Déclarer le site dans Google Search Console et soumettre `sitemap-index.xml`.
 - Créer une fiche Google Business Profile (référencement local).

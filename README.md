@@ -28,11 +28,11 @@ npm run preview    # prévisualise le build
 | URL | Fichier |
 |---|---|
 | `/` | `src/pages/index.astro` |
-| `/a-propos/` (dont la section `#notre-territoire`) | `src/pages/a-propos.astro` |
-| `/notre-accompagnement/` | `src/pages/notre-accompagnement.astro` |
-| `/nos-engagements/` | `src/pages/nos-engagements.astro` |
-| `/formules-et-tarifs/` | `src/pages/formules-et-tarifs.astro` |
-| `/blog/` | `src/pages/blog.astro` |
+| `/a-propos/` | `src/pages/a-propos.astro` |
+| `/notre-accompagnement/` (dont la section `#engagements`) | `src/pages/notre-accompagnement.astro` |
+| `/prestations-et-tarifs/` | `src/pages/prestations-et-tarifs.astro` |
+| `/notre-territoire/` (hors menu) | `src/pages/notre-territoire.astro` |
+| `/blog/` et `/blog/<article>/` | `src/pages/blog/index.astro`, `src/pages/blog/[slug].astro` (contenus dans `src/data/blog.ts`) |
 | `/contact/` | `src/pages/contact.astro` |
 | `/mentions-legales/`, `/merci/`, `/404` | pages utilitaires |
 
@@ -41,15 +41,16 @@ npm run preview    # prévisualise le build
 ```
 public/            fichiers copiés tels quels (images, favicon, .htaccess, robots.txt)
 src/
-  components/      composants partagés (Header, Footer, Logo, Button, PricingCard, ContactForm…)
+  components/      composants partagés (Header, Footer, Logo, Button, ContactStrip, Ornament, ContactForm…)
   data/site.ts     coordonnées, entrées du menu, clé Web3Forms
+  data/blog.ts     articles du blog
   layouts/         BaseLayout (balises <head>, SEO, en-tête et pied de page)
   pages/           une page par fichier
   styles/          global.css : thème Tailwind (couleurs, polices, breakpoints)
 docs/              documentation du projet (mise en production, crédits photos, analyse des maquettes)
 ```
 
-Les couleurs, les polices et les breakpoints personnalisés (`nav` = 78rem, `wide` = 85rem) sont centralisés dans `src/styles/global.css`.
+Les couleurs (palette HEX de la charte du 22/11/2026), les polices et les breakpoints personnalisés (`nav` = 78rem, `wide` = 85rem) sont centralisés dans `src/styles/global.css`.
 
 ## Mise en ligne
 
