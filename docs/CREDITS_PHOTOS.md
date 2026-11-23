@@ -34,7 +34,7 @@ Pictogrammes redessinés plutôt que repris :
 | territoire-bandeau.webp | SITE_INTERNET_MC.png | Bandeau de Notre territoire (identique à la photo du 22/11) |
 | fond-tarifs.webp | Maison_Clovali_photo_teintes.png | Fond de Prestations & tarifs (non fourni le 22/11) |
 | olivier.webp | Olivier.png | Bandeau du Blog (identique à la photo du 22/11) |
-| notre-accompagnement.webp | notre_accompagnement.png (1536 × 1024) | Photo de Notre accompagnement. Même image que celle du 22/11, qui ne fait que 369 × 246 px. |
-| engagements-interieur.webp | Photos page Nos Services option2.png, **retournée horizontalement** le 22/11 pour correspondre au cadrage de la maquette p. 5 | Photo de Nos engagements |
+| notre-accompagnement.webp | update_du_23_11/Villa méditerranéenne au bord de la piscine.png (1536 × 1024), remplacée le 23/11 : version sans fondu à gauche, conforme à la maquette p. 4 | Photo de Notre accompagnement |
+| engagements-interieur.webp | update_du_23_11/Salon méditerranéen aux branches d’olivier.png (1563 × 1006), remplacée le 23/11 : orientation d’origine, plus de retournement. Le fondu vers la droite est fait en CSS (`mask-image`) ; « SITE INTERNET MC 09112026 (23).png » (692 × 446, fondu intégré) sert seulement de référence de cadrage | Photo de Nos engagements |
 | feuille-olive.webp, feuille-olive-verticale.webp | update_du_24_10/Feuille_vert olive_1.png. La version horizontale a été recolorée en vert foncé #545C4D le 22/11, comme sur les maquettes. | Rameau des séparateurs |
 | blog-conciergerie.webp | Recadrée dans la maquette du 24/10 (320 × 153 px) | Article « Faire appel à une conciergerie… ». **Original HD à fournir.** |
